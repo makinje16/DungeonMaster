@@ -9,6 +9,8 @@ public class InputManager : MonoBehaviour {
 
     public static InputManager instance = null;
 
+    
+
     void Awake()
     {
         //Check if instance already exists
@@ -75,6 +77,9 @@ public class InputManager : MonoBehaviour {
         return new Vector2(GetHeroMovementX(), GetHeroMovementY());
     }
 
-
-    
+    // return True if dash button was pressed Down this frame
+    public bool GetHeroDash()
+    {
+        return Input.GetButtonDown("HeroX");
+    }
 }

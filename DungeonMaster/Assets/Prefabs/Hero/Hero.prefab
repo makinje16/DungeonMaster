@@ -57,7 +57,8 @@ MonoBehaviour:
   left: {fileID: 21300000, guid: e75dab7447e3ef042941d07bb44cf092, type: 3}
   mspeed: 0
   walkspeed: 3
-  runspeed: 5
+  runspeed: 8
+  dashtime: 0.25
 --- !u!212 &212026654023627552
 SpriteRenderer:
   m_ObjectHideFlags: 1

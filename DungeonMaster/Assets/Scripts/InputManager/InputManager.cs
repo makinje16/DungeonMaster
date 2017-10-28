@@ -75,4 +75,6 @@ public class InputManager : MonoBehaviour {
         return new Vector2(GetHeroMovementX(), GetHeroMovementY());
     }
 
+
+    
 }

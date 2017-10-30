@@ -23,6 +23,9 @@ public class HeroController : MonoBehaviour {
     private float runspeed = 8;
 
 
+    [SerializeField]
+    private BasicSword weapon;
+
     private Vector2 inputdirection;
 
     private bool canmove = true;
@@ -122,6 +125,16 @@ public class HeroController : MonoBehaviour {
                     mspeed = walkspeed;
                     transform.Translate(inputdirection.normalized * Time.deltaTime * mspeed);
 
+                }
+            }
+
+
+            //handle attacking
+            if (inputmanager.GetHeroAttack())
+            {
+                if (!weapon.checkAttacking())
+                {
+                    weapon.doBasicAttack(dashdirection/2);
                 }
             }
             

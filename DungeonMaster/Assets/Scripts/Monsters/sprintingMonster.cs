@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sprintingMonster : MonoBehaviour {
+public class sprintingMonster : Monster {
 
-    [SerializeField]
-    private float movementSpeed;
     [SerializeField]
     private float sprintBonus;
     private Vector2 direction;
-    private GameObject hero;
 
     void Start()
     {
         hero = GameObject.FindWithTag("Hero");
         direction = hero.transform.position - transform.position;
-        movementSpeed = 2;
         sprintBonus = 2;
         InvokeRepeating("Sprint", 2, 6);
     }

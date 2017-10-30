@@ -82,4 +82,10 @@ public class InputManager : MonoBehaviour {
     {
         return Input.GetButtonDown("HeroX");
     }
+
+    //return True if attack button was pressed down this frame
+    public bool GetHeroAttack()
+    {
+        return Input.GetButtonDown("HeroA");
+    }
 }

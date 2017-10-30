@@ -13,7 +13,7 @@ public class DmController : MonoBehaviour {
 	void Start () {
 		manaCount = 0;
 		//every two seconds
-		InvokeRepeating ("IncremenetMana", 2.0f, 2.0f);
+		InvokeRepeating ("IncrementMana", 2.0f, 2.0f);
 	}
 	
 	// Update is called once per frame
@@ -25,5 +25,9 @@ public class DmController : MonoBehaviour {
 	void IncrementMana () {
 		manaCount += 1;
 		manaText.text = "Mana: " + manaCount.ToString();
+	}
+
+	public int GetManaCount () {
+		return manaCount;
 	}
 }

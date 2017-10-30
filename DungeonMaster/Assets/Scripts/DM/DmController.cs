@@ -9,6 +9,21 @@ public class DmController : MonoBehaviour {
 	private Text manaText;
 
 	private int manaCount;
+
+	public int GetManaCount () {
+		return manaCount;
+	}
+
+	private int maxMana;
+
+	public int GetMaxMana () {
+		return maxMana;
+	}
+
+	public void SetMaxMana (int newMax) {
+		maxMana = newMax;
+	}
+
 	private int monsterToSummon;
 	private string zoneToSummon;
 	private bool toBeSummoned;
@@ -16,8 +31,9 @@ public class DmController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		manaCount = 0;
+		maxMana = 100;
 		//every two seconds
-		InvokeRepeating ("IncrementMana", 2.0f, 2.0f);
+		InvokeRepeating ("IncrementMana", 0.2f, 0.2f);
 		monsterToSummon = 0;
 		toBeSummoned = false;
 		zoneToSummon = "";
@@ -79,17 +95,26 @@ public class DmController : MonoBehaviour {
 		ChangeMana (1);
 	}
 
-	void ChangeMana (int amount) {
-		manaCount += amount;
-		manaText.text = "Mana: " + manaCount.ToString();
-	}
-
 	void SummonMonster (int monster, string zone) {
-		int manaCost = monster;
+		int manaCost = monster * 10;
+
+		// Not enough mana!
+		if (manaCost > manaCount) {
+			// UI warning
+			return;
+		}
 		
 		toBeSummoned = false;
 
 		// Deduct mana
 		ChangeMana(0 - manaCost);
+	}
+
+	public void ChangeMana (int amount) {
+		manaCount += amount;
+		if (manaCount > maxMana)
+			manaCount = maxMana;
+
+		manaText.text = "Mana: " + manaCount.ToString();
 	}
 }

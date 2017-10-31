@@ -64,22 +64,22 @@ public class DmController : MonoBehaviour {
 		// Check for summon zone
 		else if (Input.GetKeyDown ("q") && toBeSummoned) {
 			zoneToSummon = "q";
-			SummonMonster (monsterToSummon, zoneToSummon);
+			SummonMonster ();
 		} else if (Input.GetKeyDown ("w") && toBeSummoned) {
 			zoneToSummon = "w";
-			SummonMonster (monsterToSummon, zoneToSummon);
+			SummonMonster ();
 		} else if (Input.GetKeyDown ("e") && toBeSummoned) {
 			zoneToSummon = "e";
-			SummonMonster (monsterToSummon, zoneToSummon);
+			SummonMonster ();
 		} else if (Input.GetKeyDown ("a") && toBeSummoned) {
 			zoneToSummon = "a";
-			SummonMonster (monsterToSummon, zoneToSummon);
+			SummonMonster ();
 		} else if (Input.GetKeyDown ("s") && toBeSummoned) {
 			zoneToSummon = "s";
-			SummonMonster (monsterToSummon, zoneToSummon);
+			SummonMonster ();
 		} else if (Input.GetKeyDown ("d") && toBeSummoned) {
 			zoneToSummon = "d";
-			SummonMonster (monsterToSummon, zoneToSummon);
+			SummonMonster ();
 		}
 
 		// ESC key to cancel any queued actions
@@ -95,8 +95,8 @@ public class DmController : MonoBehaviour {
 		ChangeMana (1);
 	}
 
-	void SummonMonster (int monster, string zone) {
-		int manaCost = monster * 10;
+	void SummonMonster () {
+		int manaCost = monsterToSummon * 10;
 
 		// Not enough mana!
 		if (manaCost > manaCount) {
@@ -105,6 +105,8 @@ public class DmController : MonoBehaviour {
 		}
 		
 		toBeSummoned = false;
+
+		transform.Find ("SpawnPoint" + zoneToSummon.ToUpper()).GetComponent<MonsterSpawner> ().SpawnMonster(monsterToSummon);
 
 		// Deduct mana
 		ChangeMana(0 - manaCost);

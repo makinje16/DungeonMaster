@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
-		
+		Debug.Log (name);
 	}
 	
 	// Update is called once per frame
@@ -15,6 +15,7 @@ public class MonsterSpawner : MonoBehaviour {
 
 	public void SpawnMonster (int monster) {
 		// We'll want to spawn different types of monsters here
-		GameObject.Instantiate(new Monster(), Transform.position);
+		//GameObject.Instantiate(new Monster(), Transform.position);
+		Debug.Log("Spawned monster" + monster + " at zone " + name);
 	}
 }

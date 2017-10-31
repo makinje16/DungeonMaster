@@ -204,7 +204,14 @@ public class HeroController : MonoBehaviour {
             {
              if (stamina > dashCost)
                 {
-                    dashdirection = inputdirection;
+                    if (inputdirection != Vector2.zero)
+                    {
+                        dashdirection = inputdirection;
+                    }
+                    else
+                    {
+                        dashdirection = atkdirection;
+                    }
                     dashcount = dashtime;
                     isdashing = true;
                     canmove = false;

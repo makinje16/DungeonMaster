@@ -37,8 +37,15 @@ public class InputManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
 
+        if (Input.GetJoystickNames()[0] == "")
+        {
+            useDebugHeroControls = true;
+        }
+        else
+        {
+            useDebugHeroControls = false;
+        }
 
 
 	}

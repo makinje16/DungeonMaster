@@ -80,12 +80,31 @@ public class InputManager : MonoBehaviour {
     // return True if dash button was pressed Down this frame
     public bool GetHeroDash()
     {
-        return Input.GetButtonDown("HeroX");
+        if (useDebugHeroControls)
+        {
+            return Input.GetKeyDown(KeyCode.RightShift);
+        }
+        else
+        {
+            return Input.GetButtonDown("HeroX");
+        }
     }
 
     //return True if attack button was pressed down this frame
     public bool GetHeroAttack()
     {
-        return Input.GetButtonDown("HeroA");
+        if (useDebugHeroControls)
+        {
+            return Input.GetKeyDown(KeyCode.RightControl);
+        }
+        else
+        {
+            return Input.GetButtonDown("HeroA");
+        }
+       
     }
+
+
+
+
 }

@@ -17,9 +17,10 @@ public class BasicSword : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Monster"))
         {
-            // call damage function here, passing in atkpower
+            Monster collidedMonster = collision.gameObject.GetComponent<Monster>();
+            collidedMonster.Damage(atkpower);
         }
     }
 

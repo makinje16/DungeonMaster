@@ -26,7 +26,9 @@ abstract public class Monster : MonoBehaviour {
     {
         if (other.CompareTag("Hero"))
         {
-            other.gameObject.GetComponent<HeroController>().damage(attackPower);
+            Vector2 pushdirection = other.gameObject.transform.position - transform.position;
+            pushdirection.Normalize();
+            other.gameObject.GetComponent<HeroController>().damage(attackPower,pushdirection);
         }
     }
 }

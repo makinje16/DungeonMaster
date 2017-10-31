@@ -36,14 +36,21 @@ public class HeroController : MonoBehaviour {
 
     [SerializeField]
     private BasicSword weapon;
+    private Vector2 atkdirection = Vector2.down;
 
     private Vector2 inputdirection;
 
     private bool canmove = true;
 
+    private bool isstunned = false;
+    private float stuncount;
+    private Vector2 stundirection = Vector2.down;
+    [SerializeField]
+    private float stuntime = .25f;
 
     private bool isdashing = false;
     private float dashcount;
+    
     private Vector2 dashdirection = Vector2.down;
     [SerializeField]
     private float dashtime = .25f;
@@ -78,8 +85,16 @@ public class HeroController : MonoBehaviour {
 
 
 
-    public void damage(float amt)
+    public void damage(float amt, Vector2 pushdirect)
     {
+
+        stuncount = stuntime;
+        isdashing = false;
+        dashcount = 0;
+        isstunned = true;
+        canmove = false;
+        stundirection = pushdirect;
+
         health -= amt;
         if (health <= 0)
         {
@@ -116,6 +131,18 @@ public class HeroController : MonoBehaviour {
             stamina += staminaRecRate * Time.deltaTime;
         }
 
+        //handle being pushed from an attack
+        if (isstunned)
+        {
+            transform.Translate(stundirection * Time.deltaTime * runspeed);
+            stuncount -= Time.deltaTime;
+            if (stuncount <= 0)
+            {
+                isstunned = false;
+                canmove = true;
+
+            }
+        }
 
         //handle in-process dashing
         if (isdashing)
@@ -145,13 +172,13 @@ public class HeroController : MonoBehaviour {
                     {
                         sr.sprite = left;
                         sr.flipX = true;
-                        dashdirection = Vector2.right;
+                        atkdirection = Vector2.right;
                     }
                     else //facing left
                     {
                         sr.sprite = left;
                         sr.flipX = false;
-                        dashdirection = -Vector2.right;
+                        atkdirection = -Vector2.right;
                     }
                 }
                 else
@@ -161,13 +188,13 @@ public class HeroController : MonoBehaviour {
                     {
                         sr.sprite = up;
                         sr.flipX = false;
-                        dashdirection = Vector2.up;
+                        atkdirection = Vector2.up;
                     }
                     else //facing down
                     {
                         sr.sprite = down;
                         sr.flipX = false;
-                        dashdirection = -Vector2.up;
+                        atkdirection = -Vector2.up;
                     }
                 }
             }
@@ -177,6 +204,7 @@ public class HeroController : MonoBehaviour {
             {
              if (stamina > dashCost)
                 {
+                    dashdirection = inputdirection;
                     dashcount = dashtime;
                     isdashing = true;
                     canmove = false;
@@ -204,7 +232,7 @@ public class HeroController : MonoBehaviour {
                 if (!weapon.checkAttacking() && stamina > atkCost)
                 {
 
-                    weapon.doBasicAttack(dashdirection/2);
+                    weapon.doBasicAttack(atkdirection/2);
                     stamina -= atkCost;
                 }
             }

@@ -379,6 +379,26 @@ Prefab:
       propertyPath: manaText
       value: 
       objectReference: {fileID: 73307205}
+    - target: {fileID: 1549052767839100, guid: d53ee11959910438a9acca9807332724, type: 2}
+      propertyPath: m_TagString
+      value: MonsterSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546230934091520, guid: d53ee11959910438a9acca9807332724, type: 2}
+      propertyPath: m_TagString
+      value: MonsterSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553881304372710, guid: d53ee11959910438a9acca9807332724, type: 2}
+      propertyPath: m_TagString
+      value: MonsterSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979458813844330, guid: d53ee11959910438a9acca9807332724, type: 2}
+      propertyPath: m_TagString
+      value: MonsterSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381584559622712, guid: d53ee11959910438a9acca9807332724, type: 2}
+      propertyPath: m_TagString
+      value: MonsterSpawnPoint
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d53ee11959910438a9acca9807332724, type: 2}
   m_IsPrefabParent: 0

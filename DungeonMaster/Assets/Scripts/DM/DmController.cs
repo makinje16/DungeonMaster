@@ -115,6 +115,6 @@ public class DmController : MonoBehaviour {
 		if (manaCount > maxMana)
 			manaCount = maxMana;
 
-		manaText.text = "Mana: " + manaCount.ToString();
+		manaText.text = "Mana: " + manaCount.ToString() + "/" + maxMana.ToString();
 	}
 }

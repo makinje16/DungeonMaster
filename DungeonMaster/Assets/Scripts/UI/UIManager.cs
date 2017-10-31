@@ -36,10 +36,10 @@ public class UIManager : MonoBehaviour {
         }
 
         //get a reference to the DM controller?
-        //if (dmcontroller == null)
-        //{
-        //  dmcontroller = GameObject.FindGameObjectWithTag("DMController").GetComponent<DmController>();
-        //}
+        if (dmcontroller == null)
+        {
+          dmcontroller = GameObject.FindGameObjectWithTag("DMController").GetComponent<DmController>();
+        }
 
         //manage hero health slider
         heroHealthSlider.maxValue = hero.getMaxHealth();
@@ -50,8 +50,8 @@ public class UIManager : MonoBehaviour {
         heroStaminaSlider.value = hero.getStamina();
 
         //manage DM mana slider
-        //dmManaSlider.maxValue = dmcontroller.GetMaxMana();
-        //dmManaSlider.value = dmcontroller.GetManaCount();
+        dmManaSlider.maxValue = dmcontroller.GetMaxMana();
+        dmManaSlider.value = dmcontroller.GetManaCount();
 
 
 

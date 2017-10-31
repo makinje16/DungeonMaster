@@ -10,6 +10,7 @@ TagManager:
   - MonsterSpawnPoint
   - Monster
   - UIManager
+  - DMController
   layers:
   - Default
   - TransparentFX

@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class DmController : MonoBehaviour {
 
-	[SerializeField]
-	private Text manaText;
+	
 
 	private int manaCount;
 
@@ -117,6 +116,6 @@ public class DmController : MonoBehaviour {
 		if (manaCount > maxMana)
 			manaCount = maxMana;
 
-		manaText.text = "Mana: " + manaCount.ToString() + "/" + maxMana.ToString();
+	//	manaText.text = "Mana: " + manaCount.ToString() + "/" + maxMana.ToString();
 	}
 }

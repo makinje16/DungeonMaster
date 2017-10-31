@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114472420661961734}
   m_Layer: 0
   m_Name: DmController
-  m_TagString: Untagged
+  m_TagString: DMController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,6 +231,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed598909e96891941b91b638df8b9cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
 --- !u!114 &114472420661961734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,7 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3f15e6a27ba0842bbc08aa347539d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manaText: {fileID: 0}
 --- !u!114 &114583403708012428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -254,6 +258,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed598909e96891941b91b638df8b9cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
 --- !u!114 &114809141368009746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -265,6 +274,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed598909e96891941b91b638df8b9cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
 --- !u!114 &114824344156687712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,6 +290,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed598909e96891941b91b638df8b9cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
 --- !u!114 &114863016455911614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,6 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed598909e96891941b91b638df8b9cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
 --- !u!114 &114960691217663270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,3 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed598909e96891941b91b638df8b9cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}

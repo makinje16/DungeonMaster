@@ -26,7 +26,7 @@ abstract public class Monster : MonoBehaviour {
     {
         if (other.CompareTag("Hero"))
         {
-            // call hero damage function, passing in attackPower
+            other.gameObject.GetComponent<HeroController>().damage(attackPower);
         }
     }
 }

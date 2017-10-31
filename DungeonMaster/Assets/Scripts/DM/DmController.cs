@@ -5,22 +5,32 @@ using UnityEngine.UI;
 
 public class DmController : MonoBehaviour {
 
-	
+	private float manaCount;
 
-	private int manaCount;
-
-	public int GetManaCount () {
+	public float GetManaCount () {
 		return manaCount;
 	}
 
-	private int maxMana;
+	[SerializeField]
+	private float maxMana;
 
-	public int GetMaxMana () {
+	public float GetMaxMana () {
 		return maxMana;
 	}
 
 	public void SetMaxMana (int newMax) {
 		maxMana = newMax;
+	}
+
+	[SerializeField]
+	private float manaRate;
+
+	public float GetManaRate () {
+		return manaRate;
+	}
+
+	public void SetManaRate (float newRate) {
+		manaRate = newRate;
 	}
 
 	private int monsterToSummon;
@@ -32,7 +42,7 @@ public class DmController : MonoBehaviour {
 		manaCount = 0;
 		maxMana = 100;
 		//every two seconds
-		InvokeRepeating ("IncrementMana", 0.2f, 0.2f);
+		//InvokeRepeating ("IncrementMana", 0.2f, 0.2f);
 		monsterToSummon = 0;
 		toBeSummoned = false;
 		zoneToSummon = "";
@@ -40,6 +50,8 @@ public class DmController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		ChangeMana (Time.deltaTime * manaRate);
 		
 		// Check for monster summon by number
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
@@ -111,7 +123,7 @@ public class DmController : MonoBehaviour {
 		ChangeMana(0 - manaCost);
 	}
 
-	public void ChangeMana (int amount) {
+	public void ChangeMana (float amount) {
 		manaCount += amount;
 		if (manaCount > maxMana)
 			manaCount = maxMana;

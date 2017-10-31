@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterSpawner : MonoBehaviour {
-	// Use this for initialization
 
-
+	// List of different monster types. Monster1 is in monsters[0], etc.
     [SerializeField]
     private List<GameObject> monsters;
-
-	
 	
 	// Update is called once per frame
 	void Update () {
@@ -17,9 +14,7 @@ public class MonsterSpawner : MonoBehaviour {
 	}
 
 	public void SpawnMonster (int monster) {
-        // We'll want to spawn different types of monsters here
-        
-		GameObject.Instantiate(monsters[monster], transform.position, Quaternion.identity);
-		Debug.Log("Spawned monster" + monster + " at zone " + name);
+		GameObject.Instantiate(monsters[monster - 1], transform.position, Quaternion.identity);
+		Debug.Log("Spawned monster" + (monster) + " at zone " + name);
 	}
 }

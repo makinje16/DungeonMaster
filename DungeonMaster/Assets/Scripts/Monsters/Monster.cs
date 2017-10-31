@@ -16,6 +16,10 @@ abstract public class Monster : MonoBehaviour {
     public void Damage(float attack)
     {
         health -= attack;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

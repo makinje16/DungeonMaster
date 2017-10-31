@@ -8,6 +8,7 @@ TagManager:
   - Hero
   - Sword
   - MonsterSpawnPoint
+  - Monster
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4516182361633890}
   - component: {fileID: 114144297361987978}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: SpawnPointQ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,3 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed598909e96891941b91b638df8b9cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monster1: {fileID: 0}
+  monster2: {fileID: 0}
+  monster3: {fileID: 0}
+  monster4: {fileID: 0}

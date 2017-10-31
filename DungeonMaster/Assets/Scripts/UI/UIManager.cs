@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private Slider dmManaSlider;
 
+    [SerializeField]
+    private Text winconditiontext;
+
     private HeroController hero;
     private DmController dmcontroller;
     
@@ -18,6 +21,11 @@ public class UIManager : MonoBehaviour {
 	void Start () {
 		
 	}
+    //update the win condition text
+    public void updateWinConditionText(string newtext)
+    {
+        winconditiontext.text = newtext;
+    }
 
     // Update is called once per frame
     void Update() {

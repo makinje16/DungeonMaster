@@ -9,6 +9,7 @@ TagManager:
   - Sword
   - MonsterSpawnPoint
   - Monster
+  - UIManager
   layers:
   - Default
   - TransparentFX

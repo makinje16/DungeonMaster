@@ -105,6 +105,9 @@ MonoBehaviour:
   mspeed: 0
   walkspeed: 3
   runspeed: 8
+  staminaRecRate: 5
+  dashCost: 8
+  atkCost: 2
   weapon: {fileID: 114240674923896984}
   dashtime: 0.25
 --- !u!114 &114240674923896984

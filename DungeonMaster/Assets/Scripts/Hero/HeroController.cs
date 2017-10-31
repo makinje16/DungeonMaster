@@ -22,6 +22,17 @@ public class HeroController : MonoBehaviour {
     [SerializeField]
     private float runspeed = 8;
 
+    
+
+    [SerializeField]
+    private float staminaRecRate = 5;
+
+
+    [SerializeField]
+    private float dashCost = 8;
+    [SerializeField]
+    private float atkCost = 2;
+
 
     [SerializeField]
     private BasicSword weapon;
@@ -37,6 +48,54 @@ public class HeroController : MonoBehaviour {
     [SerializeField]
     private float dashtime = .25f;
 
+
+    private float health = 100;
+    private float maxhealth = 100;
+    private float stamina = 30;
+    private float maxstamina = 30;
+
+
+    public float getHealth()
+    {
+        return health;
+    }
+
+    public float getMaxHealth()
+    {
+        return maxhealth;
+    }
+
+    public float getStamina()
+    {
+        return stamina;
+    }
+
+    public float getMaxStamina()
+    {
+        return maxstamina;
+    }
+
+
+
+
+    public void damage(float amt)
+    {
+        health -= amt;
+        if (health <= 0)
+        {
+            // DIE i guess
+        }
+    }
+
+    public void heal(float amt)
+    {
+        health += amt;
+        if (health >= maxhealth)
+        {
+            health = maxhealth;
+        }
+    }
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -49,6 +108,12 @@ public class HeroController : MonoBehaviour {
         if (inputmanager == null)
         {
             inputmanager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
+        }
+
+        //update stamina
+        if (stamina < maxstamina)
+        {
+            stamina += staminaRecRate * Time.deltaTime;
         }
 
 
@@ -110,10 +175,14 @@ public class HeroController : MonoBehaviour {
             //handle dash
             if (inputmanager.GetHeroDash())
             {
-              
-                dashcount = dashtime;
-                isdashing = true;
-                canmove = false;
+             if (stamina > dashCost)
+                {
+                    dashcount = dashtime;
+                    isdashing = true;
+                    canmove = false;
+                    stamina -= dashCost;
+                } 
+               
             }
             else
             {
@@ -132,9 +201,11 @@ public class HeroController : MonoBehaviour {
             //handle attacking
             if (inputmanager.GetHeroAttack())
             {
-                if (!weapon.checkAttacking())
+                if (!weapon.checkAttacking() && stamina > atkCost)
                 {
+
                     weapon.doBasicAttack(dashdirection/2);
+                    stamina -= atkCost;
                 }
             }
             

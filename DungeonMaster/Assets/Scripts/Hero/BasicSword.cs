@@ -20,7 +20,9 @@ public class BasicSword : MonoBehaviour {
         if (collision.gameObject.CompareTag("Monster"))
         {
             Monster collidedMonster = collision.gameObject.GetComponent<Monster>();
-            collidedMonster.Damage(atkpower);
+            Vector2 pushdirection = collidedMonster.transform.position - transform.position;
+            pushdirection.Normalize();
+            collidedMonster.Damage(atkpower, pushdirection);
         }
     }
 

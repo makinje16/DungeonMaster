@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sprintingMonster : Monster {
+public class sprintingMonster : seekingMonster {
 
     [SerializeField]
     private float sprintBonus;
-    private Vector2 direction;
 
     void Start()
     {
@@ -18,20 +17,14 @@ public class sprintingMonster : Monster {
 
 
 
-    void Sprint()
+    protected void Sprint()
     {
         movementSpeed += sprintBonus;
         Invoke("NormalSpeed", 1);
     }
 
-    void NormalSpeed()
+    protected void NormalSpeed()
     {
         movementSpeed -= sprintBonus;
-    }
-
-    void Update()
-    {
-        direction = hero.transform.position - transform.position;
-        transform.Translate(direction.normalized * Time.deltaTime * movementSpeed);
     }
 }

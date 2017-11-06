@@ -18,6 +18,9 @@ public class DmController : MonoBehaviour {
 		return maxMana;
 	}
 
+	[SerializeField]
+	private List<GameObject> dmTraps;
+
 	public void SetMaxMana (int newMax) {
 		maxMana = newMax;
 	}
@@ -36,6 +39,7 @@ public class DmController : MonoBehaviour {
 	private int monsterToSummon;
 	private string zoneToSummon;
 	private bool toBeSummoned;
+	private bool trapToBeActivated;
 
 	// Use this for initialization
 	void Start () {
@@ -45,6 +49,7 @@ public class DmController : MonoBehaviour {
 		//InvokeRepeating ("IncrementMana", 0.2f, 0.2f);
 		monsterToSummon = 0;
 		toBeSummoned = false;
+		trapToBeActivated = false;
 		zoneToSummon = "";
 	}
 	
@@ -53,8 +58,10 @@ public class DmController : MonoBehaviour {
 
 		ChangeMana (Time.deltaTime * manaRate);
 		
-		// Check for monster summon by number
+		// Check for monster summon by number OR for trap activation
 		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			if (trapToBeActivated)
+				dmTraps [0].GetComponent<DmTrap> ().Activate ();
 			// Queue monster 1
 			toBeSummoned = true;
 			monsterToSummon = 1;
@@ -93,10 +100,16 @@ public class DmController : MonoBehaviour {
 			SummonMonster ();
 		}
 
+		// Check for trap
+		else if (Input.GetKeyDown ("t")) {
+			trapToBeActivated = true;
+		}
+
 		// ESC key to cancel any queued actions
 		else if (Input.GetKeyDown (KeyCode.Escape)) {
 			monsterToSummon = 0;
 			toBeSummoned = false;
+			trapToBeActivated = false;
 			zoneToSummon = "";
 		}
 	}

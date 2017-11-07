@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class WinCondition : MonoBehaviour
@@ -11,7 +12,6 @@ public class WinCondition : MonoBehaviour
 
 	[SerializeField] internal int itemsToCollect;
 
-	[SerializeField] private GameObject UIPrefab;
 
 	private UIManager _uiManager;
 
@@ -24,9 +24,8 @@ public class WinCondition : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		_uiManager = UIPrefab.GetComponent<UIManager>();
-		chooseWinCondition();
-		timer = 0;
+		
+		
 	}
 
 	private void chooseWinCondition()
@@ -71,9 +70,21 @@ public class WinCondition : MonoBehaviour
 	{
 		return itemsToCollect;
 	}
+
+    public void reloadroom()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 	
 	// Update is called once per frame
 	private void Update () {
+        if (_uiManager == null)
+        {
+            _uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+            chooseWinCondition();
+            timer = 0;
+        }
+
 		if (condition == winCondition.Time)
 		{
 			timer += Time.deltaTime;

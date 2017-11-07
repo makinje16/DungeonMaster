@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour {
     private Slider dmManaSlider;
 
     [SerializeField]
+    private GameObject gameoverscreen;
+
+    [SerializeField]
     private Text winconditiontext;
 
     private HeroController hero;
@@ -54,8 +57,14 @@ public class UIManager : MonoBehaviour {
         dmManaSlider.maxValue = dmcontroller.GetMaxMana();
         dmManaSlider.value = dmcontroller.GetManaCount();
 
-
+        //check if we need to show the game-over screen
+        if (hero.getDead())
+        {
+            gameoverscreen.SetActive(true);
+        }
 
 
 	}
+
+
 }

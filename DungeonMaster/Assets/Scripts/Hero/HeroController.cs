@@ -41,13 +41,15 @@ public class HeroController : MonoBehaviour {
 
     private Vector2 inputdirection;
 
+    private bool isdead;
+
     private bool canmove = true;
 
     private bool isstunned = false;
     private float stuncount;
     private Vector2 stundirection = Vector2.down;
     [SerializeField]
-    private float stuntime = .25f;
+    private float stuntime = .1f;
 
     private bool isdashing = false;
     private float dashcount;
@@ -85,6 +87,11 @@ public class HeroController : MonoBehaviour {
         return maxstamina;
     }
 
+    public bool getDead()
+    {
+        return isdead;
+    }
+
     public void damage(float amt, Vector2 pushdirect)
     {
 
@@ -98,7 +105,9 @@ public class HeroController : MonoBehaviour {
         health -= amt;
         if (health <= 0)
         {
-            // DIE i guess
+            isdead = true;
+            canmove = false;
+            isstunned = false;
         }
     }
 
@@ -252,20 +261,7 @@ public class HeroController : MonoBehaviour {
             
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            gameObject.transform.Translate(new Vector3(-1, 0) * 5 * Time.deltaTime);
-        } else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            gameObject.transform.Translate(new Vector3(1, 0) * 5 * Time.deltaTime);
-        } else if (Input.GetKey(KeyCode.UpArrow))
-        {
-            gameObject.transform.Translate(new Vector3(0, 1) * 5 * Time.deltaTime);
-        } else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            gameObject.transform.Translate(new Vector3(0, -1) * 5 * Time.deltaTime);
-        }
-
+       
 
 
 

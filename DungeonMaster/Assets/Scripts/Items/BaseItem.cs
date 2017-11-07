@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class BaseItem : MonoBehaviour
 {
-	private CircleCollider2D rangeCollider2D;
-	private HeroController _heroController;
-
-	[SerializeField] private float pickupRadius;
+	internal CircleCollider2D rangeCollider2D;
+	internal HeroController _heroController;
+	internal WinCondition _winCondition;
+	[SerializeField] internal float pickupRadius;
 
 	
 	public void ItemEffect()
@@ -19,11 +19,12 @@ public class BaseItem : MonoBehaviour
 	// Use this for initialization
 	void Start () {
 		_heroController = GameObject.Find("Hero").GetComponent<HeroController>();
+		_winCondition = GameObject.Find("GameManager").GetComponent<WinCondition>();
 		rangeCollider2D = GetComponent<CircleCollider2D>();
 		rangeCollider2D.radius = pickupRadius;
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
+	internal void OnTriggerEnter2D(Collider2D other)
 	{
 		if (!other.gameObject.tag.Contains("Hero")) return;
 		gameObject.SetActive(false);

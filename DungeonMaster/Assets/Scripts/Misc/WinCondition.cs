@@ -38,7 +38,7 @@ public class WinCondition : MonoBehaviour
 		switch(condition)
 		{
 			case winCondition.Items:
-				_uiManager.updateWinConditionText("Items Left: ");
+				_uiManager.updateWinConditionText("Items Left: " + itemsToCollect);
 				break;
 			
 			case winCondition.Time:
@@ -55,10 +55,15 @@ public class WinCondition : MonoBehaviour
 		_uiManager.updateWinConditionText("Time Left: " + clockTime);
 	}
 
-	private void updateItems()
+	public void updateItems()
 	{
 		itemsToCollect -= 1;
-		_uiManager.updateWinConditionText(itemsToCollect.ToString());
+		_uiManager.updateWinConditionText("Items Left: " + itemsToCollect);
+	}
+
+	public bool isItems()
+	{
+		return condition == winCondition.Items;
 	}
 	
 	// Update is called once per frame
@@ -66,7 +71,7 @@ public class WinCondition : MonoBehaviour
 		if (condition == winCondition.Time)
 		{
 			timer += Time.deltaTime;
-			if (!(timer >= 1)) return;
+			if (!(timer >= 1f)) return;
 			timer = 0;
 			UpdateTime();
 		}

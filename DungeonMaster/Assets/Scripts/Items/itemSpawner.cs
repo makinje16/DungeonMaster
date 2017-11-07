@@ -31,14 +31,14 @@ public class itemSpawner : MonoBehaviour
 	private void initItems()
 	{
 		System.Random rand = new System.Random(DateTime.Now.Millisecond);
-		int numItems = rand.Next(0, 5);
+		int numItems = rand.Next(0, 6);
 		
 		for (int i = 0; i < numItems; ++i)
 		{
 			int xlocation = rand.Next(xMin, xMax);
 			int ylocation = rand.Next(yMin, yMax);
-			System.Random randomItem = new System.Random((int) Time.time);
-			var item = randomItem.Next(0, items.Length - 1);
+			System.Random randomItem = new System.Random(DateTime.Now.Millisecond);
+			var item = randomItem.Next(0, items.Length);
 			GameObject.Instantiate(items[item], new Vector3(xlocation, ylocation), Quaternion.identity);
 		}
 	}

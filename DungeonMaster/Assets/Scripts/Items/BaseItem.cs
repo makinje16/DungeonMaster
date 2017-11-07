@@ -26,7 +26,7 @@ public class BaseItem : MonoBehaviour
 
 	internal void OnTriggerEnter2D(Collider2D other)
 	{
-		if (!other.gameObject.tag.Contains("Hero")) return;
+		if (!other.gameObject.tag.Contains("Hero") || !gameObject.activeSelf) return;
 		gameObject.SetActive(false);
 	}
 	

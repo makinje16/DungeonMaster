@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour {
 	void Start () {
 		
 	}
+    
     //update the win condition text
     public void updateWinConditionText(string newtext)
     {

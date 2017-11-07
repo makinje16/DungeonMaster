@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeroController : MonoBehaviour {
 
+    #region member Variables
     private InputManager inputmanager;
 
     private SpriteRenderer sr;
@@ -60,8 +61,10 @@ public class HeroController : MonoBehaviour {
     private float maxhealth = 100;
     private float stamina = 30;
     private float maxstamina = 30;
-
-
+    private const float REG_HEAL = 75;
+    private const float MAX_HEAL = 100;
+    #endregion
+    
     public float getHealth()
     {
         return health;
@@ -81,9 +84,6 @@ public class HeroController : MonoBehaviour {
     {
         return maxstamina;
     }
-
-
-
 
     public void damage(float amt, Vector2 pushdirect)
     {
@@ -116,7 +116,13 @@ public class HeroController : MonoBehaviour {
         sr = GetComponent<SpriteRenderer>();
     }
 
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.name.Contains("Health"))
+        {
+            heal(REG_HEAL);
+        }
+    }
  
     void Update () {
         //make sure we have the input manager
@@ -245,8 +251,20 @@ public class HeroController : MonoBehaviour {
             }
             
         }
-       
 
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            gameObject.transform.Translate(new Vector3(-1, 0) * 5 * Time.deltaTime);
+        } else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            gameObject.transform.Translate(new Vector3(1, 0) * 5 * Time.deltaTime);
+        } else if (Input.GetKey(KeyCode.UpArrow))
+        {
+            gameObject.transform.Translate(new Vector3(0, 1) * 5 * Time.deltaTime);
+        } else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            gameObject.transform.Translate(new Vector3(0, -1) * 5 * Time.deltaTime);
+        }
 
 
 

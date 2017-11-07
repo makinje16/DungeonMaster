@@ -10,9 +10,9 @@ public class WinCondition : MonoBehaviour
 	[SerializeField] private  int clockTime;
 	[SerializeField] private  int itemsToCollect;
 
-	[SerializeField] private Canvas winConditionCanvas;
+	[SerializeField] private GameObject UIPrefab;
 
-	[SerializeField] private Text winConditionText;
+	private UIManager _uiManager;
 
 	private winCondition condition;
 
@@ -23,6 +23,7 @@ public class WinCondition : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		_uiManager = UIPrefab.GetComponent<UIManager>();
 		chooseWinCondition();
 		timer = 0;
 	}
@@ -37,11 +38,11 @@ public class WinCondition : MonoBehaviour
 		switch(condition)
 		{
 			case winCondition.Items:
-				winConditionText.text = "Items Left: ";
+				_uiManager.updateWinConditionText("Items Left: ");
 				break;
 			
 			case winCondition.Time:
-				winConditionText.text = "Time Left: " + clockTime;
+				_uiManager.updateWinConditionText("Time Left: " + clockTime);
 				break;
 				
 		}
@@ -51,13 +52,13 @@ public class WinCondition : MonoBehaviour
 	private void UpdateTime()
 	{
 		clockTime -= 1;
-		winConditionText.text = "Time Left: " + clockTime.ToString();
+		_uiManager.updateWinConditionText("Time Left: " + clockTime);
 	}
 
 	private void updateItems()
 	{
 		itemsToCollect -= 1;
-		winConditionText.text = itemsToCollect.ToString();
+		_uiManager.updateWinConditionText(itemsToCollect.ToString());
 	}
 	
 	// Update is called once per frame

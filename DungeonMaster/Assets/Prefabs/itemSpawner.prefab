@@ -56,8 +56,10 @@ MonoBehaviour:
   yMin: -4
   yMax: 4
   items:
-  - {fileID: 1406259416260206, guid: 5d8493c48a25f794a817e664e96dc3e7, type: 2}
   - {fileID: 1195405613687830, guid: bd2da819484831b4f8478389c2b019a3, type: 2}
-  - {fileID: 1406259416260206, guid: 5d8493c48a25f794a817e664e96dc3e7, type: 2}
   - {fileID: 1195405613687830, guid: bd2da819484831b4f8478389c2b019a3, type: 2}
-  - {fileID: 1406259416260206, guid: 5d8493c48a25f794a817e664e96dc3e7, type: 2}
+  - {fileID: 1195405613687830, guid: bd2da819484831b4f8478389c2b019a3, type: 2}
+  - {fileID: 1195405613687830, guid: bd2da819484831b4f8478389c2b019a3, type: 2}
+  - {fileID: 1195405613687830, guid: bd2da819484831b4f8478389c2b019a3, type: 2}
+  collectible: {fileID: 1406259416260206, guid: 5d8493c48a25f794a817e664e96dc3e7,
+    type: 2}

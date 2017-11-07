@@ -21,10 +21,14 @@ public class itemSpawner : MonoBehaviour
 
 	[SerializeField] 
 	private GameObject[] items;
-	
+
+	public GameObject collectible;
+
+	private WinCondition _winCondition;
 	// Use this for initialization
 	void Start () {
-		initItems();
+		_winCondition = GameObject.Find("GameManager").GetComponent<WinCondition>();
+		Invoke("initItems", 1);
 	}
 
 
@@ -41,6 +45,16 @@ public class itemSpawner : MonoBehaviour
 			var item = randomItem.Next(0, items.Length);
 			GameObject.Instantiate(items[item], new Vector3(xlocation, ylocation), Quaternion.identity);
 		}
+
+		if (!_winCondition.isItems()) return;
+
+		for (int i = 0; i < _winCondition.itemsToCollect; ++i)
+		{
+			int xlocation = rand.Next(xMin, xMax);
+			int ylocation = rand.Next(yMin, yMax);
+			Instantiate(collectible, new Vector3(xlocation, ylocation), Quaternion.identity);
+		}
+
 	}
 	
 	

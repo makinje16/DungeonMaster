@@ -8,7 +8,8 @@ public class WinCondition : MonoBehaviour
 {
 
 	[SerializeField] private  int clockTime;
-	[SerializeField] private  int itemsToCollect;
+
+	[SerializeField] internal int itemsToCollect;
 
 	[SerializeField] private GameObject UIPrefab;
 
@@ -64,6 +65,11 @@ public class WinCondition : MonoBehaviour
 	public bool isItems()
 	{
 		return condition == winCondition.Items;
+	}
+
+	public int getItemsToCollect()
+	{
+		return itemsToCollect;
 	}
 	
 	// Update is called once per frame

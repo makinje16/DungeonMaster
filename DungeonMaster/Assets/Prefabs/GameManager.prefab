@@ -53,4 +53,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clockTime: 120
   itemsToCollect: 7
-  UIPrefab: {fileID: 0}

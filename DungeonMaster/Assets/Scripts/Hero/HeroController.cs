@@ -63,8 +63,11 @@ public class HeroController : MonoBehaviour {
     private float maxhealth = 100;
     private float stamina = 30;
     private float maxstamina = 30;
+    
     private const float REG_HEAL = 75;
     private const float MAX_HEAL = 100;
+
+    private bool MaxStamina;
     #endregion
     
     public float getHealth()
@@ -120,9 +123,15 @@ public class HeroController : MonoBehaviour {
         }
     }
 
+    public void disableMaxStamina()
+    {
+        MaxStamina = false;
+    }
+    
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        MaxStamina = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -130,6 +139,10 @@ public class HeroController : MonoBehaviour {
         if (other.gameObject.name.Contains("Health"))
         {
             heal(REG_HEAL);
+        } else if (other.gameObject.name.Contains("Stamina"))
+        {
+            MaxStamina = true;
+            Invoke("disableMaxStamina",5);
         }
     }
  
@@ -140,6 +153,12 @@ public class HeroController : MonoBehaviour {
             inputmanager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
         }
 
+        //If the maxStamina is true then unlimited stamina
+        if (MaxStamina)
+        {
+            stamina = 30;
+        }
+        
         //update stamina
         if (stamina < maxstamina)
         {

@@ -30,9 +30,9 @@ public class HeroController : MonoBehaviour {
 
 
     [SerializeField]
-    private float dashCost = 8;
+    private float dashCost = DASH_COST;
     [SerializeField]
-    private float atkCost = 2;
+    private float atkCost = ATTACK_COST;
 
 
     [SerializeField]
@@ -66,7 +66,8 @@ public class HeroController : MonoBehaviour {
     
     private const float REG_HEAL = 75;
     private const float MAX_HEAL = 100;
-
+    private const float DASH_COST = 8;
+    private const float ATTACK_COST = 2;
     private bool MaxStamina;
     #endregion
     
@@ -125,7 +126,8 @@ public class HeroController : MonoBehaviour {
 
     public void disableMaxStamina()
     {
-        MaxStamina = false;
+        dashCost = DASH_COST;
+        atkCost = ATTACK_COST;
     }
     
     private void Start()
@@ -141,22 +143,23 @@ public class HeroController : MonoBehaviour {
             heal(REG_HEAL);
         } else if (other.gameObject.name.Contains("Stamina"))
         {
-            MaxStamina = true;
-            Invoke("disableMaxStamina",5);
+            enableMaxStamina();
         }
     }
- 
+
+    private void enableMaxStamina()
+    {
+        stamina = 30;
+        dashCost = 0;
+        atkCost = 0;
+        Invoke("disableMaxStamina", 5);
+    }
+
     void Update () {
         //make sure we have the input manager
         if (inputmanager == null)
         {
             inputmanager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
-        }
-
-        //If the maxStamina is true then unlimited stamina
-        if (MaxStamina)
-        {
-            stamina = 30;
         }
         
         //update stamina

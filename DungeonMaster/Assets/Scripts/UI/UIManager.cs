@@ -11,6 +11,11 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private Slider dmManaSlider;
 
+
+    [SerializeField]
+    private GameObject[] monstericons;
+
+
     [SerializeField]
     private GameObject gameoverscreen;
 
@@ -19,6 +24,10 @@ public class UIManager : MonoBehaviour {
 
     private HeroController hero;
     private DmController dmcontroller;
+
+
+
+
     
 	// Use this for initialization
 	void Start () {
@@ -56,6 +65,20 @@ public class UIManager : MonoBehaviour {
         //manage DM mana slider
         dmManaSlider.maxValue = dmcontroller.GetMaxMana();
         dmManaSlider.value = dmcontroller.GetManaCount();
+
+
+        //manage DM monster icons
+        for (int i = 0; i < monstericons.Length; i++)
+        {
+            if (dmcontroller.GetManaCount() > ((i + 1) * 10))
+            {
+                monstericons[i].GetComponentInChildren<Text>().color = Color.cyan;
+            }
+            else
+            {
+                monstericons[i].GetComponentInChildren<Text>().color = Color.black;
+            }
+        }
 
         //check if we need to show the game-over screen
         if (hero.getDead())

@@ -98,13 +98,17 @@ public class HeroController : MonoBehaviour {
 
     public void damage(float amt, Vector2 pushdirect)
     {
-
-        stuncount = stuntime;
-        isdashing = false;
-        dashcount = 0;
-        isstunned = true;
-        canmove = false;
-        stundirection = pushdirect;
+        if (!isstunned)
+        {
+            stuncount = stuntime;
+            isdashing = false;
+            dashcount = 0;
+            isstunned = true;
+            canmove = false;
+            stundirection = pushdirect;
+        }
+        
+        
 
         health -= amt;
         if (health <= 0)

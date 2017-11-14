@@ -613,22 +613,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 224603800340458646, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0.675
-      objectReference: {fileID: 0}
-    - target: {fileID: 224603800340458646, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224551433879598756, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
         type: 2}
       propertyPath: m_AnchorMax.x
       value: 0.523
       objectReference: {fileID: 0}
     - target: {fileID: 224551433879598756, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224603800340458646, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.675
+      objectReference: {fileID: 0}
+    - target: {fileID: 224603800340458646, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -643,11 +643,6 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114258096183286056, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-        type: 2}
-      propertyPath: gameoverscreen
-      value: 
-      objectReference: {fileID: 1926044241}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97728d4238e41fe48b64eb9f6aa2c79c, type: 2}
   m_IsPrefabParent: 0
@@ -832,10 +827,5 @@ AudioSource:
 --- !u!1 &1565759221 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1290862969947770, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1196085721}
---- !u!1 &1926044241 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1858927027403062, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
     type: 2}
   m_PrefabInternal: {fileID: 1196085721}

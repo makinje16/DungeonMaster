@@ -66,6 +66,7 @@ public class BasicSword : MonoBehaviour {
         transform.localPosition = direct;
         sr.enabled = true;
         ccollider.enabled = true;
+        GetComponent<AudioSource>().Play();
     }
 
 

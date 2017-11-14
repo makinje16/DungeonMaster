@@ -26,6 +26,7 @@ abstract public class Monster : MonoBehaviour {
         stundirection = hitdirection;
         isStunned = true;
         health -= attack;
+        GetComponent<AudioSource>().Play();
         if (health <= 0)
         {
             Destroy(gameObject);

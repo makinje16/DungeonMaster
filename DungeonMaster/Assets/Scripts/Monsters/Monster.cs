@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
 
 abstract public class Monster : MonoBehaviour {
@@ -18,7 +19,9 @@ abstract public class Monster : MonoBehaviour {
 
     protected Vector2 direction;
     protected Vector2 stundirection;
-    
+
+    [SerializeField] 
+    private GameObject[] dropableItems;
 
     // Update is called once per frame
     public void Damage(float attack, Vector2 hitdirection)
@@ -29,10 +32,27 @@ abstract public class Monster : MonoBehaviour {
         GetComponent<AudioSource>().Play();
         if (health <= 0)
         {
+            DropItem();
             Destroy(gameObject);
         }
     }
 
+    protected void DropItem()
+    {
+        System.Random random = new System.Random();
+        float index = random.Next(0, 11);
+        if (index <= 3)
+        {
+            Instantiate(dropableItems[0], transform.position, Quaternion.identity);
+            return;
+        }
+        if (index <= 6)
+        {
+            Instantiate(dropableItems[1], transform.position, Quaternion.identity);
+            return;
+        }
+    }
+    
     protected virtual void Move()
     {
         transform.Translate(direction.normalized * Time.deltaTime * movementSpeed);

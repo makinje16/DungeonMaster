@@ -175,6 +175,9 @@ MonoBehaviour:
   attackPower: 5
   stunDuration: 0.25
   isStunned: 0
+  dropableItems:
+  - {fileID: 1074410072859292, guid: c246275e2cd4ec04d96e3e9d8eda14b3, type: 2}
+  - {fileID: 1195405613687830, guid: bd2da819484831b4f8478389c2b019a3, type: 2}
   sprintBonus: 0
 --- !u!212 &212604656584382558
 SpriteRenderer:

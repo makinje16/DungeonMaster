@@ -12,6 +12,7 @@ TagManager:
   - UIManager
   - DMController
   - Trap
+  - Rock
   layers:
   - Default
   - TransparentFX

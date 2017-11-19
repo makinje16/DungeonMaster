@@ -17,6 +17,7 @@ abstract public class Monster : MonoBehaviour {
     [SerializeField]
     protected bool isStunned = false;
 
+    [SerializeField]
     protected Vector2 direction;
     protected Vector2 stundirection;
 
@@ -74,17 +75,15 @@ abstract public class Monster : MonoBehaviour {
         {
             Move();
         }
-        
-
     }
 
-    protected void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Hero"))
         {
             Vector2 pushdirection = other.gameObject.transform.position - transform.position;
             pushdirection.Normalize();
-            other.gameObject.GetComponent<HeroController>().damage(attackPower,pushdirection);
+            other.gameObject.GetComponent<HeroController>().damage(attackPower, pushdirection);
         }
     }
 }

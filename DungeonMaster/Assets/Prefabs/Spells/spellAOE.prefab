@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 58573549431558130}
   - component: {fileID: 114206106011740288}
   - component: {fileID: 212010626509024158}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spellAOE
   m_TagString: Untagged
   m_Icon: {fileID: 0}

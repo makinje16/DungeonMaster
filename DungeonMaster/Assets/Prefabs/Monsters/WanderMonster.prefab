@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50481463773159160}
   - component: {fileID: 114454917315895130}
   - component: {fileID: 82239664913879514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WanderMonster
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -175,6 +175,7 @@ MonoBehaviour:
   attackPower: 5
   stunDuration: 0.25
   isStunned: 0
+  direction: {x: 0, y: 0}
   dropableItems:
   - {fileID: 1074410072859292, guid: c246275e2cd4ec04d96e3e9d8eda14b3, type: 2}
   - {fileID: 1195405613687830, guid: bd2da819484831b4f8478389c2b019a3, type: 2}

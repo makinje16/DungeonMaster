@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 50924791456635600}
   - component: {fileID: 114952014188258818}
   - component: {fileID: 82032539717856674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wanderingCasterMonster
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   isStunned: 0
   direction: {x: 0, y: 0}
   dropableItems: []
+  spell: {fileID: 1764023520077504, guid: 5647471b1b94c94499b4a84f8b96119f, type: 2}
 --- !u!212 &212198350918820462
 SpriteRenderer:
   m_ObjectHideFlags: 1

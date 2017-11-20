@@ -9,6 +9,10 @@ public class wanderingCasterMonster : wanderingMonster {
     private float castingCD = 4;
     private bool canCast = false;
     private float castingTime = 2;
+
+    [SerializeField]
+    private GameObject spell;
+    
 	// Use this for initialization
 	void Start () {
         hero = GameObject.FindWithTag("Hero");
@@ -25,7 +29,7 @@ public class wanderingCasterMonster : wanderingMonster {
 
     protected void CastSpell()
     {
-        // instantiate the aoe spell
+        Instantiate(spell, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
     }
 
     protected override void Update()

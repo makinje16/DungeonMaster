@@ -96,6 +96,19 @@ public class InputManager : MonoBehaviour {
         }
     }
 
+    //returns True if strong attack button was pressed down this frame
+    public bool GetHeroStrAttack()
+    {
+        if (useDebugHeroControls)
+        {
+            return Input.GetKeyDown(KeyCode.Return);
+        }
+        else
+        {
+            return Input.GetButtonDown("HeroB");
+        }
+    }
+
     //return True if attack button was pressed down this frame
     public bool GetHeroAttack()
     {

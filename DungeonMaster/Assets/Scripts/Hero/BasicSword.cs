@@ -12,6 +12,10 @@ public class BasicSword : MonoBehaviour {
 
     private bool isAttacking;
 
+    private bool isSpin;
+
+    private float spinatktime = .3f;
+
     private float atkpower;
 
 
@@ -42,11 +46,18 @@ public class BasicSword : MonoBehaviour {
 		if (isAttacking)
         {
             atkcount -= Time.deltaTime;
+
+            if (isSpin)
+            {
+                transform.localPosition = new Vector2(Mathf.Cos((8 * Mathf.PI) * (spinatktime - atkcount))*.5f, Mathf.Sin((8* Mathf.PI) * (spinatktime - atkcount))*.5f);
+            }
+
             if (atkcount <= 0)
             {
                 isAttacking = false;
                 sr.enabled = false;
                 ccollider.enabled = false;
+                isSpin = false;
             }
         }
 
@@ -55,6 +66,12 @@ public class BasicSword : MonoBehaviour {
     public void doBasicAttack(Vector2 direct)
     {
         doAttack(10, .2f, direct);
+    }
+
+    public void doStrongAttack(Vector2 direct)
+    {
+        isSpin = true;
+        doAttack(20, spinatktime, direct);
     }
 
 
@@ -68,6 +85,8 @@ public class BasicSword : MonoBehaviour {
         ccollider.enabled = true;
         GetComponent<AudioSource>().Play();
     }
+
+    
 
 
     public bool checkAttacking()

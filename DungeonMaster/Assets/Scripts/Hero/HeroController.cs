@@ -33,6 +33,7 @@ public class HeroController : MonoBehaviour {
     private float dashCost = DASH_COST;
     [SerializeField]
     private float atkCost = ATTACK_COST;
+    
 
 
     [SerializeField]
@@ -300,6 +301,14 @@ public class HeroController : MonoBehaviour {
 
 
             //handle attacking
+            if (inputmanager.GetHeroStrAttack())
+            {
+                if (!weapon.checkAttacking() && stamina > (2 * atkCost))
+                {
+                    weapon.doStrongAttack(atkdirection/2);
+                    stamina -= (2 * atkCost);
+                }
+            }
             if (inputmanager.GetHeroAttack())
             {
                 if (!weapon.checkAttacking() && stamina > atkCost)

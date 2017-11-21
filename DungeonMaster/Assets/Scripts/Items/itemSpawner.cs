@@ -18,6 +18,8 @@ public class itemSpawner : MonoBehaviour
 	[SerializeField]
 	private int yMax;
 
+	[SerializeField] 
+	private GameObject manaLock;
 
 	[SerializeField] 
 	private GameObject[] items;
@@ -25,12 +27,16 @@ public class itemSpawner : MonoBehaviour
 	public GameObject collectible;
 
 	private WinCondition _winCondition;
+
+	private static bool droppedItem;
+	
 	// Use this for initialization
 	void Start () {
 		_winCondition = GameObject.Find("GameManager").GetComponent<WinCondition>();
 		Invoke("initItems", 1);
+		InvokeRepeating("dropItem", 10, 1);
+		droppedItem = false;
 	}
-
 
 	private void initItems()
 	{
@@ -56,7 +62,27 @@ public class itemSpawner : MonoBehaviour
 		}
 
 	}
-	
+
+	private void dropItem()
+	{
+		if(droppedItem) {return;}
+		
+		System.Random rand = new System.Random(DateTime.Now.Millisecond);
+		int chance = rand.Next(1, 101);
+
+		if (chance != 1) return;
+		droppedItem = true;
+		int xlocation = rand.Next(xMin, xMax);
+		int ylocation = rand.Next(yMin, yMax);
+		Instantiate(manaLock, new Vector3(xlocation, ylocation), Quaternion.identity);
+		Invoke("canDropItems", DmController.MANA_LOCK_TIME);
+	}
+
+
+	private void canDropItems()
+	{
+		droppedItem = false;
+	}
 	
 	// Update is called once per frame
 	void Update () {

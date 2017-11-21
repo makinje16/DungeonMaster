@@ -55,6 +55,7 @@ MonoBehaviour:
   xMax: 7
   yMin: -4
   yMax: 4
+  manaLock: {fileID: 1642561429672036, guid: 0cf64c9303a402740a3dfeaf6f355eb8, type: 2}
   items:
   - {fileID: 1195405613687830, guid: bd2da819484831b4f8478389c2b019a3, type: 2}
   - {fileID: 1074410072859292, guid: c246275e2cd4ec04d96e3e9d8eda14b3, type: 2}

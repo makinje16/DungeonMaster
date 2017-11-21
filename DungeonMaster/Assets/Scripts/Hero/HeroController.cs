@@ -170,6 +170,9 @@ public class HeroController : MonoBehaviour {
         } else if (other.gameObject.name.Contains("Stamina"))
         {
             enableMaxStamina();
+        } else if (other.gameObject.name.Contains("Mana_Lock"))
+        {
+            GameObject.Find("DmController").GetComponent<DmController>().activateManaLock();
         }
     }
 

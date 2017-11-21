@@ -40,10 +40,13 @@ public class DmController : MonoBehaviour {
 	private string zoneToSummon;
 	private bool toBeSummoned;
 	private bool trapToBeActivated;
+	private bool manaLocked;
 	private Vector3 trapLoc;
 	private int trapType;
 	private InputManager inputManager;
 
+	public static float MANA_LOCK_TIME = 5f;
+	
 	// Use this for initialization
 	void Start () {
 		manaCount = 0;
@@ -55,6 +58,7 @@ public class DmController : MonoBehaviour {
 		trapToBeActivated = false;
 		zoneToSummon = "";
 		trapType = -1;
+		manaLocked = false;
 	}
 	
 	// Update is called once per frame
@@ -179,7 +183,20 @@ public class DmController : MonoBehaviour {
 		zoneToSummon = "";
 	}
 
-	public void ChangeMana (float amount) {
+	public void activateManaLock()
+	{
+		manaLocked = true;
+		Invoke("deactivateManaLock", MANA_LOCK_TIME);
+	}
+
+	private void deactivateManaLock()
+	{
+		manaLocked = false;
+	}
+	
+	public void ChangeMana (float amount)
+	{
+		if (manaLocked){return;}
 		manaCount += amount;
 		if (manaCount > maxMana)
 			manaCount = maxMana;

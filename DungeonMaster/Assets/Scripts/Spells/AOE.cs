@@ -22,6 +22,7 @@ public class AOE : MonoBehaviour {
             aoeCD -= Time.deltaTime;
         time -= Time.deltaTime;
 	}
+
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Hero"))

@@ -75,7 +75,6 @@ public class InputManager : MonoBehaviour {
         {
             return Input.GetAxisRaw("HeroVertical");
         }
-
     }
 
     // return Vector2 of hero movement input
@@ -108,10 +107,48 @@ public class InputManager : MonoBehaviour {
         {
             return Input.GetButtonDown("HeroA");
         }
-       
     }
 
+	public Vector3? GetDmMouseClick()
+	{
+		if (Input.GetMouseButtonDown (0)) {
+			Vector3 pos = Input.mousePosition;
+			pos.z = 10;
+			return Camera.main.ScreenToWorldPoint (pos);
+		}
+		else
+			return null;
+	}
 
+	public string GetDmKey() {
+		if (Input.GetKeyDown ("q")) {
+			return "q";
+		} else if (Input.GetKeyDown ("w")) {
+			return "w";
+		} else if (Input.GetKeyDown ("e")) {
+			return "e";
+		} else if (Input.GetKeyDown ("a")) {
+			return "a";
+		} else if (Input.GetKeyDown ("s")) {
+			return "s";
+		} else if (Input.GetKeyDown ("d")) {
+			return "d";
+		} else if (Input.GetKeyDown ("t")) {
+			return "t";
+		} else
+			return "";
+	}
 
-
+	public int GetDmNum() {
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			return 1;
+		} else if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			return 2;
+		} else if (Input.GetKeyDown (KeyCode.Alpha3)) {
+			return 3;
+		} else if (Input.GetKeyDown (KeyCode.Alpha4)) {
+			return 4;
+		} else
+			return -1;
+	}
 }

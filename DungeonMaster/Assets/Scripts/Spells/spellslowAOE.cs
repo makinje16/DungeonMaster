@@ -27,13 +27,18 @@ public class spellslowAOE : MonoBehaviour
     }
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Hero"))
+        if (aoeCD <= 0)
         {
-            other.gameObject.GetComponent<HeroController>().Debuff("Slow", 0.5f, 2.5f);
-            aoeCD = 1;
-        }else if(other.CompareTag("Monster")) {
-            other.gameObject.GetComponent<HeroController>().Debuff("Slow", 0.5f, 2.5f);
-            aoeCD = 1;
+            if (other.CompareTag("Hero"))
+            {
+                other.gameObject.GetComponent<HeroController>().Debuff("Slow", 0.5f, 2.5f);
+                aoeCD = 1;
+            }
+            else if (other.CompareTag("Monster"))
+            {
+                other.gameObject.GetComponent<HeroController>().Debuff("Slow", 0.5f, 2.5f);
+                aoeCD = 1;
+            }
         }
     }
 }

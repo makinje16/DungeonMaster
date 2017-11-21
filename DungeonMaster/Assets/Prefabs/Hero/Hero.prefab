@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 70734720867544286}
   - component: {fileID: 70692931951434870}
   - component: {fileID: 50079597886596892}
-  - component: {fileID: 82905336002643856}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Hero
@@ -44,6 +43,7 @@ GameObject:
   - component: {fileID: 114240674923896984}
   - component: {fileID: 58993413880056064}
   - component: {fileID: 82637313669901760}
+  - component: {fileID: 82580499801178112}
   m_Layer: 0
   m_Name: SwordCon
   m_TagString: Untagged
@@ -96,7 +96,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &58993413880056064
 CircleCollider2D:
@@ -143,7 +143,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.3, y: 0.7}
   m_Direction: 0
---- !u!82 &82637313669901760
+--- !u!82 &82580499801178112
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -152,8 +152,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9c4141436d8ab934f95768b332f3e635, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: f2ddd891ab3d4fd41bc006fa2526656f, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -223,17 +223,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &82905336002643856
+--- !u!82 &82637313669901760
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1416219186203542}
+  m_GameObject: {fileID: 1745161344747288}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f2ddd891ab3d4fd41bc006fa2526656f, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 9c4141436d8ab934f95768b332f3e635, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   up: {fileID: 21300000, guid: 8d263639d3e8ca245b00d6f527baf259, type: 3}
-  down: {fileID: 21300000, guid: 86676d133c353394c8f6e679d5d5d858, type: 3}
+  down: {fileID: 21300000, guid: a6860b87788b4f647a35ca9862418cf8, type: 3}
   left: {fileID: 21300000, guid: e75dab7447e3ef042941d07bb44cf092, type: 3}
   mspeed: 0
   walkspeed: 3
@@ -369,12 +369,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 86676d133c353394c8f6e679d5d5d858, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6860b87788b4f647a35ca9862418cf8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.96, y: 0.96}
+  m_Size: {x: 20.48, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

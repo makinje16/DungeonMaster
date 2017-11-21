@@ -16,6 +16,9 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private GameObject[] monstericons;
 
+    [SerializeField]
+    private GameObject[] trapicons;
+
 
     [SerializeField]
     private GameObject gameoverscreen;
@@ -78,6 +81,19 @@ public class UIManager : MonoBehaviour {
             else
             {
                 monstericons[i].GetComponentInChildren<Text>().color = Color.black;
+            }
+        }
+
+        //manage DM trap icons
+        for (int i = 0; i < trapicons.Length; i++)
+        {
+            if (dmcontroller.GetManaCount() > ((i *10) + 20))
+            {
+                trapicons[i].GetComponentInChildren<Text>().color = Color.cyan;
+            }
+            else
+            {
+                trapicons[i].GetComponentInChildren<Text>().color = Color.black;
             }
         }
 

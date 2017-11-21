@@ -119,6 +119,28 @@ public class HeroController : MonoBehaviour {
         }
     }
 
+    public void Debuff(string field, float modifier, float duration)
+    {
+        if (field.Equals("Slow"))
+        {
+            StartCoroutine(Restore(field, modifier, duration));
+            mspeed *= modifier;
+            walkspeed *= modifier;
+            runspeed *= modifier;
+        }
+    }
+
+    protected IEnumerator Restore(string field, float modifier, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        if (field.Equals("Slow"))
+        {
+            mspeed /= modifier;
+            walkspeed /= modifier;
+            runspeed /= modifier;
+        }
+    }
+
     public void heal(float amt)
     {
         health += amt;

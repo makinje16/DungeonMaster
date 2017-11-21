@@ -10,7 +10,8 @@ public class UIManager : MonoBehaviour {
     private Slider heroStaminaSlider;
     [SerializeField]
     private Slider dmManaSlider;
-
+    [SerializeField]
+    private Image heroInvImg;
 
     [SerializeField]
     private GameObject[] monstericons;
@@ -31,7 +32,7 @@ public class UIManager : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-		
+        heroInvImg.enabled = false;
 	}
     
     //update the win condition text

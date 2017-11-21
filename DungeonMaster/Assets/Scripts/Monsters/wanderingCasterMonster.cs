@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class wanderingCasterMonster : wanderingMonster {
     
-    private new float movementSpeed = 1.25f;
-
+    
     private float castingCD = 4;
     private bool canCast = false;
     private float castingTime = 2;
@@ -27,6 +26,7 @@ public class wanderingCasterMonster : wanderingMonster {
     
 	// Use this for initialization
 	void Start () {
+        movementSpeed = 1.25f;
         sr = GetComponent<SpriteRenderer>();
         hero = GameObject.FindWithTag("Hero");
         direction = hero.transform.position - transform.position;

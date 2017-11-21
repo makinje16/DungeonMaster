@@ -27,6 +27,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1302199251178046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4926636326709514}
+  - component: {fileID: 114896216593343000}
+  m_Layer: 0
+  m_Name: DmTrap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1381584559622712
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +220,7 @@ Transform:
   - {fileID: 4799461844508702}
   - {fileID: 4092104950126820}
   - {fileID: 4005146097585058}
+  - {fileID: 4926636326709514}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -220,6 +237,19 @@ Transform:
   m_Father: {fileID: 4748538806984174}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4926636326709514
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1302199251178046}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4748538806984174}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114107595770289660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,10 +262,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsters:
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114472420661961734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,6 +277,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3f15e6a27ba0842bbc08aa347539d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMana: 0
+  dmTraps:
+  - {fileID: 1879268075402812, guid: 1b0953b538981a74b92630b88b636f7a, type: 2}
+  - {fileID: 1764023520077504, guid: 5647471b1b94c94499b4a84f8b96119f, type: 2}
   manaRate: 5
 --- !u!114 &114583403708012428
 MonoBehaviour:
@@ -260,10 +294,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsters:
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114809141368009746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,10 +310,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsters:
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114824344156687712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -292,10 +326,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsters:
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114863016455911614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,10 +342,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsters:
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &114896216593343000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1302199251178046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5be784eafae0fa46b56b2c1f5c1a75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114960691217663270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsters:
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
-  - {fileID: 1022405377852744, guid: d3d4f301e8bf98b4b989503c2de9504e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

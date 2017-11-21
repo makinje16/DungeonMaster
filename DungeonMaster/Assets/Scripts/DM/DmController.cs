@@ -144,6 +144,7 @@ public class DmController : MonoBehaviour {
 		// Not enough mana!
 		if (manaCost > manaCount) {
 			// UI warning
+			CleanInput ();
 			return;
 		}
 		
@@ -161,6 +162,7 @@ public class DmController : MonoBehaviour {
 		int manaCost = trapType * 10 + 20;
 
 		if (manaCost > manaCount) {
+			CleanInput ();
 			return;
 		}
 

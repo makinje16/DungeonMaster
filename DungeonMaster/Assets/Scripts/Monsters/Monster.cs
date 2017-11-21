@@ -38,6 +38,24 @@ abstract public class Monster : MonoBehaviour {
         }
     }
 
+    public void Debuff(string field, float modifier ,float duration)
+    {
+        if (field.Equals("Slow"))
+        {
+            StartCoroutine(Restore(field, modifier, duration));
+            movementSpeed *= modifier;
+        }
+    }
+
+    protected IEnumerator Restore(string field, float modifier, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        if (field.Equals("Slow"))
+        {
+            movementSpeed /= modifier;
+        }
+    }
+
     protected void DropItem()
     {
         System.Random random = new System.Random();

@@ -176,7 +176,9 @@ MonoBehaviour:
   stunDuration: 0.25
   isStunned: 0
   direction: {x: 0, y: 0}
-  dropableItems: []
+  dropableItems:
+  - {fileID: 1195405613687830, guid: bd2da819484831b4f8478389c2b019a3, type: 2}
+  - {fileID: 1074410072859292, guid: c246275e2cd4ec04d96e3e9d8eda14b3, type: 2}
   spell1: {fileID: 1764023520077504, guid: 5647471b1b94c94499b4a84f8b96119f, type: 2}
   spell2: {fileID: 1879268075402812, guid: 1b0953b538981a74b92630b88b636f7a, type: 2}
   normal: {fileID: 21300000, guid: 22726f84455d79a41982b80bc6bdc7d3, type: 3}

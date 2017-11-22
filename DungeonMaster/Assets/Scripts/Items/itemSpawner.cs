@@ -34,7 +34,7 @@ public class itemSpawner : MonoBehaviour
 	void Start () {
 		_winCondition = GameObject.Find("GameManager").GetComponent<WinCondition>();
 		Invoke("initItems", 1);
-		InvokeRepeating("dropItem", 10, 1);
+		InvokeRepeating("dropItem", 5, 1);
 		droppedItem = false;
 	}
 
@@ -68,13 +68,14 @@ public class itemSpawner : MonoBehaviour
 		if(droppedItem) {return;}
 		
 		System.Random rand = new System.Random(DateTime.Now.Millisecond);
-		int chance = rand.Next(1, 101);
+		int chance = rand.Next(1, 10);
 
 		if (chance != 1) return;
 		droppedItem = true;
 		int xlocation = rand.Next(xMin, xMax);
 		int ylocation = rand.Next(yMin, yMax);
 		Instantiate(manaLock, new Vector3(xlocation, ylocation), Quaternion.identity);
+        Debug.Log("Dropping mana crystal");
 		Invoke("canDropItems", DmController.MANA_LOCK_TIME);
 	}
 

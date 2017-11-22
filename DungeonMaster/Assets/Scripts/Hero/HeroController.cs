@@ -303,10 +303,10 @@ public class HeroController : MonoBehaviour {
             //handle attacking
             if (inputmanager.GetHeroStrAttack())
             {
-                if (!weapon.checkAttacking() && stamina > (2 * atkCost))
+                if (!weapon.checkAttacking() && stamina > (4 * atkCost))
                 {
                     weapon.doStrongAttack(atkdirection/2);
-                    stamina -= (2 * atkCost);
+                    stamina -= (4 * atkCost);
                 }
             }
             if (inputmanager.GetHeroAttack())

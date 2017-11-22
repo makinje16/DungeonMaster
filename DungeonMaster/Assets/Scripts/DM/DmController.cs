@@ -45,11 +45,11 @@ public class DmController : MonoBehaviour {
 	private int trapType;
 	private InputManager inputManager;
 
-	public static float MANA_LOCK_TIME = 5f;
+	public static float MANA_LOCK_TIME = 3f;
 	
 	// Use this for initialization
 	void Start () {
-		manaCount = 0;
+		manaCount = 50;
 		maxMana = 100;
 		//every two seconds
 		//InvokeRepeating ("IncrementMana", 0.2f, 0.2f);
@@ -196,7 +196,7 @@ public class DmController : MonoBehaviour {
 	
 	public void ChangeMana (float amount)
 	{
-		if (manaLocked){return;}
+		if (manaLocked && amount > 0){return;}
 		manaCount += amount;
 		if (manaCount > maxMana)
 			manaCount = maxMana;

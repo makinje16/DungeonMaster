@@ -34,7 +34,7 @@ public class itemSpawner : MonoBehaviour
 	void Start () {
 		_winCondition = GameObject.Find("GameManager").GetComponent<WinCondition>();
 		Invoke("initItems", 1);
-		InvokeRepeating("dropItem", 5, 1);
+		InvokeRepeating("dropItem", 8, 1);
 		droppedItem = false;
 	}
 
@@ -68,7 +68,7 @@ public class itemSpawner : MonoBehaviour
 		if(droppedItem) {return;}
 		
 		System.Random rand = new System.Random(DateTime.Now.Millisecond);
-		int chance = rand.Next(1, 10);
+		int chance = rand.Next(1, 20);
 
 		if (chance != 1) return;
 		droppedItem = true;

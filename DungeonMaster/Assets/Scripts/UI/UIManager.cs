@@ -87,7 +87,7 @@ public class UIManager : MonoBehaviour {
         //manage DM trap icons
         for (int i = 0; i < trapicons.Length; i++)
         {
-            if (dmcontroller.GetManaCount() > ((i *10) + 20))
+            if (dmcontroller.GetManaCount() > ((i *5) + 20))
             {
                 trapicons[i].GetComponentInChildren<Text>().color = Color.cyan;
             }

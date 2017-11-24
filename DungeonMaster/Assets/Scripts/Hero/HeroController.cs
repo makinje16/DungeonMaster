@@ -44,6 +44,10 @@ public class HeroController : MonoBehaviour {
 
     private bool isdead;
 
+    private bool invincible = false;
+    private float invincibleCount = 0;
+
+
     private bool canmove = true;
 
     private bool isstunned = false;
@@ -64,8 +68,9 @@ public class HeroController : MonoBehaviour {
     private float maxhealth = 100;
     private float stamina = 30;
     private float maxstamina = 30;
-    
-    private const float REG_HEAL = 75;
+
+    private const float INV_FRAMES = .3f; 
+    private const float REG_HEAL = 50;
     private const float MAX_HEAL = 100;
     private const float DASH_COST = 8;
     private const float ATTACK_COST = 2;
@@ -99,25 +104,33 @@ public class HeroController : MonoBehaviour {
 
     public void damage(float amt, Vector2 pushdirect)
     {
-        if (!isstunned)
+        if (!invincible)
         {
-            stuncount = stuntime;
-            isdashing = false;
-            dashcount = 0;
-            isstunned = true;
-            canmove = false;
-            stundirection = pushdirect;
-        }
-        
-        
+            invincible = true;
+            invincibleCount = INV_FRAMES;
 
-        health -= amt;
-        if (health <= 0)
-        {
-            isdead = true;
-            canmove = false;
-            isstunned = false;
+            if (!isstunned)
+            {
+                stuncount = stuntime;
+                isdashing = false;
+                dashcount = 0;
+                isstunned = true;
+                canmove = false;
+                stundirection = pushdirect;
+            }
+
+
+
+            health -= amt;
+            if (health <= 0)
+            {
+                isdead = true;
+                canmove = false;
+                isstunned = false;
+            }
         }
+
+       
     }
 
     public void Debuff(string field, float modifier, float duration)
@@ -208,6 +221,16 @@ public class HeroController : MonoBehaviour {
                 isstunned = false;
                 canmove = true;
 
+            }
+        }
+
+        if (invincible)
+        {
+            invincibleCount -= Time.deltaTime;
+            if (invincibleCount <= 0)
+            {
+                invincible = false;
+                Debug.Log("uninvincible");
             }
         }
 
@@ -303,10 +326,10 @@ public class HeroController : MonoBehaviour {
             //handle attacking
             if (inputmanager.GetHeroStrAttack())
             {
-                if (!weapon.checkAttacking() && stamina > (4 * atkCost))
+                if (!weapon.checkAttacking() && stamina > (5 * atkCost))
                 {
                     weapon.doStrongAttack(atkdirection/2);
-                    stamina -= (4 * atkCost);
+                    stamina -= (5 * atkCost);
                 }
             }
             if (inputmanager.GetHeroAttack())

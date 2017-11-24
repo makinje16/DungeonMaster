@@ -163,7 +163,7 @@ public class DmController : MonoBehaviour {
 
 	void ActivateTrap () {
 		//Debug.Log ("Activating trap " + trapType + " " + trapLoc);
-		int manaCost = trapType * 10 + 20;
+		int manaCost = trapType * 5 + 20;
 
 		if (manaCost > manaCount) {
 			CleanInput ();

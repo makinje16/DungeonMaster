@@ -133,7 +133,7 @@ public class InputManager : MonoBehaviour {
 			return null;
 	}
 
-	public string GetDmKey() {
+	public string GetDmMonsterZone() {
 		if (Input.GetKeyDown ("q")) {
 			return "q";
 		} else if (Input.GetKeyDown ("w")) {
@@ -146,10 +146,21 @@ public class InputManager : MonoBehaviour {
 			return "s";
 		} else if (Input.GetKeyDown ("d")) {
 			return "d";
-		} else if (Input.GetKeyDown ("t")) {
-			return "t";
 		} else
 			return "";
+	}
+
+	public int GetDmSpell() {
+		if (Input.GetKeyDown ("z")) {
+			return 1;
+		} else if (Input.GetKeyDown ("x")) {
+			return 2;
+		} else if (Input.GetKeyDown ("c")) {
+			return 3;
+		} else if (Input.GetKeyDown ("v")) {
+			return 4;
+		} else
+			return -1;
 	}
 
 	public int GetDmNum() {

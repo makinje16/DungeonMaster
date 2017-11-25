@@ -355,7 +355,7 @@ Prefab:
     - target: {fileID: 114472420661961734, guid: d53ee11959910438a9acca9807332724,
         type: 2}
       propertyPath: dmTraps.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4748538806984174, guid: d53ee11959910438a9acca9807332724, type: 2}
       propertyPath: m_LocalPosition.x
@@ -393,7 +393,7 @@ Prefab:
         type: 2}
       propertyPath: dmTraps.Array.data[0]
       value: 
-      objectReference: {fileID: 1764023520077504, guid: 5647471b1b94c94499b4a84f8b96119f,
+      objectReference: {fileID: 1879268075402812, guid: 1b0953b538981a74b92630b88b636f7a,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d53ee11959910438a9acca9807332724, type: 2}

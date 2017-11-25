@@ -67,9 +67,8 @@ public class DmController : MonoBehaviour {
 		ChangeMana (Time.deltaTime * manaRate);
 
 		//make sure we have the input manager
-		if (inputManager == null)
-		{
-			inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
+		if (inputManager == null) {
+			inputManager = GameObject.FindGameObjectWithTag ("InputManager").GetComponent<InputManager> ();
 		}
 
 //		// Check for monster summon by number OR for trap activation
@@ -118,19 +117,16 @@ public class DmController : MonoBehaviour {
 //		}
 
 		if (inputManager.GetDmNum () != -1) {
-			if (trapToBeActivated) {
-				trapType = inputManager.GetDmNum ();
-			} else {
-				toBeSummoned = true;
-				monsterToSummon = inputManager.GetDmNum ();
-			}
-		} else if (inputManager.GetDmKey () != "") {
-			if (inputManager.GetDmKey () == "t") {
-				trapToBeActivated = true;
-			} else if (toBeSummoned) {
-				zoneToSummon = inputManager.GetDmKey ();
+			toBeSummoned = true;
+			monsterToSummon = inputManager.GetDmNum ();
+		} else if (inputManager.GetDmMonsterZone () != "") {
+			if (toBeSummoned) {
+				zoneToSummon = inputManager.GetDmMonsterZone ();
 				SummonMonster ();
 			}
+		} else if (inputManager.GetDmSpell() != -1) {
+			trapToBeActivated = true;
+			trapType = inputManager.GetDmSpell ();
 		} else if (inputManager.GetDmMouseClick () != null && trapToBeActivated && trapType != -1) {
 			trapLoc = inputManager.GetDmMouseClick ().Value;
 			ActivateTrap ();

@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour {
 
     public static InputManager instance = null;
 
-    
+	public bool isOsx = false;
 
     void Awake()
     {
@@ -28,7 +28,10 @@ public class InputManager : MonoBehaviour {
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
 
-       
+		if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.OSXPlayer)
+			isOsx = true;
+		else
+			isOsx = false;
     }
 
 
@@ -86,11 +89,13 @@ public class InputManager : MonoBehaviour {
     // return True if dash button was pressed Down this frame
     public bool GetHeroDash()
     {
-        if (useDebugHeroControls)
-        {
-            return Input.GetKeyDown(KeyCode.RightShift);
-        }
-        else
+		if (useDebugHeroControls) {
+			return Input.GetKeyDown (KeyCode.RightShift);
+		} 
+		else if (isOsx) {
+			return Input.GetButtonDown ("HeroX_OSX");
+		} 
+		else
         {
             return Input.GetButtonDown("HeroX");
         }
@@ -102,7 +107,10 @@ public class InputManager : MonoBehaviour {
         if (useDebugHeroControls)
         {
             return Input.GetKeyDown(KeyCode.Return);
-        }
+		}
+		else if (isOsx) {
+			return Input.GetButtonDown ("HeroB_OSX");
+		} 
         else
         {
             return Input.GetButtonDown("HeroB");
@@ -115,7 +123,10 @@ public class InputManager : MonoBehaviour {
         if (useDebugHeroControls)
         {
             return Input.GetKeyDown(KeyCode.RightControl);
-        }
+		}
+		else if (isOsx) {
+			return Input.GetButtonDown ("HeroA_OSX");
+		} 
         else
         {
             return Input.GetButtonDown("HeroA");

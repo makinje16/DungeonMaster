@@ -63,8 +63,13 @@ public class DmController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        float recharge_factor = 1;
+        if (GameObject.FindGameObjectsWithTag("Monster").Length == 0)
+        {
+            recharge_factor = 3;
+        }
 
-		ChangeMana (Time.deltaTime * manaRate);
+		ChangeMana (Time.deltaTime * manaRate * recharge_factor);
 
 		//make sure we have the input manager
 		if (inputManager == null) {

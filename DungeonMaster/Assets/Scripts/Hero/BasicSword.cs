@@ -18,7 +18,12 @@ public class BasicSword : MonoBehaviour {
 
     private float atkpower;
 
-
+    private float BASIC_ATTACK = 10f;
+    private float STRONG_ATTACK = 20f;
+    private float bonusAttack;
+    private const float BONUS_ATTACK_TIME = 15f;
+    
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Monster"))
@@ -65,15 +70,29 @@ public class BasicSword : MonoBehaviour {
 
     public void doBasicAttack(Vector2 direct)
     {
-        doAttack(10, .2f, direct);
+        doAttack(BASIC_ATTACK, .2f, direct);
     }
 
     public void doStrongAttack(Vector2 direct)
     {
         isSpin = true;
-        doAttack(20, spinatktime, direct);
+        doAttack(STRONG_ATTACK, spinatktime, direct);
     }
 
+    public void boostAttack(float amount)
+    {
+        BASIC_ATTACK += amount;
+        STRONG_ATTACK += amount;
+        bonusAttack = amount;
+        Invoke("resetAttack", BONUS_ATTACK_TIME);
+    }
+
+    private void resetAttack()
+    {
+        BASIC_ATTACK -= bonusAttack;
+        STRONG_ATTACK -= bonusAttack;
+        bonusAttack = 0;
+    }
 
     public void doAttack(float power, float time, Vector2 direct)
     {
@@ -85,9 +104,6 @@ public class BasicSword : MonoBehaviour {
         ccollider.enabled = true;
         GetComponent<AudioSource>().Play();
     }
-
-    
-
 
     public bool checkAttacking()
     {

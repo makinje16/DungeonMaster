@@ -45,6 +45,7 @@ public class DmController : MonoBehaviour {
 	private int trapType;
 	private InputManager inputManager;
 
+	public static float ITEM_DESPAWN_TIME = 5f;
 	public static float MANA_LOCK_TIME = 3f;
 	
 	// Use this for initialization

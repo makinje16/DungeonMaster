@@ -80,10 +80,11 @@ public class HeroController : MonoBehaviour {
     private float maxstamina = 30;
 
     private const float INV_FRAMES = .3f; 
-    private const float REG_HEAL = 50;
+    private const float REG_HEAL = 40;
     private const float MAX_HEAL = 100;
     private const float DASH_COST = 8;
     private const float ATTACK_COST = 2;
+    private const float ATTACK_BONUS = 15;
     private bool MaxStamina;
     #endregion
     
@@ -204,6 +205,9 @@ public class HeroController : MonoBehaviour {
         else if (other.gameObject.name.Contains("Objective"))
         {
             GetComponent<AudioSource>().PlayOneShot(objectiveSound);
+        }else if (other.gameObject.name.Contains("Attack"))
+        {
+            increaseAttack();
         }
     }
 
@@ -213,6 +217,11 @@ public class HeroController : MonoBehaviour {
         dashCost = 0;
         atkCost = 0;
         Invoke("disableMaxStamina", 5);
+    }
+
+    private void increaseAttack()
+    {
+        weapon.boostAttack(ATTACK_BONUS);
     }
 
     void Update () {

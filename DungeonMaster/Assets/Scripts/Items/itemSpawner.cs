@@ -19,7 +19,7 @@ public class itemSpawner : MonoBehaviour
 	private int yMax;
 
 	[SerializeField] 
-	private GameObject manaLock;
+	private GameObject[] dropableObjects;
 
 	[SerializeField] 
 	private GameObject[] items;
@@ -66,7 +66,7 @@ public class itemSpawner : MonoBehaviour
 	private void dropItem()
 	{
 		if(droppedItem) {return;}
-		
+		Debug.Log("Trying to drop item");
 		System.Random rand = new System.Random(DateTime.Now.Millisecond);
 		int chance = rand.Next(1, 20);
 
@@ -74,9 +74,10 @@ public class itemSpawner : MonoBehaviour
 		droppedItem = true;
 		int xlocation = rand.Next(xMin, xMax);
 		int ylocation = rand.Next(yMin, yMax);
-		Instantiate(manaLock, new Vector3(xlocation, ylocation), Quaternion.identity);
-        Debug.Log("Dropping mana crystal");
-		Invoke("canDropItems", DmController.MANA_LOCK_TIME);
+		int item = rand.Next(0, dropableObjects.Length);
+		Instantiate(dropableObjects[item], new Vector3(xlocation, ylocation), Quaternion.identity);
+		Invoke("canDropItems", DmController.ITEM_DESPAWN_TIME);
+		Debug.Log("Dropped Item: " + item);
 	}
 
 

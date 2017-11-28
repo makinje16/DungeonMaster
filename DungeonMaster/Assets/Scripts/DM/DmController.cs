@@ -41,12 +41,17 @@ public class DmController : MonoBehaviour {
 	private bool toBeSummoned;
 	private bool trapToBeActivated;
 	private bool manaLocked;
+	private bool isInfiniteMana;
 	private Vector3 trapLoc;
 	private int trapType;
 	private InputManager inputManager;
 
 	public static float ITEM_DESPAWN_TIME = 5f;
 	public static float MANA_LOCK_TIME = 3f;
+	public const float INFINITE_MANA_TIME = 5f;
+	public const float INFINITE_MANA_COOLDOWN = 120f;
+
+	private float infiniteManaCounter;
 	
 	// Use this for initialization
 	void Start () {
@@ -60,6 +65,7 @@ public class DmController : MonoBehaviour {
 		zoneToSummon = "";
 		trapType = -1;
 		manaLocked = false;
+		infiniteManaCounter = 120;
 	}
 	
 	// Update is called once per frame
@@ -142,6 +148,10 @@ public class DmController : MonoBehaviour {
 		else if (Input.GetKeyDown (KeyCode.Escape)) {
 			CleanInput ();
 		}
+		else if (Input.GetKeyDown(KeyCode.L))
+		{
+			infiniteMana();
+		}
 	}
 
 	void SummonMonster () {
@@ -159,8 +169,10 @@ public class DmController : MonoBehaviour {
 		transform.Find ("SpawnPoint" + zoneToSummon.ToUpper()).GetComponent<MonsterSpawner> ().SpawnMonster(monsterToSummon);
 
 		// Deduct mana
+		if (isInfiniteMana) {return;}
 		ChangeMana(0 - manaCost);
-		CleanInput ();
+		CleanInput();
+		infiniteManaCounter += Time.deltaTime;
 	}
 
 	void ActivateTrap () {
@@ -191,9 +203,20 @@ public class DmController : MonoBehaviour {
 		Invoke("deactivateManaLock", MANA_LOCK_TIME);
 	}
 
+	private void infiniteMana()
+	{
+		if (INFINITE_MANA_COOLDOWN > infiniteManaCounter){return;}
+		ChangeMana(100);
+		manaLocked = true;
+		isInfiniteMana = true;
+		infiniteManaCounter = 0;
+		Invoke("deactivateManaLock", INFINITE_MANA_TIME);
+	}
+	
 	private void deactivateManaLock()
 	{
 		manaLocked = false;
+		isInfiniteMana = false;
 	}
 	
 	public void ChangeMana (float amount)

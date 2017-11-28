@@ -16,10 +16,10 @@ public class wanderingCasterMonster : wanderingMonster {
     private GameObject spell2;
 
     [SerializeField]
-    private Sprite normal;
+    private Sprite normalSprite;
 
     [SerializeField]
-    private Sprite casting;
+    private Sprite castingSprite;
 
 
     private SpriteRenderer sr;
@@ -45,12 +45,12 @@ public class wanderingCasterMonster : wanderingMonster {
         if (Random.Range(0.0f, 1.0f) <= 0.5)
         {
             Instantiate(spell1, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
-            sr.sprite = normal;
+            sr.sprite = normalSprite;
         }
         else
         {
             Instantiate(spell2, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
-            sr.sprite = normal;
+            sr.sprite = normalSprite;
         }
     }
 
@@ -70,7 +70,7 @@ public class wanderingCasterMonster : wanderingMonster {
         {
             if (castingCD <= 0) // Can cast a spell
             {
-                sr.sprite = casting;
+                sr.sprite = castingSprite;
                 if (castingTime <= 0) // CAST THE SPELL
                 {
                     CastSpell();

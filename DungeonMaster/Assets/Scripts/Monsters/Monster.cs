@@ -24,18 +24,45 @@ abstract public class Monster : MonoBehaviour {
     [SerializeField] 
     private GameObject[] dropableItems;
 
+    [SerializeField]
+    private AudioClip spawnSound;
+
+    [SerializeField]
+    private AudioClip deathSound;
+
+    [SerializeField]
+    private AudioClip hitSound1;
+
+    [SerializeField]
+    private AudioClip hitSound2;
+
     // Update is called once per frame
     public void Damage(float attack, Vector2 hitdirection)
     {
         stundirection = hitdirection;
         isStunned = true;
         health -= attack;
-        GetComponent<AudioSource>().Play();
+        if (Random.Range(0.0f, 1.0f) <= 0.5)
+        {
+            GetComponent<AudioSource>().PlayOneShot(hitSound1);
+        }
+        else
+        {
+            GetComponent<AudioSource>().PlayOneShot(hitSound2);
+        }
+        GetComponent<AudioSource>().PlayOneShot(hitSound1);
         if (health <= 0)
         {
             DropItem();
-            Destroy(gameObject);
+            GetComponent<AudioSource>().PlayOneShot(deathSound);
+            StartCoroutine(DestroyThis());
         }
+    }
+
+    private IEnumerator DestroyThis()
+    {
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gameObject);
     }
 
     public void Debuff(string field, float modifier ,float duration)

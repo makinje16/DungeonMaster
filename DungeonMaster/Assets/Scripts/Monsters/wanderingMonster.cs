@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class wanderingMonster : Monster {
 
+    
 
     void Start()
     {

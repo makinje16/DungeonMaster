@@ -88,9 +88,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 030222a0dba70144d90649632e731c5b, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 74d3b83a9cd6c2640905b473e98ac667, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.65
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -179,6 +179,10 @@ MonoBehaviour:
   dropableItems:
   - {fileID: 1195405613687830, guid: bd2da819484831b4f8478389c2b019a3, type: 2}
   - {fileID: 1074410072859292, guid: c246275e2cd4ec04d96e3e9d8eda14b3, type: 2}
+  spawnSound: {fileID: 8300000, guid: 74d3b83a9cd6c2640905b473e98ac667, type: 3}
+  deathSound: {fileID: 8300000, guid: dcaadaf77da52e340873aaac8ef5fe5d, type: 3}
+  hitSound1: {fileID: 8300000, guid: 7ca40e88284506640be2f1cd77773f67, type: 3}
+  hitSound2: {fileID: 8300000, guid: 7123039397577894abb6db7c686fff71, type: 3}
 --- !u!212 &212337378768288096
 SpriteRenderer:
   m_ObjectHideFlags: 1

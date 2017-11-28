@@ -33,8 +33,18 @@ public class HeroController : MonoBehaviour {
     private float dashCost = DASH_COST;
     [SerializeField]
     private float atkCost = ATTACK_COST;
-    
 
+    [SerializeField]
+    private AudioClip healSound;
+
+    [SerializeField]
+    private AudioClip staminaSound;
+
+    [SerializeField]
+    private AudioClip objectiveSound;
+
+    [SerializeField]
+    private AudioClip manaLockSound;
 
     [SerializeField]
     private BasicSword weapon;
@@ -181,12 +191,19 @@ public class HeroController : MonoBehaviour {
         if (other.gameObject.name.Contains("Health"))
         {
             heal(REG_HEAL);
+            GetComponent<AudioSource>().PlayOneShot(healSound);
         } else if (other.gameObject.name.Contains("Stamina"))
         {
+            GetComponent<AudioSource>().PlayOneShot(staminaSound);
             enableMaxStamina();
         } else if (other.gameObject.name.Contains("Mana_Lock"))
         {
+            GetComponent<AudioSource>().PlayOneShot(manaLockSound);
             GameObject.Find("DmController").GetComponent<DmController>().activateManaLock();
+        }
+        else if (other.gameObject.name.Contains("Objective"))
+        {
+            GetComponent<AudioSource>().PlayOneShot(objectiveSound);
         }
     }
 

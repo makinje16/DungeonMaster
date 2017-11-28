@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 70734720867544286}
   - component: {fileID: 70692931951434870}
   - component: {fileID: 50079597886596892}
+  - component: {fileID: 82638786036775612}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Hero
@@ -303,6 +304,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82638786036775612
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416219186203542}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.65
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114040242620943630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,6 +404,10 @@ MonoBehaviour:
   staminaRecRate: 5
   dashCost: 8
   atkCost: 2
+  healSound: {fileID: 8300000, guid: 9c90477cacea302458988ca8d0661aab, type: 3}
+  staminaSound: {fileID: 8300000, guid: e7c29f172e98b5347b9594f19e929b6c, type: 3}
+  objectiveSound: {fileID: 8300000, guid: 0e1ac01c5b153ea41acaeac9d0d380b9, type: 3}
+  manaLockSound: {fileID: 8300000, guid: f4f98c933653a694f87fa51c1459435e, type: 3}
   weapon: {fileID: 114240674923896984}
   stuntime: 0.1
   dashtime: 0.25

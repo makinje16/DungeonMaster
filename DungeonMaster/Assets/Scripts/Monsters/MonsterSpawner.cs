@@ -16,5 +16,7 @@ public class MonsterSpawner : MonoBehaviour {
 	public void SpawnMonster (int monster) {
 		GameObject.Instantiate(monsters[monster - 1], transform.position, Quaternion.identity);
 		Debug.Log("Spawned monster" + (monster) + " at zone " + name);
-	}
+        GameObject.Instantiate(monsters[monster - 1], transform.position + new Vector3(Random.Range(-.5f,.5f), Random.Range(-.5f, .5f)), Quaternion.identity);
+        Debug.Log("Spawned monster" + (monster) + " at zone " + name);
+    }
 }

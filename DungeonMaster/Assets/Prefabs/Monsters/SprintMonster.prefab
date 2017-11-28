@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172915ec5ae8ca14994ffd0c4bb1a8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 30
+  health: 15
   movementSpeed: 2
   attackPower: 5
   stunDuration: 0.25

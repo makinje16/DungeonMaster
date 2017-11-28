@@ -36,10 +36,13 @@ abstract public class Monster : MonoBehaviour {
     [SerializeField]
     private AudioClip hitSound2;
 
+    private Vector3 lastHitDirection;
+
     // Update is called once per frame
     public void Damage(float attack, Vector2 hitdirection)
     {
         stundirection = hitdirection;
+        lastHitDirection = hitdirection;
         isStunned = true;
         health -= attack;
         if (Random.Range(0.0f, 1.0f) <= 0.5)
@@ -87,14 +90,15 @@ abstract public class Monster : MonoBehaviour {
     {
         System.Random random = new System.Random();
         float index = random.Next(0, 11);
+        var location = transform.position + lastHitDirection;
         if (index <= 3)
         {
-            Instantiate(dropableItems[0], transform.position, Quaternion.identity);
+            Instantiate(dropableItems[0], location, Quaternion.identity);
             return;
         }
         if (index <= 6)
         {
-            Instantiate(dropableItems[1], transform.position, Quaternion.identity);
+            Instantiate(dropableItems[1], location, Quaternion.identity);
             return;
         }
     }

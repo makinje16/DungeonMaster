@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HeroController : MonoBehaviour {
 
@@ -14,6 +15,11 @@ public class HeroController : MonoBehaviour {
     private Sprite down;
     [SerializeField]
     private Sprite left;
+
+    [SerializeField]
+    private Slider HeroHealth;
+    [SerializeField]
+    private Slider HeroMana;
 
 
     [SerializeField]
@@ -218,6 +224,17 @@ public class HeroController : MonoBehaviour {
         atkCost = 0;
         Invoke("disableMaxStamina", 5);
     }
+
+    public Slider getHeroHealthSlider()
+    {
+        return HeroHealth;
+    }
+
+    public Slider getHeroStaminaSlider()
+    {
+        return HeroMana;
+    }
+
 
     private void increaseAttack()
     {

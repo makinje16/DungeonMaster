@@ -5,6 +5,9 @@ using UnityEngine;
 public class RoomBuilder : MonoBehaviour {
 
     [SerializeField]
+    private bool dobuild = false;
+
+    [SerializeField]
     private GameObject rockbase;
 
     [SerializeField]
@@ -21,10 +24,18 @@ public class RoomBuilder : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        if (dobuild) makeroom();
+
+
+	}
+
+    void makeroom()
+    {
         GameObject temprock;
-		for (int yn = 0; yn <= height; yn++)
+        for (int yn = 0; yn <= height; yn++)
         {
-            
+
             for (int xn = 0; xn <= width; xn++)
             {
                 if (xn == 0 || xn == width || yn == 0 || yn == height)
@@ -35,9 +46,7 @@ public class RoomBuilder : MonoBehaviour {
             }
 
         }
-
-
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

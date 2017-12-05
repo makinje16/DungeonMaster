@@ -245,7 +245,6 @@ public class HeroController : MonoBehaviour {
     }
 
 	void Update () {
-		Debug.Log (sr.sprite.name);
         //make sure we have the input manager
         if (inputmanager == null)
         {

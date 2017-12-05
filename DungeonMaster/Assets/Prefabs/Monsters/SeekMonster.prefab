@@ -248,17 +248,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef41a26632c7a0c4e96456632376a935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 20
+  isSeeking: 1
   movementSpeed: 2
   attackPower: 5
   stunDuration: 0.25
   isStunned: 0
   direction: {x: 0, y: 0}
   dropableItems: []
-  spawnSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  hitSound1: {fileID: 0}
-  hitSound2: {fileID: 0}
+  spawnSound: {fileID: 8300000, guid: 74d3b83a9cd6c2640905b473e98ac667, type: 3}
+  deathSound: {fileID: 8300000, guid: dcaadaf77da52e340873aaac8ef5fe5d, type: 3}
+  hitSound1: {fileID: 8300000, guid: 7ca40e88284506640be2f1cd77773f67, type: 3}
+  hitSound2: {fileID: 8300000, guid: 7123039397577894abb6db7c686fff71, type: 3}
 --- !u!114 &114879499280306442
 MonoBehaviour:
   m_ObjectHideFlags: 1

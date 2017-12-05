@@ -65,6 +65,7 @@ public class AIPath : AIBase {
 	/** Maximum velocity.
 	 * This is the maximum speed in world units per second.
 	 */
+     [SerializeField]
 	public float speed = 3;
 
 	/** Rotation speed.

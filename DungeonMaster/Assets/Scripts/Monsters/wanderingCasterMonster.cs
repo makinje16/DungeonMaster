@@ -27,7 +27,7 @@ public class wanderingCasterMonster : wanderingMonster {
 	// Use this for initialization
 	void Start () {
         movementSpeed = 1.25f;
-        sr = GetComponent<SpriteRenderer>();
+        sr = GetComponentInChildren<SpriteRenderer>();
         hero = GameObject.FindWithTag("Hero");
         direction = hero.transform.position - transform.position;
         Invoke("ChangeDirection", Random.Range(2, 5));
@@ -56,6 +56,13 @@ public class wanderingCasterMonster : wanderingMonster {
 
     protected override void Update()
     {
+        if (health <= 0)
+        {
+            DropItem();
+            GetComponent<AudioSource>().PlayOneShot(deathSound);
+            StartCoroutine(DestroyThis());
+            health = 100;
+        }
         if (isStunned)// stunned knockback
         {
             transform.Translate(stundirection * Time.deltaTime * (movementSpeed + 3));
@@ -68,6 +75,7 @@ public class wanderingCasterMonster : wanderingMonster {
         }
         else // regular movement
         {
+
             if (castingCD <= 0) // Can cast a spell
             {
                 sr.sprite = castingSprite;

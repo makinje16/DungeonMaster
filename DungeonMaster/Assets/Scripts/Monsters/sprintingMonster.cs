@@ -12,19 +12,19 @@ public class sprintingMonster : seekingMonster {
         hero = GameObject.FindWithTag("Hero");
         direction = hero.transform.position - transform.position;
         sprintBonus = 2;
-        InvokeRepeating("Sprint", 2, 6);
+        InvokeRepeating("Sprint", 2, 4);
     }
 
 
 
     protected void Sprint()
     {
-        movementSpeed += sprintBonus;
+        gameObject.GetComponent<AIPath>().speed += sprintBonus;
         Invoke("NormalSpeed", 1);
     }
 
     protected void NormalSpeed()
     {
-        movementSpeed -= sprintBonus;
+        gameObject.GetComponent<AIPath>().speed -= sprintBonus;
     }
 }

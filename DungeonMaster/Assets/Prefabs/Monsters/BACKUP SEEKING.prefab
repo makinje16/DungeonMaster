@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114026665827155212}
   - component: {fileID: 82544912710964084}
   m_Layer: 8
-  m_Name: SeekMonster backup
+  m_Name: BACKUP SEEKING
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef41a26632c7a0c4e96456632376a935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  health: 50
+  isSeeking: 1
   movementSpeed: 2
   attackPower: 5
   stunDuration: 0.25
@@ -213,7 +214,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -560789955
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4ace64d4598338f47a262bbe98b9560b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

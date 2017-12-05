@@ -382,7 +382,7 @@ public class HeroController : MonoBehaviour {
             {
                 if (!weapon.checkAttacking() && stamina > (5 * atkCost))
                 {
-                    weapon.doStrongAttack(atkdirection/2);
+                    weapon.doStrongAttack(atkdirection/1.5f);
                     stamina -= (5 * atkCost);
 					animator.SetTrigger ("OnSwingAttack");
                 }
@@ -392,7 +392,7 @@ public class HeroController : MonoBehaviour {
                 if (!weapon.checkAttacking() && stamina > atkCost)
                 {
 
-                    weapon.doBasicAttack(atkdirection/2);
+                    weapon.doBasicAttack(atkdirection/1.5f);
                     stamina -= atkCost;
 					animator.SetTrigger ("OnAttack");
                 }

@@ -128,6 +128,9 @@ public class AIPath : AIBase {
 	 */
 	protected virtual void Start () {
 		startHasRun = true;
+        GameObject hero = GameObject.FindWithTag("Hero");
+        if(hero != null)
+            target = hero.transform;
 		Init();
 	}
 

@@ -9,13 +9,14 @@ public class HeroController : MonoBehaviour {
     private InputManager inputmanager;
 
     private SpriteRenderer sr;
-    [SerializeField]
+	private Animator animator;
+/*    [SerializeField]
     private Sprite up;
     [SerializeField]
     private Sprite down;
     [SerializeField]
     private Sprite left;
-
+*/
     [SerializeField]
     private Slider HeroHealth;
     [SerializeField]
@@ -190,6 +191,8 @@ public class HeroController : MonoBehaviour {
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+		animator = GetComponent<Animator>();
+		animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         MaxStamina = false;
     }
 
@@ -241,7 +244,8 @@ public class HeroController : MonoBehaviour {
         weapon.boostAttack(ATTACK_BONUS);
     }
 
-    void Update () {
+	void Update () {
+		Debug.Log (sr.sprite.name);
         //make sure we have the input manager
         if (inputmanager == null)
         {
@@ -295,42 +299,50 @@ public class HeroController : MonoBehaviour {
         {
             //get input direction
             inputdirection = inputmanager.GetHeroMovement();
-            if (inputdirection != Vector2.zero)
-            {
-                //change sprite based on direction
-                if (Mathf.Abs(inputdirection.x) >= Mathf.Abs(inputdirection.y))
-                {
-                    //facing right
-                    if (inputdirection.x > 0)
-                    {
-                        sr.sprite = left;
-                        sr.flipX = true;
-                        atkdirection = Vector2.right;
-                    }
-                    else //facing left
-                    {
-                        sr.sprite = left;
-                        sr.flipX = false;
-                        atkdirection = -Vector2.right;
-                    }
-                }
-                else
-                {
-                    //facing up
-                    if (inputdirection.y > 0)
-                    {
-                        sr.sprite = up;
-                        sr.flipX = false;
-                        atkdirection = Vector2.up;
-                    }
-                    else //facing down
-                    {
-                        sr.sprite = down;
-                        sr.flipX = false;
-                        atkdirection = -Vector2.up;
-                    }
-                }
-            }
+			if (inputdirection != Vector2.zero) {
+				//change sprite based on direction
+				if (Mathf.Abs (inputdirection.x) >= Mathf.Abs (inputdirection.y)) {
+					//facing right
+					if (inputdirection.x > 0) {
+						//sr.sprite = left;
+						sr.flipX = false;
+						atkdirection = Vector2.right;
+						animator.SetBool ("IsFacingUp", false);
+						animator.SetBool ("IsFacingSide", true);
+						animator.SetBool ("IsFacingDown", false);
+						animator.SetBool ("IsMoving", true);
+					} else { //facing left
+						//sr.sprite = left;
+						sr.flipX = true;
+						atkdirection = -Vector2.right;
+						animator.SetBool ("IsFacingUp", false);
+						animator.SetBool ("IsFacingSide", true);
+						animator.SetBool ("IsFacingDown", false);
+						animator.SetBool ("IsMoving", true);
+					}
+				} else {
+					//facing up
+					if (inputdirection.y > 0) {
+						//sr.sprite = up;
+						sr.flipX = false;
+						atkdirection = Vector2.up;
+						animator.SetBool ("IsFacingUp", true);
+						animator.SetBool ("IsFacingSide", false);
+						animator.SetBool ("IsFacingDown", false);
+						animator.SetBool ("IsMoving", true);
+					} else { //facing down
+						//sr.sprite = down;
+						sr.flipX = false;
+						atkdirection = -Vector2.up;
+						animator.SetBool ("IsFacingUp", false);
+						animator.SetBool ("IsFacingSide", false);
+						animator.SetBool ("IsFacingDown", true);
+						animator.SetBool ("IsMoving", true);
+					}
+				}
+			} else {
+				animator.SetBool ("IsMoving", false);
+			}
             
             //handle dash
             if (inputmanager.GetHeroDash())
@@ -373,6 +385,7 @@ public class HeroController : MonoBehaviour {
                 {
                     weapon.doStrongAttack(atkdirection/2);
                     stamina -= (5 * atkCost);
+					animator.SetTrigger ("OnSwingAttack");
                 }
             }
             if (inputmanager.GetHeroAttack())
@@ -382,6 +395,7 @@ public class HeroController : MonoBehaviour {
 
                     weapon.doBasicAttack(atkdirection/2);
                     stamina -= atkCost;
+					animator.SetTrigger ("OnAttack");
                 }
             }
             

@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:DungeonMaster/Assets/Art/Monsters/monster1_3.png.meta
 guid: 2820ff41abc2e8b4187a52ade40bbc23
 timeCreated: 1512413990
+=======
+guid: 32e4ee014de0ea1418e2dc068d2ba003
+timeCreated: 1512264659
+>>>>>>> c05fcb01974543a5f626db466f28b77598acf1e4:DungeonMaster/Assets/Art/Hero/HeroBaseSwordAttackUp.gif.meta
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}

@@ -110,6 +110,7 @@ abstract public class Monster : MonoBehaviour {
 
     protected virtual void Update()
     {
+        /*
         if (isStunned)// stunned knockback
         {
             transform.Translate(stundirection * Time.deltaTime * (movementSpeed + 3));
@@ -124,6 +125,7 @@ abstract public class Monster : MonoBehaviour {
         {
             Move();
         }
+        */
     }
 
     protected virtual void OnTriggerStay2D(Collider2D other)

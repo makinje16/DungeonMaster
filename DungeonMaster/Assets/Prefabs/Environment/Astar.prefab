@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1135925363751652}
+  m_IsPrefabParent: 1
+--- !u!1 &1135925363751652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4984977289447058}
+  - component: {fileID: 114206969198328868}
+  m_Layer: 0
+  m_Name: Astar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4984977289447058
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1135925363751652}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 6.090789, y: -1.4711224, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114206969198328868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1135925363751652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAACYn+uX1y3BAwIAAHsEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFU8tu2zAQ/BVD56awY8d93Fo5cQsksRG36HlNrayFKVIgl3XsIP9ekqJsRQXak6SZ2d3Zh14ysA0KfgImnX0eTd6NMrK6RjYkvqidRA+OPegUldrUt8UOc23ZergEadFTRnOIVh56GWXPKeCYnqfwHL36N4GK0fxP5ZSQUDdYbOiEF/GkU09amdIFJkXwLLSUZJOJjI9NILIcGut8C15QEPimYvmgr5B2FfuP637wqiwtcrJk4Lgg42fTZs2+aq5CphrsvvX1G6TDs/E25cNf7NUk0qXR9beu6mQcKnBFYv8ERwGWe/Psw4u3tp06gNzDVuKvCtWjXhrtVOFJNi6EOovXi16qc2d5hWJ/0bVeB6Br/rmb19j7cy6p3gbk/awFNlLHaX8KWjR+L9+94XgRNmXwaDDx0+IP2PVPJxF3ZCx7KnUJjvU9qf3SUNFXd/iCLN9TTdzdhQrtbLUzQZ3dxiGH7h3n2iiMcGqyQQWSj2tfl4cbH3C9ygPmDgTrbieJ636WQUiEL/rxeECt9eG8XVvpwwPaauVYksKL6UA8+sHmWqn2IPtj6cI2zpQgemE7R8XbW8ym83kxm94UYgvzshzPr2ZTnPoo+ChuttMZfMjisZLyfYJct0bTePya1SW58ocZMoYljZYGmvhzFAYOSzrVujdyUqXeCIOoVm2GaPz1D1BLAwQUAAAICAAAmJ/rbuF0SzQAAAA3AAAAEgAkAGdyYXBoMF9lZGl0b3IuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWyslPzk5NUbJSKCkqTdVRUCrOyC93rSgpSgQKpSXmFIPECjLL8kuAfCXn1LyS1CKlWgBQSwMEFAAACAgAAJif67K25RRsAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPQMzTUUVBKL0osyCgGioA5pZkpIHa0krGZWYqJsWlKclKiWVqagZmuiXGqcVpicqJFsmmSsUmiuVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAmJ/rl9ctwQMCAAB7BAAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAmJ/rbuF0SzQAAAA3AAAAEgAkAAAAAAAAAAAAAABQAgAAZ3JhcGgwX2VkaXRvci5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif67K25RRsAAAAeAAAAAkAJAAAAAAAAAAAAAAA2AIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAwADABwBAACPAwAAAAA=
+    upgradeData: 
+    data_backup: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _NodeConnection: {r: 1, g: 1, b: 1, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors: []
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 0
+  maxFrameTime: 1
+  minAreaSize: 0
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1

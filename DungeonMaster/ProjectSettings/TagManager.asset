@@ -25,8 +25,8 @@ TagManager:
   - Monster
   - Spell
   - CasterMonster
-  - 
-  - 
+  - Background
+  - Obstacle
   - 
   - 
   - 
@@ -49,4 +49,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3734177341
+    locked: 0
+  - name: Hero
+    uniqueID: 3221550481
+    locked: 0
+  - name: Enemy
+    uniqueID: 4162798465
     locked: 0

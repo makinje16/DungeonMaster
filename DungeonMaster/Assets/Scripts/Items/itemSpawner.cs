@@ -58,6 +58,7 @@ public class itemSpawner : MonoBehaviour
 		//puts one item at each location based on the indexes stored in locations<>
 		for (int i = 0; i < numItems; ++i)
 		{
+            Debug.Log("getting location " + i);
 			var xlocation = spawnPoints[locations[i]].position.x;
 			var ylocation = spawnPoints[locations[i]].position.y;
 			

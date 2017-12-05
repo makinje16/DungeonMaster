@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -45,6 +47,8 @@ public class DmController : MonoBehaviour {
 	private Vector3 trapLoc;
 	private int trapType;
 	private InputManager inputManager;
+	private Transform heroTransform;
+	private List<Transform> monsterSpawnTransforms;
 
 	public static float ITEM_DESPAWN_TIME = 5f;
 	public static float MANA_LOCK_TIME = 3f;
@@ -66,6 +70,8 @@ public class DmController : MonoBehaviour {
 		trapType = -1;
 		manaLocked = false;
 		infiniteManaCounter = 120;
+		heroTransform = GameObject.Find("Hero").GetComponent<Transform>();
+		monsterSpawnTransforms = GameObject.Find("MonsterSpawnPoints").GetComponentsInChildren<Transform>().ToList();
 	}
 	
 	// Update is called once per frame
@@ -128,6 +134,8 @@ public class DmController : MonoBehaviour {
 //			trapToBeActivated = true;
 //		}
 
+		monsterSpawnTransforms.Sort((p1,p2)=> Vector3.Distance(p1.position, heroTransform.position).CompareTo(Vector3.Distance(p2.position, heroTransform.position)));
+		
 		if (inputManager.GetDmNum () != -1) {
 			toBeSummoned = true;
 			monsterToSummon = inputManager.GetDmNum ();
@@ -166,7 +174,8 @@ public class DmController : MonoBehaviour {
 		
 		toBeSummoned = false;
 
-		transform.Find ("SpawnPoint" + zoneToSummon.ToUpper()).GetComponent<MonsterSpawner> ().SpawnMonster(monsterToSummon);
+		transform.Find("SpawnPoint" + zoneToSummon.ToUpper()).GetComponent<MonsterSpawner>()
+			.SpawnMonster(monsterToSummon, monsterSpawnTransforms[0].position);
 
 		// Deduct mana
 		if (isInfiniteMana) {return;}

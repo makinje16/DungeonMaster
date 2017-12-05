@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gizmoLoader : MonoBehaviour {
+public class gizmoLoader : MonoBehaviour
+{
 
+	
 	// Use this for initialization
 	void Start () {
 		

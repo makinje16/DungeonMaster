@@ -18,8 +18,8 @@ public class BasicSword : MonoBehaviour {
 
     private float atkpower;
 
-    private float BASIC_ATTACK = 10f;
-    private float STRONG_ATTACK = 20f;
+    private float BASIC_ATTACK = 20f;
+    private float STRONG_ATTACK = 30f;
     private float bonusAttack;
     private const float BONUS_ATTACK_TIME = 15f;
     

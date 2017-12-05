@@ -245,6 +245,8 @@ public class HeroController : MonoBehaviour {
     }
 
 	void Update () {
+
+        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         //make sure we have the input manager
         if (inputmanager == null)
         {

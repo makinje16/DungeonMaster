@@ -100,7 +100,7 @@ public class BasicSword : MonoBehaviour {
         atkpower = power;
         atkcount = time;
         transform.localPosition = direct;
-        sr.enabled = true;
+        //sr.enabled = true;
         ccollider.enabled = true;
         GetComponent<AudioSource>().Play();
     }

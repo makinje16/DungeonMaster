@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4624144041528572}
   - component: {fileID: 212462270119967830}
   - component: {fileID: 114337614490021094}
+  - component: {fileID: 95841941521940600}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
@@ -40,8 +41,8 @@ GameObject:
   - component: {fileID: 50924791456635600}
   - component: {fileID: 114952014188258818}
   - component: {fileID: 82032539717856674}
-  - component: {fileID: 212352616155250484}
-  - component: {fileID: 95481513694178048}
+  - component: {fileID: 95237852239137550}
+  - component: {fileID: 212037819667809142}
   m_Layer: 8
   m_Name: wanderingCasterMonster
   m_TagString: Monster
@@ -191,13 +192,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &95481513694178048
+--- !u!95 &95237852239137550
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1468148303970794}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9b05a02c8901124f849d96f3bfa5500, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95841941521940600
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1023768970510458}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 36614f62ebda7474882d3aa051fa1d0d, type: 2}
@@ -248,7 +266,7 @@ MonoBehaviour:
   spell2: {fileID: 1879268075402812, guid: 1b0953b538981a74b92630b88b636f7a, type: 2}
   normalSprite: {fileID: 21300000, guid: 22726f84455d79a41982b80bc6bdc7d3, type: 3}
   castingSprite: {fileID: 21300000, guid: e373914858900f741b56d1107df99ab3, type: 3}
---- !u!212 &212352616155250484
+--- !u!212 &212037819667809142
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -277,8 +295,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -132168831
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

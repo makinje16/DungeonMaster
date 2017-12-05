@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class wanderingCasterMonster : wanderingMonster {
-    
+	private Animator animator;
     
     private float castingCD = 4;
     private bool canCast = false;
@@ -28,6 +28,7 @@ public class wanderingCasterMonster : wanderingMonster {
 	void Start () {
         movementSpeed = 1.25f;
         sr = GetComponentInChildren<SpriteRenderer>();
+		animator = GetComponent<Animator> ();
         hero = GameObject.FindWithTag("Hero");
         direction = hero.transform.position - transform.position;
         Invoke("ChangeDirection", Random.Range(2, 5));
@@ -38,6 +39,11 @@ public class wanderingCasterMonster : wanderingMonster {
     protected override void Move()
     {
         transform.Translate(direction.normalized * Time.deltaTime * movementSpeed);
+		if (direction.x >= 0) {
+			sr.flipX = false;
+		} else {
+			sr.flipX = true;
+		}
     }
 
     protected void CastSpell()
@@ -45,12 +51,12 @@ public class wanderingCasterMonster : wanderingMonster {
         if (Random.Range(0.0f, 1.0f) <= 0.5)
         {
             Instantiate(spell1, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
-            sr.sprite = normalSprite;
+            //sr.sprite = normalSprite;
         }
         else
         {
             Instantiate(spell2, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
-            sr.sprite = normalSprite;
+            //sr.sprite = normalSprite;
         }
     }
 
@@ -78,7 +84,8 @@ public class wanderingCasterMonster : wanderingMonster {
 
             if (castingCD <= 0) // Can cast a spell
             {
-                sr.sprite = castingSprite;
+                //sr.sprite = castingSprite;
+				animator.SetBool("IsCasting", true);
                 if (castingTime <= 0) // CAST THE SPELL
                 {
                     CastSpell();
@@ -92,6 +99,7 @@ public class wanderingCasterMonster : wanderingMonster {
             }
             else
             {
+				animator.SetBool ("IsCasting", false);
                 castingCD -= Time.deltaTime;
                 Move();
             }

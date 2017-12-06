@@ -66,6 +66,8 @@ public class WinCondition : MonoBehaviour
 		return condition == winCondition.Items;
 	}
 
+
+
 	public int getItemsToCollect()
 	{
 		return itemsToCollect;

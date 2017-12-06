@@ -10,8 +10,9 @@ public class seekingMonster : Monster {
     {
         hero = GameObject.FindWithTag("Hero");
         direction = hero.transform.position - transform.position;
-		sr = GetComponent<SpriteRenderer> ();
+		sr = GetComponentInChildren<SpriteRenderer> ();
     }
+
 
     protected override void Move()
     {

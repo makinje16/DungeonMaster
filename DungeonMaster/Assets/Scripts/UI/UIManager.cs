@@ -24,6 +24,9 @@ public class UIManager : MonoBehaviour {
     private GameObject gameoverscreen;
 
     [SerializeField]
+    private GameObject herowinscreen;
+
+    [SerializeField]
     private Text winconditiontext;
 
     private HeroController hero;

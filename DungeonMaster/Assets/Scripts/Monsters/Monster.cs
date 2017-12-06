@@ -42,6 +42,10 @@ abstract public class Monster : MonoBehaviour {
 
     private Vector3 lastHitDirection;
 
+    private SpriteRenderer sr1;
+
+    
+
     // Update is called once per frame
     public void Damage(float attack, Vector2 hitdirection)
     {
@@ -112,6 +116,9 @@ abstract public class Monster : MonoBehaviour {
 
     protected virtual void Update()
     {
+
+        if (sr1 == null)
+            sr1 = GetComponentInChildren<SpriteRenderer>();
         if (health <= 0)
         {
             DropItem();
@@ -134,6 +141,20 @@ abstract public class Monster : MonoBehaviour {
         else if (!isSeeking)// regular movement
         {
             Move();
+        }
+
+        if (isSeeking)
+        {
+            Vector2 movement = GetComponent<Rigidbody2D>().velocity;
+            Debug.Log(movement.x);
+            if (movement.x >= 0)
+            {
+                sr1.flipX = false;
+            }
+            else
+            {
+                sr1.flipX = true;
+            }
         }
         
     }

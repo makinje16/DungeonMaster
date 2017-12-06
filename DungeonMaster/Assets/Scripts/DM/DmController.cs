@@ -177,8 +177,11 @@ public class DmController : MonoBehaviour {
 		transform.Find("SpawnPoint" + zoneToSummon.ToUpper()).GetComponent<MonsterSpawner>()
 			.SpawnMonster(monsterToSummon, monsterSpawnTransforms[0].position);
 
-		// Deduct mana
-		if (isInfiniteMana) {return;}
+        transform.Find("SpawnPoint" + zoneToSummon.ToUpper()).GetComponent<MonsterSpawner>()
+    .SpawnMonster(monsterToSummon, monsterSpawnTransforms[1].position);
+
+        // Deduct mana
+        if (isInfiniteMana) {return;}
 		ChangeMana(0 - manaCost);
 		CleanInput();
 		infiniteManaCounter += Time.deltaTime;

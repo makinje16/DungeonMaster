@@ -19,6 +19,9 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private GameObject[] trapicons;
 
+    [SerializeField]
+    private GameObject manaspellicon;
+
 
     [SerializeField]
     private GameObject gameoverscreen;
@@ -107,6 +110,16 @@ public class UIManager : MonoBehaviour {
             {
                 trapicons[i].GetComponentInChildren<Text>().color = Color.black;
             }
+        }
+
+        //handle infinite mana spell
+        if (dmcontroller.checkInfinteMana())
+        {
+            manaspellicon.GetComponentInChildren<Text>().color = Color.cyan;
+        }
+        else
+        {
+            manaspellicon.GetComponentInChildren<Text>().color = Color.black;
         }
 
         //check if we need to show the game-over screen

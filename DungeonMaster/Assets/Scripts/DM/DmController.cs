@@ -44,6 +44,7 @@ public class DmController : MonoBehaviour {
 	private bool trapToBeActivated;
 	private bool manaLocked;
 	private bool isInfiniteMana;
+    
 	private Vector3 trapLoc;
 	private int trapType;
 	private InputManager inputManager;
@@ -160,7 +161,9 @@ public class DmController : MonoBehaviour {
 		{
 			infiniteMana();
 		}
-	}
+
+        infiniteManaCounter += Time.deltaTime;
+    }
 
 	void SummonMonster () {
 		int manaCost = monsterToSummon * 10;
@@ -184,7 +187,7 @@ public class DmController : MonoBehaviour {
         if (isInfiniteMana) {return;}
 		ChangeMana(0 - manaCost);
 		CleanInput();
-		infiniteManaCounter += Time.deltaTime;
+		
 	}
 
 	void ActivateTrap () {
@@ -215,14 +218,29 @@ public class DmController : MonoBehaviour {
 		Invoke("deactivateManaLock", MANA_LOCK_TIME);
 	}
 
+    public bool checkInfinteMana()
+    {
+        if (INFINITE_MANA_COOLDOWN > infiniteManaCounter)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
 	private void infiniteMana()
 	{
-		if (INFINITE_MANA_COOLDOWN > infiniteManaCounter){return;}
-		ChangeMana(100);
-		manaLocked = true;
-		isInfiniteMana = true;
-		infiniteManaCounter = 0;
-		Invoke("deactivateManaLock", INFINITE_MANA_TIME);
+		if (checkInfinteMana())
+        {
+            ChangeMana(100);
+            manaLocked = true;
+            isInfiniteMana = true;
+            infiniteManaCounter = 0;
+            Invoke("deactivateManaLock", INFINITE_MANA_TIME);
+        }
+		
 	}
 	
 	private void deactivateManaLock()

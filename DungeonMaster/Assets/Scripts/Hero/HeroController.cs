@@ -86,8 +86,8 @@ public class HeroController : MonoBehaviour {
     private float stamina = 30;
     private float maxstamina = 30;
 
-    private const float INV_FRAMES = .3f; 
-    private const float REG_HEAL = 40;
+    private const float INV_FRAMES = .25f; 
+    private const float REG_HEAL = 30;
     private const float MAX_HEAL = 100;
     private const float DASH_COST = 8;
     private const float ATTACK_COST = 2;

@@ -3503,6 +3503,86 @@ Prefab:
       propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1803171871628302, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361379209562434, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1577455023608876, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434001433498246, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1350581204672902, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574719869348874, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923579891585638, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269492589931880, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453422563578576, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060294855532454, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593864592627684, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624815919138980, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853391375732164, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563597049117716, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1829422882949544, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1001977434630990, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702499679197792, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838584907700360, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492718316981034, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250356726504954, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
+      propertyPath: m_TagString
+      value: Rock
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9bd73c212ec4aac4eb204c1e414f35e4, type: 2}
   m_IsPrefabParent: 0
@@ -6506,66 +6586,22 @@ Prefab:
     - target: {fileID: 224867156614459652, guid: 062f40a39fb34274794aaa9113ada181,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224867156614459652, guid: 062f40a39fb34274794aaa9113ada181,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224482670478057214, guid: 062f40a39fb34274794aaa9113ada181,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224482670478057214, guid: 062f40a39fb34274794aaa9113ada181,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82637313669901760, guid: 062f40a39fb34274794aaa9113ada181,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82580499801178112, guid: 062f40a39fb34274794aaa9113ada181,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1745161344747288, guid: 062f40a39fb34274794aaa9113ada181, type: 2}
-      propertyPath: m_TagString
-      value: Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 20024182192587786, guid: 062f40a39fb34274794aaa9113ada181,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20024182192587786, guid: 062f40a39fb34274794aaa9113ada181,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20024182192587786, guid: 062f40a39fb34274794aaa9113ada181,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212026654023627552, guid: 062f40a39fb34274794aaa9113ada181,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212026654023627552, guid: 062f40a39fb34274794aaa9113ada181,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212026654023627552, guid: 062f40a39fb34274794aaa9113ada181,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 062f40a39fb34274794aaa9113ada181, type: 2}

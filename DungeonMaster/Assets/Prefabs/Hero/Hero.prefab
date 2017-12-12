@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 82580499801178112}
   m_Layer: 0
   m_Name: SwordCon
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -271,7 +271,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -437,7 +437,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -517,7 +517,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -659,7 +659,6 @@ MonoBehaviour:
   manaLockSound: {fileID: 8300000, guid: f4f98c933653a694f87fa51c1459435e, type: 3}
   weapon: {fileID: 114240674923896984}
   stuntime: 0.1
-  dashtime: 0.25
 --- !u!114 &114061130664823992
 MonoBehaviour:
   m_ObjectHideFlags: 1

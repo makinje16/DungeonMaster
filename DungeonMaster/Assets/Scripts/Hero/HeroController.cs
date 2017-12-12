@@ -77,8 +77,8 @@ public class HeroController : MonoBehaviour {
     private float dashcount;
     
     private Vector2 dashdirection = Vector2.down;
-    [SerializeField]
-    private float dashtime = .25f;
+
+    private float dashtime = .3f;
 
 
     private float health = 100;
@@ -93,6 +93,8 @@ public class HeroController : MonoBehaviour {
     private const float ATTACK_COST = 2;
     private const float ATTACK_BONUS = 15;
     private bool MaxStamina;
+
+    private RaycastHit2D rc;
     #endregion
     
     public float getHealth()
@@ -122,7 +124,7 @@ public class HeroController : MonoBehaviour {
 
     public void damage(float amt, Vector2 pushdirect)
     {
-        if (!invincible)
+        if (!invincible  && !isdashing)
         {
             invincible = true;
             invincibleCount = INV_FRAMES;
@@ -244,7 +246,13 @@ public class HeroController : MonoBehaviour {
         weapon.boostAttack(ATTACK_BONUS);
     }
 
-	void Update () {
+
+    private void FixedUpdate()
+    {
+        
+    }
+
+    void Update () {
 
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         //make sure we have the input manager
@@ -285,8 +293,22 @@ public class HeroController : MonoBehaviour {
         //handle in-process dashing
         if (isdashing)
         {
-            mspeed = runspeed;
-            transform.Translate(dashdirection * Time.deltaTime * mspeed);
+            bool dodash = true;
+            mspeed = runspeed * 2f;
+            if (rc = Physics2D.Raycast(transform.position + new Vector3(dashdirection.x/2f,dashdirection.y/2f), dashdirection,  ~LayerMask.GetMask("Obstacle")))
+            {
+
+                    if (rc.collider.CompareTag("Rock"))
+                    dodash = false;
+                    Debug.Log("ahhh " + rc.collider.tag);
+                
+                
+            }
+            if (dodash)
+            {
+                transform.Translate(dashdirection * Time.deltaTime * mspeed);
+            }
+
             dashcount -= Time.deltaTime;
             if (dashcount <= 0)
             {

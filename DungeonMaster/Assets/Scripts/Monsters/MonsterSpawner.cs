@@ -16,8 +16,12 @@ public class MonsterSpawner : MonoBehaviour {
 	}
 
 	public void SpawnMonster (int monster, Vector3 position) {
-		GameObject.Instantiate(monsters[monster - 1], position, Quaternion.identity);
-        GameObject.Instantiate(summonefx, position,Quaternion.identity);
+
+        
+		GameObject.Instantiate(monsters[monster], position, Quaternion.identity);
+     
+
+            GameObject.Instantiate(summonefx, position,Quaternion.identity);
 		Debug.Log("Spawned monster" + (monster) + " at zone " + name);
        
     }

@@ -140,11 +140,10 @@ public class DmController : MonoBehaviour {
 		if (inputManager.GetDmNum () != -1) {
 			toBeSummoned = true;
 			monsterToSummon = inputManager.GetDmNum ();
-		} else if (inputManager.GetDmMonsterZone () != "") {
-			if (toBeSummoned) {
-				zoneToSummon = inputManager.GetDmMonsterZone ();
+	
+				
 				SummonMonster ();
-			}
+			
 		} else if (inputManager.GetDmSpell() != -1) {
 			trapToBeActivated = true;
 			trapType = inputManager.GetDmSpell ();
@@ -177,10 +176,12 @@ public class DmController : MonoBehaviour {
 		
 		toBeSummoned = false;
 
-		transform.Find("SpawnPoint" + zoneToSummon.ToUpper()).GetComponent<MonsterSpawner>()
+		transform.Find("SpawnPointQ").GetComponent<MonsterSpawner>()
 			.SpawnMonster(monsterToSummon, monsterSpawnTransforms[0].position);
+        if (monsterToSummon == 2)
+            monsterToSummon = 0;
 
-        transform.Find("SpawnPoint" + zoneToSummon.ToUpper()).GetComponent<MonsterSpawner>()
+            transform.Find("SpawnPointQ").GetComponent<MonsterSpawner>()
     .SpawnMonster(monsterToSummon, monsterSpawnTransforms[1].position);
 
         // Deduct mana

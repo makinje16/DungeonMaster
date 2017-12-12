@@ -103,11 +103,11 @@ public class seekingRangedMonster : seekingMonster {
         
         if (direction.x >= 0)
         {
-			spr.flipX = true;
+			spr.flipX = false;
         }
         else
         {
-			spr.flipX = false;
+			spr.flipX = true;
         }
     }
 }

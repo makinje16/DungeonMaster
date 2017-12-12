@@ -19,6 +19,11 @@ public class seekingRangedMonster : seekingMonster {
     float initialCD = 2.5f;
     float cd;
     bool canAttack = true;
+    bool isAttacking = false;
+
+    [SerializeField]
+    float animationDelay = 2f;
+    float animationTime = 0;
 
     [SerializeField]
     GameObject missile;
@@ -30,6 +35,7 @@ public class seekingRangedMonster : seekingMonster {
         isSeeking = true;
         keepDistance = true;
         cd = initialCD;
+        animationTime = animationDelay;
         distance = Vector2.Distance(hero.transform.position, transform.position);
     }
 	
@@ -43,7 +49,6 @@ public class seekingRangedMonster : seekingMonster {
 	// Update is called once per frame
 	protected override void Move () {
         direction = hero.transform.position - transform.position;
-        //transform.Translate(direction.normalized * Time.deltaTime * movementSpeed);
         RaycastHit2D hit = Physics2D.CircleCast(new Vector2(transform.position.x, transform.position.y), .3f, direction);
         if (hit.collider.gameObject.tag == "Hero") // sees if the monster has line of sight of hero
             canSee = true;
@@ -53,13 +58,25 @@ public class seekingRangedMonster : seekingMonster {
         distance = Vector2.Distance(hero.transform.position, transform.position);
         if (!canAttack)
         {
-            cd -= Time.deltaTime; // recharging
+            cd -= Time.deltaTime; // recharging attack
             if (cd <= 0) // off cd
             {
                 canAttack = true;
                 cd = initialCD;
             }
         }
+        if (isAttacking)
+        {
+            animationTime -= Time.deltaTime;
+            if (animationTime <= 0) // ready to fire
+            {
+                fireProjectile(direction);
+                isAttacking = false;
+                canAttack = false;
+                animationTime = animationDelay;
+            }
+        }
+
         if (canSee)
         {
             if(distance <= minDist) // within distance, stop pursuing and attack
@@ -67,16 +84,15 @@ public class seekingRangedMonster : seekingMonster {
                 gameObject.GetComponent<AIPath>().canMove = false;
                 if (canAttack)
                 {
-                    fireProjectile(direction);
-                    canAttack = false;
+                    isAttacking = true;         
                 }
             }
-            else // keep chasing
+            else if(!isAttacking)// keep chasing
             {
                 gameObject.GetComponent<AIPath>().canMove = true;
             }
         }
-        else // find path to hero
+        else if(!isAttacking)// find path to hero
         {
             gameObject.GetComponent<AIPath>().canMove = true;
         }

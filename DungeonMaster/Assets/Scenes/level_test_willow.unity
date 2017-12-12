@@ -849,24 +849,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114107595770289660, guid: d53ee11959910438a9acca9807332724,
-        type: 2}
-      propertyPath: monsters.Array.data[1]
-      value: 
-      objectReference: {fileID: 1015979511019086, guid: 3c2c5331d54205b46b6936f866789b78,
-        type: 2}
-    - target: {fileID: 114107595770289660, guid: d53ee11959910438a9acca9807332724,
-        type: 2}
-      propertyPath: monsters.Array.data[2]
-      value: 
-      objectReference: {fileID: 1333358097048554, guid: 0b616bb6919e27947a99d079136a1aaa,
-        type: 2}
-    - target: {fileID: 114107595770289660, guid: d53ee11959910438a9acca9807332724,
-        type: 2}
-      propertyPath: monsters.Array.data[0]
-      value: 
-      objectReference: {fileID: 1255968221819068, guid: 39bbe10655dbe334a828110a95b35c8a,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d53ee11959910438a9acca9807332724, type: 2}
   m_IsPrefabParent: 0

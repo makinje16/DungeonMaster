@@ -6,6 +6,9 @@ using UnityEngine;
 abstract public class Monster : MonoBehaviour {
 
     [SerializeField]
+    private GameObject deathefx;
+
+    [SerializeField]
     protected float health = 20;
 
     [SerializeField]
@@ -139,6 +142,7 @@ abstract public class Monster : MonoBehaviour {
         if (health <= 0)
         {
             DropItem();
+            Instantiate(deathefx, transform.position, Quaternion.identity);
             GetComponent<AudioSource>().PlayOneShot(deathSound);
             StartCoroutine(DestroyThis());
             health = 100;

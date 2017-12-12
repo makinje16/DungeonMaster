@@ -211,8 +211,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3ecdc80d464324891f194426a3882c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathefx: {fileID: 1586172648703922, guid: cb4e23b98deac4e4ebcee1db180eef6a, type: 2}
   health: 30
   isSeeking: 0
+  keepDistance: 0
   movementSpeed: 2
   attackPower: 5
   stunDuration: 0.25

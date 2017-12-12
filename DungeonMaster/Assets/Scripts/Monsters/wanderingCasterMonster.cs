@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class wanderingCasterMonster : wanderingMonster {
 	private Animator animator;
-    
+    [SerializeField]
+    private GameObject mydeathefx;
     private float castingCD = 4;
     private bool canCast = false;
     private float castingTime = 2;
@@ -64,6 +65,7 @@ public class wanderingCasterMonster : wanderingMonster {
     {
         if (health <= 0)
         {
+            Instantiate(mydeathefx, transform.position, Quaternion.identity);
             DropItem();
             GetComponent<AudioSource>().PlayOneShot(deathSound);
             StartCoroutine(DestroyThis());

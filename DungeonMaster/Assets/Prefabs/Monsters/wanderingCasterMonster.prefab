@@ -248,8 +248,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 259cc9e9ee997f243a2ddadd824f338a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathefx: {fileID: 1586172648703922, guid: cb4e23b98deac4e4ebcee1db180eef6a, type: 2}
   health: 25
   isSeeking: 0
+  keepDistance: 0
   movementSpeed: 1.25
   attackPower: 5
   stunDuration: 0.25
@@ -262,6 +264,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: dcaadaf77da52e340873aaac8ef5fe5d, type: 3}
   hitSound1: {fileID: 8300000, guid: 7ca40e88284506640be2f1cd77773f67, type: 3}
   hitSound2: {fileID: 8300000, guid: 7123039397577894abb6db7c686fff71, type: 3}
+  mydeathefx: {fileID: 1586172648703922, guid: cb4e23b98deac4e4ebcee1db180eef6a, type: 2}
   spell1: {fileID: 1764023520077504, guid: 5647471b1b94c94499b4a84f8b96119f, type: 2}
   spell2: {fileID: 1879268075402812, guid: 1b0953b538981a74b92630b88b636f7a, type: 2}
   normalSprite: {fileID: 21300000, guid: 22726f84455d79a41982b80bc6bdc7d3, type: 3}

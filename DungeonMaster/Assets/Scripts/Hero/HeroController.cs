@@ -10,13 +10,17 @@ public class HeroController : MonoBehaviour {
 
     private SpriteRenderer sr;
 	private Animator animator;
-/*    [SerializeField]
-    private Sprite up;
+    /*    [SerializeField]
+        private Sprite up;
+        [SerializeField]
+        private Sprite down;
+        [SerializeField]
+        private Sprite left;
+    */
+
+
     [SerializeField]
-    private Sprite down;
-    [SerializeField]
-    private Sprite left;
-*/
+    private GameObject summonefx;
     [SerializeField]
     private Slider HeroHealth;
     [SerializeField]
@@ -81,10 +85,12 @@ public class HeroController : MonoBehaviour {
     private float dashtime = .3f;
 
 
-    private float health = 100;
-    private float maxhealth = 100;
+    private float health = 50;
+    private float maxhealth = 50;
     private float stamina = 30;
     private float maxstamina = 30;
+
+    private int lives = 10;
 
     private const float INV_FRAMES = .25f; 
     private const float REG_HEAL = 30;
@@ -144,13 +150,32 @@ public class HeroController : MonoBehaviour {
             health -= amt;
             if (health <= 0)
             {
-                isdead = true;
-                canmove = false;
-                isstunned = false;
+
+                lives--;
+                if (lives <= 0)
+                {
+                    isdead = true;
+                }
+                resethero();
             }
         }
 
        
+    }
+
+
+    public int getLives()
+    {
+        return lives;
+    }
+
+    private void resethero()
+    {
+        GameObject.Instantiate(summonefx, transform.position, Quaternion.identity);
+        canmove = true;
+        isstunned = false;
+        stamina = maxstamina;
+        health = maxhealth;
     }
 
     public void Debuff(string field, float modifier, float duration)

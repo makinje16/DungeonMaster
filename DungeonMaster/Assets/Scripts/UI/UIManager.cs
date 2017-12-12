@@ -31,6 +31,8 @@ public class UIManager : MonoBehaviour {
 
     [SerializeField]
     private Text winconditiontext;
+    [SerializeField]
+    private Text livestext;
 
     private HeroController hero;
     private DmController dmcontroller;
@@ -72,6 +74,8 @@ public class UIManager : MonoBehaviour {
         }
         heroHealthSlider.maxValue = hero.getMaxHealth();
         heroHealthSlider.value = hero.getHealth();
+
+        livestext.text = "Lives: " + hero.getLives();
 
         //manage hero stamina slider
         if (heroStaminaSlider == null)

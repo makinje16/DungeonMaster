@@ -122,7 +122,20 @@ abstract public class Monster : MonoBehaviour {
     {
 
         if (sr1 == null)
-            sr1 = GetComponentInChildren<SpriteRenderer>();
+        {
+            SpriteRenderer[] res = GetComponentsInChildren<SpriteRenderer>();
+            if (res[0].enabled)
+            {
+                sr1 = res[0];
+            }
+            else
+            {
+                sr1 = res[1];
+            }
+        }
+            
+
+        
         if (health <= 0)
         {
             DropItem();
@@ -132,12 +145,14 @@ abstract public class Monster : MonoBehaviour {
         }
         if (isStunned)// stunned knockback
         {
+            sr1.color = Color.red;
             transform.Translate(stundirection * Time.deltaTime * (movementSpeed + 3));
             stunDuration -= Time.deltaTime;
             if (stunDuration <= 0)
             {
                 stunDuration = .25f;
                 isStunned = false;
+                sr1.color = Color.white;
                 if(isSeeking)
                     gameObject.GetComponent<AIPath>().canMove = true;
             }
@@ -151,14 +166,14 @@ abstract public class Monster : MonoBehaviour {
             if (keepDistance)
                 Move();
             Vector2 movement = GetComponent<Rigidbody2D>().velocity;
-            Debug.Log(movement.x);
+            //Debug.Log(movement.x);
             if (movement.x >= 0)
             {
-                sr1.flipX = false;
+              //  sr1.flipX = false;
             }
             else
             {
-                sr1.flipX = true;
+              //  sr1.flipX = true;
             }
 
 

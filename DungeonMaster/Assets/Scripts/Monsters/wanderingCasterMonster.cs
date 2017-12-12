@@ -73,11 +73,14 @@ public class wanderingCasterMonster : wanderingMonster {
         {
             transform.Translate(stundirection * Time.deltaTime * (movementSpeed + 3));
             stunDuration -= Time.deltaTime;
+            sr.color = Color.red;
             if (stunDuration <= 0)
             {
+                sr.color = Color.white;
                 stunDuration = .25f;
                 isStunned = false;
             }
+            
         }
         else // regular movement
         {

@@ -10,6 +10,10 @@ abstract public class Monster : MonoBehaviour {
 
     [SerializeField]
     protected bool isSeeking = false;
+    [SerializeField]
+    protected bool keepDistance = false;
+
+    
 
     [SerializeField]
     protected float movementSpeed = 2;
@@ -142,9 +146,10 @@ abstract public class Monster : MonoBehaviour {
         {
             Move();
         }
-
-        if (isSeeking)
+        else // Seeking and not Stunned
         {
+            if (keepDistance)
+                Move();
             Vector2 movement = GetComponent<Rigidbody2D>().velocity;
             Debug.Log(movement.x);
             if (movement.x >= 0)
@@ -155,8 +160,11 @@ abstract public class Monster : MonoBehaviour {
             {
                 sr1.flipX = true;
             }
+
+
+
         }
-        
+       
     }
 
     protected virtual void OnTriggerStay2D(Collider2D other)

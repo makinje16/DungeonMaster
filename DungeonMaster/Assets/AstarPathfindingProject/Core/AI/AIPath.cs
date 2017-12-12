@@ -224,7 +224,7 @@ public class AIPath : AIBase {
 		p.Claim(this);
 
 		// Path couldn't be calculated of some reason.
-		// More info in p.errorLog (debug string)
+		// More info in p.errorLog (debugd string)
 		if (p.error) {
 			p.Release(this);
 			return;

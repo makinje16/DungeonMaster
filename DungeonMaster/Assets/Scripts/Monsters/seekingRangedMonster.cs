@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class seekingRangedMonster : seekingMonster {
 
-    private SpriteRenderer sr;
+    private SpriteRenderer spr;
+	private Animator animator;
 
     [SerializeField]
     protected bool canSee = false;
@@ -22,7 +23,7 @@ public class seekingRangedMonster : seekingMonster {
     bool isAttacking = false;
 
     [SerializeField]
-    float animationDelay = 2f;
+    float animationDelay = 1f;
     float animationTime = 0;
 
     [SerializeField]
@@ -31,12 +32,13 @@ public class seekingRangedMonster : seekingMonster {
     void Start () {
         hero = GameObject.FindWithTag("Hero");
         direction = hero.transform.position - transform.position;
-        sr = GetComponentInChildren<SpriteRenderer>();
+        spr = GetComponentInChildren<SpriteRenderer>();
         isSeeking = true;
         keepDistance = true;
         cd = initialCD;
         animationTime = animationDelay;
         distance = Vector2.Distance(hero.transform.position, transform.position);
+		animator = GetComponent<Animator>();
     }
 	
     void fireProjectile(Vector2 dir)
@@ -74,6 +76,7 @@ public class seekingRangedMonster : seekingMonster {
                 isAttacking = false;
                 canAttack = false;
                 animationTime = animationDelay;
+				//animator.SetBool ("IsAttacking", false);
             }
         }
 
@@ -85,6 +88,7 @@ public class seekingRangedMonster : seekingMonster {
                 if (canAttack)
                 {
                     isAttacking = true;         
+					animator.SetBool ("IsAttacking", true);
                 }
             }
             else if(!isAttacking)// keep chasing
@@ -99,11 +103,11 @@ public class seekingRangedMonster : seekingMonster {
         
         if (direction.x >= 0)
         {
-            sr.flipX = false;
+			spr.flipX = true;
         }
         else
         {
-            sr.flipX = true;
+			spr.flipX = false;
         }
     }
 }

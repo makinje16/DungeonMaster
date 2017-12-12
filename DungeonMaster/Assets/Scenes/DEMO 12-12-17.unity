@@ -9098,6 +9098,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114758901291758110, guid: f0c1dfcf027049246a92bb8d2c895523,
+        type: 2}
+      propertyPath: animationDelay
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0c1dfcf027049246a92bb8d2c895523, type: 2}
   m_IsPrefabParent: 0

@@ -305,7 +305,7 @@ MonoBehaviour:
   minDist: 9
   distance: 0
   initialCD: 2.5
-  animationDelay: 2
+  animationDelay: 0.7
   missile: {fileID: 1806280363275696, guid: 5566786bb7b71fa4c81dbf9ee7e99d91, type: 2}
 --- !u!212 &212373715296879112
 SpriteRenderer:

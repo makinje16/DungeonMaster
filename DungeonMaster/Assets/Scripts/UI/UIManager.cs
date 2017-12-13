@@ -13,6 +13,10 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private Image heroInvImg;
 
+
+    [SerializeField]
+    private GameObject infinitemana;
+
     [SerializeField]
     private GameObject[] monstericons;
 
@@ -88,6 +92,18 @@ public class UIManager : MonoBehaviour {
         //manage DM mana slider
         dmManaSlider.maxValue = dmcontroller.GetMaxMana();
         dmManaSlider.value = dmcontroller.GetManaCount();
+
+        //manage DM infinite mana code;
+        if (dmcontroller.getisinfinitemana())
+        {
+            infinitemana.SetActive(true);
+            infinitemana.GetComponentInChildren<Slider>().maxValue = 5f;
+            infinitemana.GetComponentInChildren<Slider>().value = dmcontroller.getmanapercentage();
+        }
+        else
+        {
+            infinitemana.SetActive(false);
+        }
 
 
         //manage DM monster icons

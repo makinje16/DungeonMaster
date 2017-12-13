@@ -32,9 +32,22 @@ public class BasicSword : MonoBehaviour {
             Vector2 pushdirection = collidedMonster.transform.position - transform.position;
             pushdirection.Normalize();
             collidedMonster.Damage(atkpower, pushdirection);
+           
+        }
+
+        if (collision.gameObject.GetComponent<breakableCrate>() != null)
+        {
+            Destroy(collision.gameObject);
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<breakableCrate>() != null)
+        {
+            Destroy(collision.gameObject);
+        }
+    }
 
     // Use this for initialization
     void Start () {

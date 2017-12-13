@@ -120,17 +120,23 @@ public class UIManager : MonoBehaviour {
         }
 
         //manage DM trap icons
-        for (int i = 0; i < trapicons.Length; i++)
+
+        if (dmcontroller.GetManaCount() >= 20)
         {
-            if (dmcontroller.GetManaCount() > ((i *5) + 20))
-            {
-                trapicons[i].GetComponentInChildren<Text>().color = Color.cyan;
-            }
-            else
-            {
-                trapicons[i].GetComponentInChildren<Text>().color = Color.black;
-            }
+            trapicons[0].GetComponentInChildren<Text>().color = Color.cyan;
+        }else{
+            trapicons[0].GetComponentInChildren<Text>().color = Color.black;
         }
+
+        if (dmcontroller.GetManaCount() >= 70)
+        {
+            trapicons[1].GetComponentInChildren<Text>().color = Color.cyan;
+        }
+        else
+        {
+            trapicons[1].GetComponentInChildren<Text>().color = Color.black;
+        }
+
 
         //handle infinite mana spell
         if (dmcontroller.checkInfinteMana())

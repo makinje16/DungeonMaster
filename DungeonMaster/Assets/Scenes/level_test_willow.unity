@@ -849,6 +849,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114472420661961734, guid: d53ee11959910438a9acca9807332724,
+        type: 2}
+      propertyPath: dmTraps.Array.data[1]
+      value: 
+      objectReference: {fileID: 1155662044272392, guid: 36c5923dcaf7ddc44b941e7e4f0b47d7,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d53ee11959910438a9acca9807332724, type: 2}
   m_IsPrefabParent: 0
@@ -2310,11 +2316,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7009e3d8483129e49896d511a033cb6f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &669168762 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1469323375271318, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1529957185}
 --- !u!1001 &687075525
 Prefab:
   m_ObjectHideFlags: 0
@@ -5522,11 +5523,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114855443128784424, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-        type: 2}
-      propertyPath: m_HandleRect
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 114258096183286056, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
         type: 2}
       propertyPath: heroHealthSlider
@@ -5546,30 +5542,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224774843618501104, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0.411
-      objectReference: {fileID: 0}
-    - target: {fileID: 224774843618501104, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1469323375271318, guid: 97728d4238e41fe48b64eb9f6aa2c79c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114258096183286056, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-        type: 2}
-      propertyPath: infinitemana
-      value: 
-      objectReference: {fileID: 669168762}
-    - target: {fileID: 224718549913355302, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -224
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97728d4238e41fe48b64eb9f6aa2c79c, type: 2}

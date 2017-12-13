@@ -168,9 +168,7 @@ public class DmController : MonoBehaviour {
 		} else if (inputManager.GetDmSpell() != -1) {
 			trapToBeActivated = true;
 			trapType = inputManager.GetDmSpell ();
-		} else if (inputManager.GetDmMouseClick () != null && trapToBeActivated && trapType != -1) {
-			trapLoc = inputManager.GetDmMouseClick ().Value;
-			ActivateTrap ();
+            ActivateTrap();
 		}
 
 		// ESC key to cancel any queued actions
@@ -181,6 +179,7 @@ public class DmController : MonoBehaviour {
 		{
 			infiniteMana();
 		}
+
 
         infiniteManaCounter += Time.deltaTime;
     }
@@ -213,8 +212,10 @@ public class DmController : MonoBehaviour {
 	}
 
 	void ActivateTrap () {
-		//Debug.Log ("Activating trap " + trapType + " " + trapLoc);
-		int manaCost = trapType * 5 + 20;
+        //Debug.Log ("Activating trap " + trapType + " " + trapLoc);
+        trapLoc = heroTransform.transform.position;
+		int manaCost = (trapType-1) * 50 + 20;
+        
 
 		if (manaCost > manaCount) {
 			CleanInput ();

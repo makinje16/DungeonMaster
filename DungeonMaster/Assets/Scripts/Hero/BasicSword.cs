@@ -7,6 +7,9 @@ public class BasicSword : MonoBehaviour {
     private SpriteRenderer sr;
     private CircleCollider2D ccollider;
 
+    [SerializeField]
+    private GameObject crateexp;
+
     private float atktime;
     private float atkcount;
 
@@ -38,6 +41,7 @@ public class BasicSword : MonoBehaviour {
         if (collision.gameObject.GetComponent<breakableCrate>() != null)
         {
             Destroy(collision.gameObject);
+            Instantiate(crateexp, collision.transform.position, Quaternion.identity);
         }
     }
 
@@ -46,6 +50,7 @@ public class BasicSword : MonoBehaviour {
         if (collision.gameObject.GetComponent<breakableCrate>() != null)
         {
             Destroy(collision.gameObject);
+            Instantiate(crateexp, collision.transform.position, Quaternion.identity);
         }
     }
 

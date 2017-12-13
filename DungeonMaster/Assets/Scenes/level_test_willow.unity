@@ -4166,6 +4166,12 @@ Prefab:
       propertyPath: m_Radius
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 114240674923896984, guid: 062f40a39fb34274794aaa9113ada181,
+        type: 2}
+      propertyPath: crateexp
+      value: 
+      objectReference: {fileID: 1749369093161510, guid: b12d14b9e35832e4ea99d30c1cee9c96,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 062f40a39fb34274794aaa9113ada181, type: 2}
   m_IsPrefabParent: 0

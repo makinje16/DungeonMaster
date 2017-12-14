@@ -24,4 +24,19 @@ public class seekingMonster : Monster {
 			sr.flipX = true;
 		}
     }
+
+    protected override void Update()
+    {
+        base.Update();
+        direction = hero.transform.position - transform.position;
+        //transform.Translate(direction.normalized * Time.deltaTime * movementSpeed);
+        if (direction.x >= 0)
+        {
+            sr.flipX = false;
+        }
+        else
+        {
+            sr.flipX = true;
+        }
+    }
 }

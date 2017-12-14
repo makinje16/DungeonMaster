@@ -7,6 +7,9 @@ public class BasicSword : MonoBehaviour {
     private SpriteRenderer sr;
     private CircleCollider2D ccollider;
 
+    [SerializeField]
+    private GameObject crateexp;
+
     private float atktime;
     private float atkcount;
 
@@ -32,9 +35,24 @@ public class BasicSword : MonoBehaviour {
             Vector2 pushdirection = collidedMonster.transform.position - transform.position;
             pushdirection.Normalize();
             collidedMonster.Damage(atkpower, pushdirection);
+           
+        }
+
+        if (collision.gameObject.GetComponent<breakableCrate>() != null)
+        {
+            Destroy(collision.gameObject);
+            Instantiate(crateexp, collision.transform.position, Quaternion.identity);
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<breakableCrate>() != null)
+        {
+            Destroy(collision.gameObject);
+            Instantiate(crateexp, collision.transform.position, Quaternion.identity);
+        }
+    }
 
     // Use this for initialization
     void Start () {

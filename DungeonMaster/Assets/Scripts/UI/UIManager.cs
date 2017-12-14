@@ -13,6 +13,10 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private Image heroInvImg;
 
+
+    [SerializeField]
+    private GameObject infinitemana;
+
     [SerializeField]
     private GameObject[] monstericons;
 
@@ -89,6 +93,18 @@ public class UIManager : MonoBehaviour {
         dmManaSlider.maxValue = dmcontroller.GetMaxMana();
         dmManaSlider.value = dmcontroller.GetManaCount();
 
+        //manage DM infinite mana code;
+        if (dmcontroller.getisinfinitemana())
+        {
+            infinitemana.SetActive(true);
+            infinitemana.GetComponentInChildren<Slider>().maxValue = 5f;
+            infinitemana.GetComponentInChildren<Slider>().value = dmcontroller.getmanapercentage();
+        }
+        else
+        {
+            infinitemana.SetActive(false);
+        }
+
 
         //manage DM monster icons
         for (int i = 0; i < monstericons.Length; i++)
@@ -104,17 +120,23 @@ public class UIManager : MonoBehaviour {
         }
 
         //manage DM trap icons
-        for (int i = 0; i < trapicons.Length; i++)
+
+        if (dmcontroller.GetManaCount() >= 20)
         {
-            if (dmcontroller.GetManaCount() > ((i *5) + 20))
-            {
-                trapicons[i].GetComponentInChildren<Text>().color = Color.cyan;
-            }
-            else
-            {
-                trapicons[i].GetComponentInChildren<Text>().color = Color.black;
-            }
+            trapicons[0].GetComponentInChildren<Text>().color = Color.cyan;
+        }else{
+            trapicons[0].GetComponentInChildren<Text>().color = Color.black;
         }
+
+        if (dmcontroller.GetManaCount() >= 70)
+        {
+            trapicons[1].GetComponentInChildren<Text>().color = Color.cyan;
+        }
+        else
+        {
+            trapicons[1].GetComponentInChildren<Text>().color = Color.black;
+        }
+
 
         //handle infinite mana spell
         if (dmcontroller.checkInfinteMana())

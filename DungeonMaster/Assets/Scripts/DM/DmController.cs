@@ -38,6 +38,9 @@ public class DmController : MonoBehaviour {
 		manaRate = newRate;
 	}
 
+
+    private float manapercentage;
+
 	private int monsterToSummon;
 	private string zoneToSummon;
 	private bool toBeSummoned;
@@ -54,10 +57,22 @@ public class DmController : MonoBehaviour {
 	public static float ITEM_DESPAWN_TIME = 5f;
 	public static float MANA_LOCK_TIME = 3f;
 	public const float INFINITE_MANA_TIME = 5f;
-	public const float INFINITE_MANA_COOLDOWN = 120f;
+	public const float INFINITE_MANA_COOLDOWN = 30f;
 
 	private float infiniteManaCounter;
 	
+
+    public bool getisinfinitemana()
+    {
+        return isInfiniteMana;
+    }
+
+    public float getmanapercentage()
+    {
+        return manapercentage;
+    }
+
+
 	// Use this for initialization
 	void Start () {
 		manaCount = 50;
@@ -77,6 +92,12 @@ public class DmController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (manapercentage > 0)
+        {
+            manapercentage -= Time.deltaTime;
+        }
+
+
         float recharge_factor = 1;
         if (GameObject.FindGameObjectsWithTag("Monster").Length == 0)
         {
@@ -147,9 +168,7 @@ public class DmController : MonoBehaviour {
 		} else if (inputManager.GetDmSpell() != -1) {
 			trapToBeActivated = true;
 			trapType = inputManager.GetDmSpell ();
-		} else if (inputManager.GetDmMouseClick () != null && trapToBeActivated && trapType != -1) {
-			trapLoc = inputManager.GetDmMouseClick ().Value;
-			ActivateTrap ();
+            ActivateTrap();
 		}
 
 		// ESC key to cancel any queued actions
@@ -160,6 +179,7 @@ public class DmController : MonoBehaviour {
 		{
 			infiniteMana();
 		}
+
 
         infiniteManaCounter += Time.deltaTime;
     }
@@ -192,8 +212,10 @@ public class DmController : MonoBehaviour {
 	}
 
 	void ActivateTrap () {
-		//Debug.Log ("Activating trap " + trapType + " " + trapLoc);
-		int manaCost = trapType * 5 + 20;
+        //Debug.Log ("Activating trap " + trapType + " " + trapLoc);
+        trapLoc = heroTransform.transform.position;
+		int manaCost = (trapType-1) * 50 + 20;
+        
 
 		if (manaCost > manaCount) {
 			CleanInput ();
@@ -240,6 +262,7 @@ public class DmController : MonoBehaviour {
             isInfiniteMana = true;
             infiniteManaCounter = 0;
             Invoke("deactivateManaLock", INFINITE_MANA_TIME);
+            manapercentage = INFINITE_MANA_TIME;
         }
 		
 	}

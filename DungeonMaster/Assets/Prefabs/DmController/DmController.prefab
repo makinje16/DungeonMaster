@@ -132,7 +132,7 @@ MonoBehaviour:
   maxMana: 0
   dmTraps:
   - {fileID: 1879268075402812, guid: 1b0953b538981a74b92630b88b636f7a, type: 2}
-  - {fileID: 1764023520077504, guid: 5647471b1b94c94499b4a84f8b96119f, type: 2}
+  - {fileID: 1155662044272392, guid: 36c5923dcaf7ddc44b941e7e4f0b47d7, type: 2}
   manaRate: 5
 --- !u!114 &114896216593343000
 MonoBehaviour:

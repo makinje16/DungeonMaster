@@ -18,6 +18,9 @@ public class RoomBuilder : MonoBehaviour {
 
 
     [SerializeField]
+    private Sprite[] floors;
+
+    [SerializeField]
     private int width;
     [SerializeField]
     private int height;
@@ -47,15 +50,16 @@ public class RoomBuilder : MonoBehaviour {
 
     void makefloor()
     {
-        GameObject temprock;
+        GameObject tempfloor;
         for (int yn = 0; yn <=8; yn++)
         {
 
             for (int xn = 0; xn <=8; xn++)
             {
               
-                    temprock = Instantiate(floorbase);
-                    temprock.transform.position = new Vector2(floorstartx + xn*10, floorstarty + yn*10);
+                    tempfloor = Instantiate(floorbase);
+                    tempfloor.transform.position = new Vector2(floorstartx + xn*10, floorstarty + yn*10);
+                tempfloor.GetComponent<SpriteRenderer>().sprite = floors[Random.Range(0, floors.Length)];
                 
             }
 

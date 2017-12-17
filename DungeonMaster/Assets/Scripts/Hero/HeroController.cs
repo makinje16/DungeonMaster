@@ -186,6 +186,7 @@ public class HeroController : MonoBehaviour {
             mspeed *= modifier;
             walkspeed *= modifier;
             runspeed *= modifier;
+            sr.color = new Color(.5f,.4f,1f);
         }
     }
 
@@ -197,6 +198,7 @@ public class HeroController : MonoBehaviour {
             mspeed /= modifier;
             walkspeed /= modifier;
             runspeed /= modifier;
+            sr.color = Color.white;
         }
     }
 

@@ -29,14 +29,14 @@ public class seekingMonster : Monster {
     {
         base.Update();
         direction = hero.transform.position - transform.position;
-        //transform.Translate(direction.normalized * Time.deltaTime * movementSpeed);
+        //sometransform.Translate(direction.normalized * Time.deltaTime * movementSpeed);
         if (direction.x >= 0)
         {
-           // sr.flipX = false;
+            sr.flipX = false;
         }
         else
         {
-           // sr.flipX = true;
+            sr.flipX = true;
         }
     }
 }

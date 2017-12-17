@@ -32,11 +32,11 @@ public class seekingMonster : Monster {
         //sometransform.Translate(direction.normalized * Time.deltaTime * movementSpeed);
         if (direction.x >= 0)
         {
-            sr.flipX = false;
+           // sr.flipX = false;
         }
         else
         {
-            sr.flipX = true;
+            //sr.flipX = true;
         }
     }
 }

@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slow: {fileID: 1879268075402812, guid: 1b0953b538981a74b92630b88b636f7a, type: 2}
-  crate: {fileID: 1866703176887988, guid: 53d784ef2c9b6b74c8f30581843c9961, type: 2}
+  crate: {fileID: 1116903425385974, guid: 3888dcc538619c84bbc30c278c18ee6c, type: 2}
   seek: {fileID: 1333358097048554, guid: 0b616bb6919e27947a99d079136a1aaa, type: 2}
   sprint: {fileID: 1255968221819068, guid: 39bbe10655dbe334a828110a95b35c8a, type: 2}
   melee: {fileID: 1015979511019086, guid: 3c2c5331d54205b46b6936f866789b78, type: 2}

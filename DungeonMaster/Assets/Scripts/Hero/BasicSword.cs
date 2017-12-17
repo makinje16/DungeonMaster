@@ -45,7 +45,7 @@ public class BasicSword : MonoBehaviour {
             Instantiate(crateexp, collision.transform.position, Quaternion.identity);
 
             // recalculate bounds when crates break
-            AstarPath astarscript = GameObject.FindGameObjectWithTag("A*").GetComponent<AstarPath>();
+            AstarPath astarscript = GameObject.FindGameObjectWithTag("A*").GetComponentInChildren<AstarPath>();
             Bounds b = new Bounds();
             b.center = collision.gameObject.GetComponent<BoxCollider2D>().transform.position;
             b.size = collision.gameObject.GetComponent<BoxCollider2D>().transform.position;

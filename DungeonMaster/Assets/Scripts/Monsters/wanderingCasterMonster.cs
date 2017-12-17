@@ -47,7 +47,7 @@ public class wanderingCasterMonster : wanderingMonster {
 		}
     }
 
-    protected void CastSpell()
+    public void CastSpell()
     {
         if (Random.Range(0.0f, 1.0f) <= 0.5)
         {

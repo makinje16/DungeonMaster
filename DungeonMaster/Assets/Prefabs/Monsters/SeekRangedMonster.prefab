@@ -298,9 +298,9 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   dropableItems: []
   spawnSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  hitSound1: {fileID: 0}
-  hitSound2: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: dcaadaf77da52e340873aaac8ef5fe5d, type: 3}
+  hitSound1: {fileID: 8300000, guid: 7ca40e88284506640be2f1cd77773f67, type: 3}
+  hitSound2: {fileID: 8300000, guid: 7123039397577894abb6db7c686fff71, type: 3}
   canSee: 0
   minDist: 9
   distance: 0

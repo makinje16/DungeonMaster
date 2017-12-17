@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212983702195148910}
   - component: {fileID: 61801643386476786}
   - component: {fileID: 114771974940378010}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Crate
   m_TagString: Rock
   m_Icon: {fileID: 0}

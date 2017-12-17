@@ -25,6 +25,7 @@ public class BasicSword : MonoBehaviour {
     private float STRONG_ATTACK = 30f;
     private float bonusAttack;
     private const float BONUS_ATTACK_TIME = 15f;
+
     
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,6 +43,14 @@ public class BasicSword : MonoBehaviour {
         {
             Destroy(collision.gameObject);
             Instantiate(crateexp, collision.transform.position, Quaternion.identity);
+
+            // recalculate bounds when crates break
+            AstarPath astarscript = GameObject.FindGameObjectWithTag("A*").GetComponent<AstarPath>();
+            Bounds b = new Bounds();
+            b.center = collision.gameObject.GetComponent<BoxCollider2D>().transform.position;
+            b.size = collision.gameObject.GetComponent<BoxCollider2D>().transform.position;
+            astarscript.UpdateGraphs(b);
+            //GameObject.FindGameObjectWithTag("A*").GetComponent<AstarPath>().UpdateGraphs(b);
         }
     }
 
@@ -60,7 +69,8 @@ public class BasicSword : MonoBehaviour {
         ccollider = GetComponent<CircleCollider2D>();
         sr.enabled = false;
         ccollider.enabled = false;
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

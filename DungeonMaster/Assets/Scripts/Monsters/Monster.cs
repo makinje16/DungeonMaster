@@ -49,6 +49,8 @@ abstract public class Monster : MonoBehaviour {
 
     private Vector3 lastHitDirection;
 
+
+
     private SpriteRenderer sr1;
 
     
@@ -123,7 +125,7 @@ abstract public class Monster : MonoBehaviour {
 
     protected virtual void Update()
     {
-
+     
         if (sr1 == null)
         {
             SpriteRenderer[] res = GetComponentsInChildren<SpriteRenderer>();
@@ -169,15 +171,15 @@ abstract public class Monster : MonoBehaviour {
         {
             if (keepDistance)
                 Move();
-            Vector2 movement = GetComponent<Rigidbody2D>().velocity;
-            //Debug.Log(movement.x);
+            Vector2 movement =  hero.transform.position - transform.position;
+            Debug.Log(movement.x);
             if (movement.x >= 0)
             {
-              //  sr1.flipX = false;
+                sr1.flipX = false;
             }
             else
             {
-              //  sr1.flipX = true;
+                sr1.flipX = true;
             }
 
 

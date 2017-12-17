@@ -54,6 +54,8 @@ public class BasicSword : MonoBehaviour {
         }
     }
 
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<breakableCrate>() != null)
@@ -128,7 +130,7 @@ public class BasicSword : MonoBehaviour {
         atkpower = power;
         atkcount = time;
         transform.localPosition = direct;
-        //sr.enabled = true;
+     //   sr.enabled = true;
         ccollider.enabled = true;
         GetComponent<AudioSource>().Play();
     }

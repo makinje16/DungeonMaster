@@ -11,7 +11,10 @@ public class DMSlowTrap : MonoBehaviour {
     private GameObject crate;
 
     [SerializeField]
-    private GameObject ranged;
+    private GameObject seek;
+
+    [SerializeField]
+    private GameObject sprint;
 
     [SerializeField]
     private GameObject melee;
@@ -63,20 +66,12 @@ public class DMSlowTrap : MonoBehaviour {
         Instantiate(slow, new Vector3(origin.x, origin.y), Quaternion.identity); // slow
 
         // summon monsters
-        Instantiate(ranged, new Vector3(origin.x - offset, origin.y - offset), Quaternion.identity);
-        Instantiate(ranged, new Vector3(origin.x - offset, origin.y + offset), Quaternion.identity);
-        Instantiate(ranged, new Vector3(origin.x + offset, origin.y - offset), Quaternion.identity);
-        Instantiate(ranged, new Vector3(origin.x + offset, origin.y + offset), Quaternion.identity);
+        Instantiate(seek, new Vector3(origin.x - offset, origin.y - offset), Quaternion.identity);
+        Instantiate(melee, new Vector3(origin.x - offset, origin.y + offset), Quaternion.identity);
+        Instantiate(melee, new Vector3(origin.x + offset, origin.y - offset), Quaternion.identity);
+        Instantiate(sprint, new Vector3(origin.x + offset, origin.y + offset), Quaternion.identity);
 
-        wanderingCasterMonster a = Instantiate(melee, new Vector3(origin.x - offset, origin.y), Quaternion.identity).GetComponent<wanderingCasterMonster>();
-        wanderingCasterMonster b = Instantiate(melee, new Vector3(origin.x + offset, origin.y), Quaternion.identity).GetComponent<wanderingCasterMonster>();
-        wanderingCasterMonster c = Instantiate(melee, new Vector3(origin.x, origin.y - offset), Quaternion.identity).GetComponent<wanderingCasterMonster>();
-        wanderingCasterMonster d = Instantiate(melee, new Vector3(origin.x, origin.y + offset), Quaternion.identity).GetComponent<wanderingCasterMonster>();
 
-        a.CastSpell();
-        b.CastSpell();
-        c.CastSpell();
-        d.CastSpell();
 
 
         AstarPath astarscript = GameObject.FindGameObjectWithTag("A*").GetComponent<AstarPath>();

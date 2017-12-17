@@ -6721,6 +6721,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1962273625809682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4629241058833948}
+  - component: {fileID: 114124084151505066}
+  m_Layer: 0
+  m_Name: RoomCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1973944188772924
 GameObject:
   m_ObjectHideFlags: 1
@@ -8588,6 +8604,7 @@ Transform:
   - {fileID: 4829553778049240}
   - {fileID: 4188548181890726}
   - {fileID: 4562194603060598}
+  - {fileID: 4629241058833948}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8780,7 +8797,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032860733067364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.84, y: -8.724009, z: 0}
+  m_LocalPosition: {x: 1.44, y: -8.724009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4188548181890726}
@@ -10651,6 +10668,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4059047207510930}
   m_RootOrder: 210
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4629241058833948
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962273625809682}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4251182252971318}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4630126972602790
 Transform:
@@ -19361,6 +19391,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40a64b8bd330e44686d5dc85e8cc746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114124084151505066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962273625809682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a190fc8f4fd70de469165ec0d160e3b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dobuild: 0
+  dofloor: 1
+  rockbase: {fileID: 1461102212270468, guid: 4b65462b589b1b846a7e18d3da7a80eb, type: 2}
+  floorbase: {fileID: 1032584775899562, guid: 0ea4c5a2f02b72147a37211a8117cbc7, type: 2}
+  floors:
+  - {fileID: 21300000, guid: ea901737c64ef9f428d139962d732b7f, type: 3}
+  - {fileID: 21300000, guid: 8dc9ed99c7c84d84d963ab82a45c2723, type: 3}
+  - {fileID: 21300000, guid: 146875c6e4896344baaa043b07c1fdaa, type: 3}
+  - {fileID: 21300000, guid: da33443f85749c343999c0a5d87b27db, type: 3}
+  - {fileID: 21300000, guid: ea901737c64ef9f428d139962d732b7f, type: 3}
+  width: 18
+  height: 10
+  startx: -9
+  starty: -5
+  floorstartx: -40
+  floorstarty: -40
 --- !u!114 &114124975407871344
 MonoBehaviour:
   m_ObjectHideFlags: 1

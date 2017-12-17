@@ -172,7 +172,7 @@ abstract public class Monster : MonoBehaviour {
             if (keepDistance)
                 Move();
             Vector2 movement =  hero.transform.position - transform.position;
-            Debug.Log(movement.x);
+            //Debug.Log(movement.x);
             if (movement.x >= 0)
             {
                 sr1.flipX = false;

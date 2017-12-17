@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212948246709658966}
   - component: {fileID: 61447398325903592}
   - component: {fileID: 114402383366018746}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: rockPrefab
   m_TagString: Rock
   m_Icon: {fileID: 0}

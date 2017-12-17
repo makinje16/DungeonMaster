@@ -319,13 +319,16 @@ public class HeroController : MonoBehaviour {
         if (isdashing)
         {
             bool dodash = true;
-            mspeed = runspeed * 2f;
-
-            if (rc = Physics2D.Raycast(transform.position + new Vector3(dashdirection.x/2f,dashdirection.y/2f), dashdirection,runspeed, ~LayerMask.GetMask("Obstacle")))
+            mspeed = runspeed * 1.5f;
+            Debug.DrawRay(transform.position + new Vector3(dashdirection.x / 2f, dashdirection.y / 2f), dashdirection);
+            if (rc = Physics2D.Raycast(transform.position + new Vector3(dashdirection.x / 2f, dashdirection.y / 2f), dashdirection, mspeed, ~LayerMask.GetMask("Obstacle")))
             {
 
                     if (rc.collider.CompareTag("Rock"))
+                {
                     dodash = false;
+                }
+                    
 
                     Debug.Log("attempted to dash, collided with " + rc.collider.tag);
                 

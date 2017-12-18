@@ -26,6 +26,9 @@ public class BasicSword : MonoBehaviour {
     private float bonusAttack;
     private const float BONUS_ATTACK_TIME = 15f;
 
+    [SerializeField]
+    private AudioClip cratebreak;
+
     
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,6 +45,7 @@ public class BasicSword : MonoBehaviour {
         if (collision.gameObject.GetComponent<breakableCrate>() != null)
         {
             Destroy(collision.gameObject);
+            GetComponent<AudioSource>().PlayOneShot(cratebreak);
             Instantiate(crateexp, collision.transform.position, Quaternion.identity);
 
             // recalculate bounds when crates break

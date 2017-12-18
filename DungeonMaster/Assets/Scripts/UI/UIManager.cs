@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour {
     private Image heroInvImg;
 
 
+    private gamecontroller gc;
+    private gamecontroller.DMAbilities currentabilities;
+
     [SerializeField]
     private GameObject infinitemana;
 
@@ -71,6 +74,35 @@ public class UIManager : MonoBehaviour {
           dmcontroller = GameObject.FindGameObjectWithTag("DMController").GetComponent<DmController>();
         }
 
+        //get a reference to gamecontroller
+        if (gc == null)
+        {
+            gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<gamecontroller>();
+            currentabilities = gc.getAbilities();
+            if (!gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.meleemonsters))
+            {
+               
+                monstericons[0].SetActive(false);
+                monstericons[1].SetActive(false);
+            }
+            if (!gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.specialmonsters))
+            {
+                
+                monstericons[2].SetActive(false);
+                monstericons[3].SetActive(false);
+            }
+            if (!gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.spells))
+            {
+                trapicons[0].SetActive(false);
+                trapicons[1].SetActive(false);
+            }
+            if (!gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.infintemana))
+            {
+                manaspellicon.SetActive(false);
+               
+            }
+        }
+
         //manage hero health slider
         if (heroHealthSlider == null)
         {
@@ -109,7 +141,7 @@ public class UIManager : MonoBehaviour {
         //manage DM monster icons
         for (int i = 0; i < monstericons.Length; i++)
         {
-            if (dmcontroller.GetManaCount() > ((i + 1) * 10))
+            if (dmcontroller.GetManaCount() > ((i + 1) * 10) || dmcontroller.getisinfinitemana())
             {
                 monstericons[i].GetComponentInChildren<Text>().color = Color.cyan;
             }

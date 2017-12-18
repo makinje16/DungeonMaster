@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class DmController : MonoBehaviour {
 
+    private gamecontroller.DMAbilities currentabilities;
+
+    private gamecontroller gc;
+
 	private float manaCount;
 
 	public float GetManaCount () {
@@ -73,8 +77,10 @@ public class DmController : MonoBehaviour {
     }
 
 
-	// Use this for initialization
-	void Start () {
+
+
+    // Use this for initialization
+    void Start () {
 		manaCount = 50;
 		maxMana = 100;
 		//every two seconds
@@ -92,6 +98,13 @@ public class DmController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (gc == null)
+        {
+            gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<gamecontroller>();
+            currentabilities = gc.getAbilities();
+        }
+
         if (manapercentage > 0)
         {
             manapercentage -= Time.deltaTime;
@@ -162,13 +175,20 @@ public class DmController : MonoBehaviour {
 			toBeSummoned = true;
 			monsterToSummon = inputManager.GetDmNum ();
 	
+			if (( (monsterToSummon < 3) && (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.meleemonsters))) || ((monsterToSummon >= 3) && (gamecontroller.HasFlag(currentabilities,gamecontroller.DMAbilities.specialmonsters))))
+            {
+                SummonMonster();
+            }
 				
-				SummonMonster ();
 			
 		} else if (inputManager.GetDmSpell() != -1) {
 			trapToBeActivated = true;
 			trapType = inputManager.GetDmSpell ();
-            ActivateTrap();
+            if (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.spells))
+            {
+                ActivateTrap();
+            }
+            
 		}
 
 		// ESC key to cancel any queued actions
@@ -177,7 +197,11 @@ public class DmController : MonoBehaviour {
 		}
 		else if (Input.GetKeyDown(KeyCode.L))
 		{
-			infiniteMana();
+            if (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.infintemana))
+            {
+                infiniteMana();
+            }
+			
 		}
 
 
@@ -188,7 +212,7 @@ public class DmController : MonoBehaviour {
 		int manaCost = monsterToSummon * 10;
 
 		// Not enough mana!
-		if (manaCost > manaCount) {
+		if (manaCost > manaCount && !isInfiniteMana) {
 			// UI warning
 			CleanInput ();
 			return;

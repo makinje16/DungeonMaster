@@ -9,11 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/splash.unity
     guid: 31089fa671c5a65449f7dad7407ac845
   - enabled: 1
+    path: Assets/Scenes/LEVEL_1 Instructions.unity
+    guid: 266158c9c68a32e47a1898d934f71442
+  - enabled: 1
     path: Assets/Scenes/inprogress/level0.unity
     guid: 73291d3d2680b814a97c53079c42f0da
   - enabled: 1
+    path: Assets/Scenes/LEVEL_2 Instructions.unity
+    guid: 25208cdd81bead64baf5c8d4a6f649f4
+  - enabled: 1
     path: Assets/Scenes/inprogress/level1.unity
     guid: d5f2d6833f1f2d946af5502eaf5864f9
+  - enabled: 1
+    path: Assets/Scenes/LEVEL_3 Instructions.unity
+    guid: 5fbb79e37b102ee43bfc85f62fe1344c
   - enabled: 1
     path: Assets/Scenes/inprogress/level2.unity
     guid: 736413e4e1559e043a39f8780387b12b

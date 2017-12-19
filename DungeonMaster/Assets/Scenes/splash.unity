@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 1244322865}
   - component: {fileID: 1244322864}
   - component: {fileID: 1244322867}
+  - component: {fileID: 1244322868}
   m_Layer: 5
   m_Name: HeroSprite
   m_TagString: Untagged
@@ -522,5 +523,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3bfa4452d4b408c48867041b07db0a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1244322868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244322863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbb401371cea56a4f916c444806ffaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

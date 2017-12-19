@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
     [SerializeField]
@@ -62,6 +63,14 @@ public class UIManager : MonoBehaviour {
     public void herowin()
     {
         herowinscreen.SetActive(true);
+        Invoke("nextlevel", 3f);
+    }
+
+    private void nextlevel()
+    {
+        int ns = SceneManager.GetActiveScene().buildIndex + 1;
+        if (ns == 7) ns = 0;
+        SceneManager.LoadScene(ns);
     }
 
     // Update is called once per frame
@@ -189,6 +198,7 @@ public class UIManager : MonoBehaviour {
         if (hero.getDead())
         {
             gameoverscreen.SetActive(true);
+            Invoke("nextlevel", 3f);
         }
 
 

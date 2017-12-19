@@ -8,14 +8,14 @@ public class gamecontroller : MonoBehaviour {
 
 
     private int monstersKilled;
-    private int monsterKillsNeeded = 8;
+    private int monsterKillsNeeded = 10;
 
     private float time;
     private UIManager _uiManager;
     private float timeNeeded = 60;
 
     private int monstersSummoned;
-    private int monsterSummonsNeeded = 8;
+    private int monsterSummonsNeeded = 10;
 
 
     // DM spells enabled?

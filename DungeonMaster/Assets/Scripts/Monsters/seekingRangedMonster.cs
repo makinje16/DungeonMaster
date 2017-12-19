@@ -83,6 +83,7 @@ public class seekingRangedMonster : seekingMonster {
         {
             if(distance <= minDist) // within distance, stop pursuing and attack
             {
+				animator.SetBool ("isMoving", false);
                 gameObject.GetComponent<AIPath>().canMove = false;
                 if (canAttack)
                 {
@@ -92,7 +93,8 @@ public class seekingRangedMonster : seekingMonster {
                 }
             }
             else if(!isAttacking)// keep chasing
-            {
+			{
+				animator.SetBool ("isMoving", true);
                 gameObject.GetComponent<AIPath>().canMove = true;
             }
         }

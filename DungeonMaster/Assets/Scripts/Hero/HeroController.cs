@@ -93,6 +93,7 @@ public class HeroController : MonoBehaviour {
     private float stamina = 30;
     private float maxstamina = 30;
 
+    [SerializeField]
     private int lives = 10;
 
     private const float INV_FRAMES = .25f; 

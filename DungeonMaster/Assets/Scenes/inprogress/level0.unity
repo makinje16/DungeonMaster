@@ -438,6 +438,11 @@ Prefab:
       propertyPath: astarscript
       value: 
       objectReference: {fileID: 1816859372}
+    - target: {fileID: 114040242620943630, guid: 062f40a39fb34274794aaa9113ada181,
+        type: 2}
+      propertyPath: lives
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 062f40a39fb34274794aaa9113ada181, type: 2}
   m_IsPrefabParent: 0

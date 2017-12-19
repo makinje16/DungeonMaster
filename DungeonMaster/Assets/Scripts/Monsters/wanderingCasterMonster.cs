@@ -21,6 +21,7 @@ public class wanderingCasterMonster : wanderingMonster {
 
     [SerializeField]
     private Sprite castingSprite;
+    private Color mybasecolor;
 
 
     private SpriteRenderer sr;
@@ -29,7 +30,10 @@ public class wanderingCasterMonster : wanderingMonster {
 	void Start () {
         movementSpeed = 1.25f;
         sr = GetComponentInChildren<SpriteRenderer>();
-		animator = GetComponent<Animator> ();
+        float myc = Random.Range(.6f, 1f);
+        mybasecolor = new Color(myc, myc, myc);
+        sr.color = mybasecolor;
+        animator = GetComponent<Animator> ();
         hero = GameObject.FindWithTag("Hero");
         direction = hero.transform.position - transform.position;
         Invoke("ChangeDirection", Random.Range(2, 5));
@@ -78,7 +82,7 @@ public class wanderingCasterMonster : wanderingMonster {
             sr.color = Color.red;
             if (stunDuration <= 0)
             {
-                sr.color = Color.white;
+                sr.color = mybasecolor;
                 stunDuration = .25f;
                 isStunned = false;
             }

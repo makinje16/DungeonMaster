@@ -49,11 +49,13 @@ abstract public class Monster : MonoBehaviour {
 
     private Vector3 lastHitDirection;
 
+    private Color basecolor;
+
 
 
     private SpriteRenderer sr1;
 
-    
+
 
     // Update is called once per frame
     public void Damage(float attack, Vector2 hitdirection)
@@ -125,7 +127,7 @@ abstract public class Monster : MonoBehaviour {
 
     protected virtual void Update()
     {
-     
+
         if (sr1 == null)
         {
             SpriteRenderer[] res = GetComponentsInChildren<SpriteRenderer>();
@@ -137,8 +139,10 @@ abstract public class Monster : MonoBehaviour {
             {
                 sr1 = res[1];
             }
+            float myc = Random.Range(.5f, 1f);
+            basecolor = new Color(myc, myc, myc);
         }
-            
+
 
         if (gc == null)
         {
@@ -164,17 +168,19 @@ abstract public class Monster : MonoBehaviour {
             {
                 stunDuration = .25f;
                 isStunned = false;
-                sr1.color = Color.white;
+                sr1.color = basecolor;
                 if(isSeeking)
                     gameObject.GetComponent<AIPath>().canMove = true;
             }
         }
         else if (!isSeeking)// regular movement
         {
+            sr1.color = basecolor;
             Move();
         }
         else // Seeking and not Stunned
         {
+            sr1.color = basecolor;
             if (keepDistance)
                 Move();
             Vector2 movement =  hero.transform.position - transform.position;

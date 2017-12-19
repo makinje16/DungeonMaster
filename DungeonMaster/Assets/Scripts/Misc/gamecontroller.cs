@@ -112,7 +112,6 @@ public class gamecontroller : MonoBehaviour {
                     herowin();
                 }
                 break;
-                break;
             case 2:
                 time -= Time.deltaTime;
                 _uiManager.updateWinConditionText("Time Left: " + Mathf.FloorToInt(time));

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class spelldmgMissile : MonoBehaviour
 {
+	[SerializeField]
+	GameObject explEffect;
 
     [SerializeField]
     Vector2 direction = Vector2.up;
@@ -38,11 +40,13 @@ public class spelldmgMissile : MonoBehaviour
         {
             Vector2 pushdirection = other.gameObject.transform.position - transform.position;
             pushdirection.Normalize();
-            other.gameObject.GetComponent<HeroController>().damage(attackPower, pushdirection * 0.4f);
+			other.gameObject.GetComponent<HeroController>().damage(attackPower, pushdirection * 0.4f);
+			GameObject.Instantiate (explEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else
-        {
+		{
+			GameObject.Instantiate (explEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

@@ -56,3 +56,4 @@ MonoBehaviour:
   seek: {fileID: 1333358097048554, guid: 0b616bb6919e27947a99d079136a1aaa, type: 2}
   sprint: {fileID: 1255968221819068, guid: 39bbe10655dbe334a828110a95b35c8a, type: 2}
   melee: {fileID: 1015979511019086, guid: 3c2c5331d54205b46b6936f866789b78, type: 2}
+  ranged: {fileID: 1603392526163842, guid: f0c1dfcf027049246a92bb8d2c895523, type: 2}

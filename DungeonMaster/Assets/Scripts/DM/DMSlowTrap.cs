@@ -19,6 +19,9 @@ public class DMSlowTrap : MonoBehaviour {
     [SerializeField]
     private GameObject melee;
 
+    [SerializeField]
+    private GameObject ranged;
+
     private int num_explosions = 20;
     private int cur_explosions = 0;
 
@@ -70,6 +73,8 @@ public class DMSlowTrap : MonoBehaviour {
         Instantiate(melee, new Vector3(origin.x - offset, origin.y + offset), Quaternion.identity);
         Instantiate(melee, new Vector3(origin.x + offset, origin.y - offset), Quaternion.identity);
         Instantiate(sprint, new Vector3(origin.x + offset, origin.y + offset), Quaternion.identity);
+        Instantiate(ranged, new Vector3(origin.x + offset, origin.y), Quaternion.identity);
+        Instantiate(ranged, new Vector3(origin.x - offset, origin.y), Quaternion.identity);
 
 
 

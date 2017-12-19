@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour {
     private HeroController hero;
     private DmController dmcontroller;
 
-
+    bool over = false;
 
 
     
@@ -62,8 +62,13 @@ public class UIManager : MonoBehaviour {
 
     public void herowin()
     {
-        herowinscreen.SetActive(true);
-        Invoke("nextlevel", 3f);
+        if (!over)
+        {
+            herowinscreen.SetActive(true);
+            over = true;
+            Invoke("nextlevel", 3f);
+        }
+      
     }
 
     private void nextlevel()
@@ -167,14 +172,14 @@ public class UIManager : MonoBehaviour {
 
         //manage DM trap icons
 
-        if (dmcontroller.GetManaCount() >= 65)
+        if (dmcontroller.GetManaCount() >= 55)
         {
             trapicons[0].GetComponentInChildren<Text>().color = Color.cyan;
         }else{
             trapicons[0].GetComponentInChildren<Text>().color = Color.black;
         }
 
-        if (dmcontroller.GetManaCount() >= 65)
+        if (dmcontroller.GetManaCount() >= 55)
         {
             trapicons[1].GetComponentInChildren<Text>().color = Color.cyan;
         }
@@ -197,8 +202,13 @@ public class UIManager : MonoBehaviour {
         //check if we need to show the game-over screen
         if (hero.getDead())
         {
-            gameoverscreen.SetActive(true);
-            Invoke("nextlevel", 3f);
+            if (!over)
+            {
+                gameoverscreen.SetActive(true);
+                over = true;
+                Invoke("nextlevel", 3f);
+            }
+           
         }
 
 

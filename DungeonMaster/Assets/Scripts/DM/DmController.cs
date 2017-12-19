@@ -248,7 +248,7 @@ public class DmController : MonoBehaviour {
 	void ActivateTrap () {
         //Debug.Log ("Activating trap " + trapType + " " + trapLoc);
         trapLoc = heroTransform.transform.position;
-		int manaCost = 65;
+		int manaCost = 55;
         
 
 		if (manaCost > manaCount) {

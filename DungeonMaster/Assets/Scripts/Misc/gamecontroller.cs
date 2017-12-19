@@ -15,7 +15,7 @@ public class gamecontroller : MonoBehaviour {
     private float timeNeeded = 60;
 
     private int monstersSummoned;
-    private int monsterSummonsNeeded;
+    private int monsterSummonsNeeded = 8;
 
 
     // DM spells enabled?
@@ -98,7 +98,7 @@ public class gamecontroller : MonoBehaviour {
         switch (level_num)
         {
             case 0:
-                _uiManager.updateWinConditionText("Monsters killed: " + monstersKilled + "/" + monsterKillsNeeded);
+                _uiManager.updateWinConditionText("Monsters summoned: " + monstersSummoned + "/" + monsterSummonsNeeded + "\nMonsters killed: " + monstersKilled + "/" + monsterKillsNeeded);
                 if (monstersKilled >= monsterKillsNeeded)
                 {
                     herowin();
@@ -131,6 +131,11 @@ public class gamecontroller : MonoBehaviour {
 
         }
         
+    }
+
+    public void summontwo()
+    {
+        monstersSummoned += 2;
     }
 
 

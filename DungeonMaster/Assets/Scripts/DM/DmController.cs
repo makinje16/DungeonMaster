@@ -232,6 +232,8 @@ public class DmController : MonoBehaviour {
         if (isInfiniteMana) {return;}
 		ChangeMana(0 - manaCost);
 		CleanInput();
+
+        gc.summontwo();
 		
 	}
 

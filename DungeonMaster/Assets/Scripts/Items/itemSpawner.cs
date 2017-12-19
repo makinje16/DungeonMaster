@@ -67,7 +67,7 @@ public class itemSpawner : MonoBehaviour
 		}
 
 		if (!_winCondition.isItems()) return;
-
+/*
 		locations = addLocationSpots(ref locations, _winCondition.itemsToCollect);
 		
 		//if itemsToCollect then spawn them in... can be on other items.
@@ -81,6 +81,7 @@ public class itemSpawner : MonoBehaviour
 			
 			Instantiate(collectible, new Vector3(xlocation, ylocation), Quaternion.identity);
 		}
+        */
 		Debug.Log("FinishedItems");
 
 	}

@@ -8,16 +8,13 @@ public class gamecontroller : MonoBehaviour {
 
 
     private int monstersKilled;
-    [SerializeField]
     private int monsterKillsNeeded = 8;
 
     private float time;
     private UIManager _uiManager;
-    [SerializeField]
     private float timeNeeded = 60;
 
     private int monstersSummoned;
-    [SerializeField]
     private int monsterSummonsNeeded;
 
 
@@ -84,6 +81,10 @@ public class gamecontroller : MonoBehaviour {
                 current_abilities = SetFlag(current_abilities, DMAbilities.infintemana);
                 break;
             default:
+                current_abilities = SetFlag(current_abilities, DMAbilities.meleemonsters);
+                current_abilities = SetFlag(current_abilities, DMAbilities.specialmonsters);
+                current_abilities = SetFlag(current_abilities, DMAbilities.spells);
+                current_abilities = SetFlag(current_abilities, DMAbilities.infintemana);
                 break;
         }
     }
@@ -104,6 +105,13 @@ public class gamecontroller : MonoBehaviour {
                 }
                 break;
             case 1:
+                time -= Time.deltaTime;
+                _uiManager.updateWinConditionText("Time Left: " + Mathf.FloorToInt(time));
+                if (time <= 0)
+                {
+                    herowin();
+                }
+                break;
                 break;
             case 2:
                 time -= Time.deltaTime;
@@ -113,6 +121,15 @@ public class gamecontroller : MonoBehaviour {
                     herowin();
                 }
                 break;
+            default:
+                time -= Time.deltaTime;
+                _uiManager.updateWinConditionText("Time Left: " + Mathf.FloorToInt(time));
+                if (time <= 0)
+                {
+                    herowin();
+                }
+                break;
+
         }
         
     }
@@ -128,6 +145,20 @@ public class gamecontroller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         updateabilities();
+        switch (level_num)
+        {
+            case 0:
+                break;
+            case 1:
+                timeNeeded = 30f;
+                break;
+            case 2:
+                timeNeeded = 120f;
+                break;
+            default:
+                break;
+        }
+
         time = timeNeeded;
 	}
 	

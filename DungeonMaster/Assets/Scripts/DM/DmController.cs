@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class DmController : MonoBehaviour {
 
     private gamecontroller.DMAbilities currentabilities;
+    [SerializeField]
+    private GameObject monsterspawns;
+    [SerializeField]
+    private GameObject itemspawns;
 
     private gamecontroller gc;
 
@@ -56,6 +60,7 @@ public class DmController : MonoBehaviour {
 	private int trapType;
 	private InputManager inputManager;
 	private Transform heroTransform;
+    [SerializeField]
 	private List<Transform> monsterSpawnTransforms;
 
 	public static float ITEM_DESPAWN_TIME = 5f;
@@ -93,7 +98,8 @@ public class DmController : MonoBehaviour {
 		manaLocked = false;
 		infiniteManaCounter = 120;
 		heroTransform = GameObject.Find("Hero").GetComponent<Transform>();
-		monsterSpawnTransforms = GameObject.Find("MonsterSpawnPoints").GetComponentsInChildren<Transform>().ToList();
+		monsterSpawnTransforms = monsterspawns.GetComponentsInChildren<Transform>().ToList();
+        Debug.Log(monsterSpawnTransforms.Count);
 	}
 	
 	// Update is called once per frame
@@ -222,11 +228,13 @@ public class DmController : MonoBehaviour {
 
 		transform.Find("SpawnPointQ").GetComponent<MonsterSpawner>()
 			.SpawnMonster(monsterToSummon, monsterSpawnTransforms[0].position);
+        Debug.Log(monsterSpawnTransforms[0].position);
         if (monsterToSummon == 2)
             monsterToSummon = 0;
 
             transform.Find("SpawnPointQ").GetComponent<MonsterSpawner>()
     .SpawnMonster(monsterToSummon, monsterSpawnTransforms[1].position);
+        Debug.Log(monsterSpawnTransforms[1].position);
 
         // Deduct mana
         if (isInfiniteMana) {return;}

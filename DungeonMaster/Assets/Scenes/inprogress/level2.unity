@@ -259,6 +259,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114472420661961734, guid: d53ee11959910438a9acca9807332724,
+        type: 2}
+      propertyPath: monsterspawns
+      value: 
+      objectReference: {fileID: 1447140289}
+    - target: {fileID: 114472420661961734, guid: d53ee11959910438a9acca9807332724,
+        type: 2}
+      propertyPath: itemspawns
+      value: 
+      objectReference: {fileID: 1447140290}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d53ee11959910438a9acca9807332724, type: 2}
   m_IsPrefabParent: 0
@@ -466,6 +476,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114006788850416360, guid: ee1b8a46fad317f40b52129b4b1fca3f,
+        type: 2}
+      propertyPath: itemspawns
+      value: 
+      objectReference: {fileID: 1447140290}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee1b8a46fad317f40b52129b4b1fca3f, type: 2}
   m_IsPrefabParent: 0
@@ -511,6 +526,16 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1a06451590b8884bb7237004ad69496, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1447140289 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1574634995301894, guid: e1a06451590b8884bb7237004ad69496,
+    type: 2}
+  m_PrefabInternal: {fileID: 1447140288}
+--- !u!1 &1447140290 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613866865555126, guid: e1a06451590b8884bb7237004ad69496,
+    type: 2}
+  m_PrefabInternal: {fileID: 1447140288}
 --- !u!114 &1470355650 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114062026713050826, guid: 062f40a39fb34274794aaa9113ada181,

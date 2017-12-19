@@ -139,7 +139,7 @@ abstract public class Monster : MonoBehaviour {
             {
                 sr1 = res[1];
             }
-            float myc = Random.Range(.5f, 1f);
+            float myc = Random.Range(.7f, 1f);
             basecolor = new Color(myc, myc, myc);
         }
 

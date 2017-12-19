@@ -30,7 +30,7 @@ public class wanderingCasterMonster : wanderingMonster {
 	void Start () {
         movementSpeed = 1.25f;
         sr = GetComponentInChildren<SpriteRenderer>();
-        float myc = Random.Range(.6f, 1f);
+        float myc = Random.Range(.8f, 1f);
         mybasecolor = new Color(myc, myc, myc);
         sr.color = mybasecolor;
         animator = GetComponent<Animator> ();

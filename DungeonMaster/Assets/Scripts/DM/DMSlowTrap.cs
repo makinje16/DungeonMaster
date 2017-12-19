@@ -80,6 +80,7 @@ public class DMSlowTrap : MonoBehaviour {
 
 
         AstarPath astarscript = GameObject.FindGameObjectWithTag("A*").GetComponentInChildren<AstarPath>();
+        astarscript = FindObjectOfType<AstarPath>();
         Bounds bound = new Bounds();
         bound.center = origin;
         bound.size = new Vector3(10f,10f);

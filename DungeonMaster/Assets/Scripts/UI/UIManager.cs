@@ -13,6 +13,13 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     private Image heroInvImg;
 
+
+    private gamecontroller gc;
+    private gamecontroller.DMAbilities currentabilities;
+
+    [SerializeField]
+    private GameObject infinitemana;
+
     [SerializeField]
     private GameObject[] monstericons;
 
@@ -31,6 +38,8 @@ public class UIManager : MonoBehaviour {
 
     [SerializeField]
     private Text winconditiontext;
+    [SerializeField]
+    private Text livestext;
 
     private HeroController hero;
     private DmController dmcontroller;
@@ -65,6 +74,35 @@ public class UIManager : MonoBehaviour {
           dmcontroller = GameObject.FindGameObjectWithTag("DMController").GetComponent<DmController>();
         }
 
+        //get a reference to gamecontroller
+        if (gc == null)
+        {
+            gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<gamecontroller>();
+            currentabilities = gc.getAbilities();
+            if (!gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.meleemonsters))
+            {
+               
+                monstericons[0].SetActive(false);
+                monstericons[1].SetActive(false);
+            }
+            if (!gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.specialmonsters))
+            {
+                
+                monstericons[2].SetActive(false);
+                monstericons[3].SetActive(false);
+            }
+            if (!gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.spells))
+            {
+                trapicons[0].SetActive(false);
+                trapicons[1].SetActive(false);
+            }
+            if (!gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.infintemana))
+            {
+                manaspellicon.SetActive(false);
+               
+            }
+        }
+
         //manage hero health slider
         if (heroHealthSlider == null)
         {
@@ -72,6 +110,8 @@ public class UIManager : MonoBehaviour {
         }
         heroHealthSlider.maxValue = hero.getMaxHealth();
         heroHealthSlider.value = hero.getHealth();
+
+        livestext.text = "Lives: " + hero.getLives();
 
         //manage hero stamina slider
         if (heroStaminaSlider == null)
@@ -85,11 +125,23 @@ public class UIManager : MonoBehaviour {
         dmManaSlider.maxValue = dmcontroller.GetMaxMana();
         dmManaSlider.value = dmcontroller.GetManaCount();
 
+        //manage DM infinite mana code;
+        if (dmcontroller.getisinfinitemana())
+        {
+            infinitemana.SetActive(true);
+            infinitemana.GetComponentInChildren<Slider>().maxValue = 5f;
+            infinitemana.GetComponentInChildren<Slider>().value = dmcontroller.getmanapercentage();
+        }
+        else
+        {
+            infinitemana.SetActive(false);
+        }
+
 
         //manage DM monster icons
         for (int i = 0; i < monstericons.Length; i++)
         {
-            if (dmcontroller.GetManaCount() > ((i + 1) * 10))
+            if (dmcontroller.GetManaCount() > ((i + 1) * 10) || dmcontroller.getisinfinitemana())
             {
                 monstericons[i].GetComponentInChildren<Text>().color = Color.cyan;
             }
@@ -100,17 +152,23 @@ public class UIManager : MonoBehaviour {
         }
 
         //manage DM trap icons
-        for (int i = 0; i < trapicons.Length; i++)
+
+        if (dmcontroller.GetManaCount() >= 65)
         {
-            if (dmcontroller.GetManaCount() > ((i *5) + 20))
-            {
-                trapicons[i].GetComponentInChildren<Text>().color = Color.cyan;
-            }
-            else
-            {
-                trapicons[i].GetComponentInChildren<Text>().color = Color.black;
-            }
+            trapicons[0].GetComponentInChildren<Text>().color = Color.cyan;
+        }else{
+            trapicons[0].GetComponentInChildren<Text>().color = Color.black;
         }
+
+        if (dmcontroller.GetManaCount() >= 65)
+        {
+            trapicons[1].GetComponentInChildren<Text>().color = Color.cyan;
+        }
+        else
+        {
+            trapicons[1].GetComponentInChildren<Text>().color = Color.black;
+        }
+
 
         //handle infinite mana spell
         if (dmcontroller.checkInfinteMana())

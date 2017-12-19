@@ -23,7 +23,7 @@ public class seekingRangedMonster : seekingMonster {
     bool isAttacking = false;
 
     [SerializeField]
-    float animationDelay = 1f;
+    float animationDelay = .7f;
     float animationTime = 0;
 
     [SerializeField]
@@ -38,7 +38,7 @@ public class seekingRangedMonster : seekingMonster {
         cd = initialCD;
         animationTime = animationDelay;
         distance = Vector2.Distance(hero.transform.position, transform.position);
-		animator = GetComponent<Animator>();
+		animator = GetComponentInChildren<Animator>();
     }
 	
     void fireProjectile(Vector2 dir)
@@ -76,7 +76,6 @@ public class seekingRangedMonster : seekingMonster {
                 isAttacking = false;
                 canAttack = false;
                 animationTime = animationDelay;
-				//animator.SetBool ("IsAttacking", false);
             }
         }
 
@@ -87,8 +86,9 @@ public class seekingRangedMonster : seekingMonster {
                 gameObject.GetComponent<AIPath>().canMove = false;
                 if (canAttack)
                 {
-                    isAttacking = true;         
-					animator.SetBool ("IsAttacking", true);
+					isAttacking = true;
+					animator.SetTrigger("OnAttack");
+					canAttack = false;
                 }
             }
             else if(!isAttacking)// keep chasing
@@ -103,11 +103,11 @@ public class seekingRangedMonster : seekingMonster {
         
         if (direction.x >= 0)
         {
-			spr.flipX = true;
+			spr.flipX = false;
         }
         else
         {
-			spr.flipX = false;
+			spr.flipX = true;
         }
     }
 }

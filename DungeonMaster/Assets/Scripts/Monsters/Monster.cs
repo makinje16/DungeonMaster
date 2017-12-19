@@ -6,6 +6,9 @@ using UnityEngine;
 abstract public class Monster : MonoBehaviour {
 
     [SerializeField]
+    private GameObject deathefx;
+
+    [SerializeField]
     protected float health = 20;
 
     [SerializeField]
@@ -45,6 +48,8 @@ abstract public class Monster : MonoBehaviour {
     protected AudioClip hitSound2;
 
     private Vector3 lastHitDirection;
+
+
 
     private SpriteRenderer sr1;
 
@@ -120,7 +125,7 @@ abstract public class Monster : MonoBehaviour {
 
     protected virtual void Update()
     {
-
+     
         if (sr1 == null)
         {
             SpriteRenderer[] res = GetComponentsInChildren<SpriteRenderer>();
@@ -139,6 +144,7 @@ abstract public class Monster : MonoBehaviour {
         if (health <= 0)
         {
             DropItem();
+            Instantiate(deathefx, transform.position, Quaternion.identity);
             GetComponent<AudioSource>().PlayOneShot(deathSound);
             StartCoroutine(DestroyThis());
             health = 100;
@@ -165,15 +171,15 @@ abstract public class Monster : MonoBehaviour {
         {
             if (keepDistance)
                 Move();
-            Vector2 movement = GetComponent<Rigidbody2D>().velocity;
+            Vector2 movement =  hero.transform.position - transform.position;
             //Debug.Log(movement.x);
             if (movement.x >= 0)
             {
-              //  sr1.flipX = false;
+                sr1.flipX = false;
             }
             else
             {
-              //  sr1.flipX = true;
+                sr1.flipX = true;
             }
 
 

@@ -7,6 +7,9 @@ public class BasicSword : MonoBehaviour {
     private SpriteRenderer sr;
     private CircleCollider2D ccollider;
 
+    [SerializeField]
+    private GameObject crateexp;
+
     private float atktime;
     private float atkcount;
 
@@ -22,6 +25,10 @@ public class BasicSword : MonoBehaviour {
     private float STRONG_ATTACK = 30f;
     private float bonusAttack;
     private const float BONUS_ATTACK_TIME = 15f;
+
+    [SerializeField]
+    private AudioClip cratebreak;
+
     
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,9 +39,35 @@ public class BasicSword : MonoBehaviour {
             Vector2 pushdirection = collidedMonster.transform.position - transform.position;
             pushdirection.Normalize();
             collidedMonster.Damage(atkpower, pushdirection);
+           
+        }
+
+        if (collision.gameObject.GetComponent<breakableCrate>() != null)
+        {
+            Destroy(collision.gameObject);
+            GetComponent<AudioSource>().PlayOneShot(cratebreak);
+            Instantiate(crateexp, collision.transform.position, Quaternion.identity);
+
+            // recalculate bounds when crates break
+            AstarPath astarscript = GameObject.FindGameObjectWithTag("A*").GetComponentInChildren<AstarPath>();
+            Bounds b = new Bounds();
+            b.center = collision.gameObject.GetComponent<BoxCollider2D>().transform.position;
+            b.size = collision.gameObject.GetComponent<BoxCollider2D>().transform.position;
+            astarscript.UpdateGraphs(b);
+            //GameObject.FindGameObjectWithTag("A*").GetComponent<AstarPath>().UpdateGraphs(b);
         }
     }
 
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<breakableCrate>() != null)
+        {
+            Destroy(collision.gameObject);
+            Instantiate(crateexp, collision.transform.position, Quaternion.identity);
+        }
+    }
 
     // Use this for initialization
     void Start () {
@@ -42,7 +75,8 @@ public class BasicSword : MonoBehaviour {
         ccollider = GetComponent<CircleCollider2D>();
         sr.enabled = false;
         ccollider.enabled = false;
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -100,7 +134,7 @@ public class BasicSword : MonoBehaviour {
         atkpower = power;
         atkcount = time;
         transform.localPosition = direct;
-        //sr.enabled = true;
+     //   sr.enabled = true;
         ccollider.enabled = true;
         GetComponent<AudioSource>().Play();
     }

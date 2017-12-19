@@ -346,7 +346,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.3, y: 0.7}
+  m_Size: {x: 0.4, y: 1}
   m_Direction: 0
 --- !u!70 &70734720867544286
 CapsuleCollider2D:
@@ -361,7 +361,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.3, y: 0.7}
+  m_Size: {x: 0.4, y: 1}
   m_Direction: 0
 --- !u!81 &81368476850247926
 AudioListener:
@@ -645,6 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320d784ab6fc4d34a8f0ab79f9818f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  summonefx: {fileID: 1881415412348396, guid: aa09e1a3c260dcd42bf5436c27dc8869, type: 2}
   HeroHealth: {fileID: 114062026713050826}
   HeroMana: {fileID: 114061130664823992}
   mspeed: 3
@@ -820,6 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b2fd19a7331a24594962f93161d811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crateexp: {fileID: 1749369093161510, guid: b12d14b9e35832e4ea99d30c1cee9c96, type: 2}
 --- !u!114 &114360441189683940
 MonoBehaviour:
   m_ObjectHideFlags: 1

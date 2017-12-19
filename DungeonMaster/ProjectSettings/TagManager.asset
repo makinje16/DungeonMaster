@@ -13,6 +13,7 @@ TagManager:
   - DMController
   - Trap
   - Rock
+  - A*
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Background
   - Obstacle
   - Missile
-  - 
+  - ghostcrate
   - 
   - 
   - 

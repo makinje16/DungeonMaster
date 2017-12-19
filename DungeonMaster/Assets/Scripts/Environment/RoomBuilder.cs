@@ -8,7 +8,17 @@ public class RoomBuilder : MonoBehaviour {
     private bool dobuild = false;
 
     [SerializeField]
+    private bool dofloor = true;
+
+    [SerializeField]
     private GameObject rockbase;
+
+    [SerializeField]
+    private GameObject floorbase;
+
+
+    [SerializeField]
+    private Sprite[] floors;
 
     [SerializeField]
     private int width;
@@ -21,14 +31,40 @@ public class RoomBuilder : MonoBehaviour {
     [SerializeField]
     private float starty;
 
+    [SerializeField]
+    private float floorstartx;
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    private float floorstarty;
+
+
+    // Use this for initialization
+    void Start () {
 
         if (dobuild) makeroom();
 
+        if (dofloor) makefloor();
+
 
 	}
+
+    void makefloor()
+    {
+        GameObject tempfloor;
+        for (int yn = 0; yn <=8; yn++)
+        {
+
+            for (int xn = 0; xn <=8; xn++)
+            {
+              
+                    tempfloor = Instantiate(floorbase);
+                    tempfloor.transform.position = new Vector2(floorstartx + xn*10, floorstarty + yn*10);
+                tempfloor.GetComponent<SpriteRenderer>().sprite = floors[Random.Range(0, floors.Length)];
+                
+            }
+
+        }
+    }
 
     void makeroom()
     {

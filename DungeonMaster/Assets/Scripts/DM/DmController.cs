@@ -7,6 +7,10 @@ using UnityEngine.UI;
 
 public class DmController : MonoBehaviour {
 
+    private gamecontroller.DMAbilities currentabilities;
+
+    private gamecontroller gc;
+
 	private float manaCount;
 
 	public float GetManaCount () {
@@ -38,6 +42,9 @@ public class DmController : MonoBehaviour {
 		manaRate = newRate;
 	}
 
+
+    private float manapercentage;
+
 	private int monsterToSummon;
 	private string zoneToSummon;
 	private bool toBeSummoned;
@@ -54,12 +61,26 @@ public class DmController : MonoBehaviour {
 	public static float ITEM_DESPAWN_TIME = 5f;
 	public static float MANA_LOCK_TIME = 3f;
 	public const float INFINITE_MANA_TIME = 5f;
-	public const float INFINITE_MANA_COOLDOWN = 120f;
+	public const float INFINITE_MANA_COOLDOWN = 30f;
 
 	private float infiniteManaCounter;
 	
-	// Use this for initialization
-	void Start () {
+
+    public bool getisinfinitemana()
+    {
+        return isInfiniteMana;
+    }
+
+    public float getmanapercentage()
+    {
+        return manapercentage;
+    }
+
+
+
+
+    // Use this for initialization
+    void Start () {
 		manaCount = 50;
 		maxMana = 100;
 		//every two seconds
@@ -77,6 +98,19 @@ public class DmController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (gc == null)
+        {
+            gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<gamecontroller>();
+            currentabilities = gc.getAbilities();
+        }
+
+        if (manapercentage > 0)
+        {
+            manapercentage -= Time.deltaTime;
+        }
+
+
         float recharge_factor = 1;
         if (GameObject.FindGameObjectsWithTag("Monster").Length == 0)
         {
@@ -140,17 +174,21 @@ public class DmController : MonoBehaviour {
 		if (inputManager.GetDmNum () != -1) {
 			toBeSummoned = true;
 			monsterToSummon = inputManager.GetDmNum ();
-		} else if (inputManager.GetDmMonsterZone () != "") {
-			if (toBeSummoned) {
-				zoneToSummon = inputManager.GetDmMonsterZone ();
-				SummonMonster ();
-			}
+	
+			if (( (monsterToSummon < 3) && (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.meleemonsters))) || ((monsterToSummon >= 3) && (gamecontroller.HasFlag(currentabilities,gamecontroller.DMAbilities.specialmonsters))))
+            {
+                SummonMonster();
+            }
+				
+			
 		} else if (inputManager.GetDmSpell() != -1) {
 			trapToBeActivated = true;
 			trapType = inputManager.GetDmSpell ();
-		} else if (inputManager.GetDmMouseClick () != null && trapToBeActivated && trapType != -1) {
-			trapLoc = inputManager.GetDmMouseClick ().Value;
-			ActivateTrap ();
+            if (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.spells))
+            {
+                ActivateTrap();
+            }
+            
 		}
 
 		// ESC key to cancel any queued actions
@@ -159,8 +197,13 @@ public class DmController : MonoBehaviour {
 		}
 		else if (Input.GetKeyDown(KeyCode.L))
 		{
-			infiniteMana();
+            if (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.infintemana))
+            {
+                infiniteMana();
+            }
+			
 		}
+
 
         infiniteManaCounter += Time.deltaTime;
     }
@@ -169,7 +212,7 @@ public class DmController : MonoBehaviour {
 		int manaCost = monsterToSummon * 10;
 
 		// Not enough mana!
-		if (manaCost > manaCount) {
+		if (manaCost > manaCount && !isInfiniteMana) {
 			// UI warning
 			CleanInput ();
 			return;
@@ -177,10 +220,12 @@ public class DmController : MonoBehaviour {
 		
 		toBeSummoned = false;
 
-		transform.Find("SpawnPoint" + zoneToSummon.ToUpper()).GetComponent<MonsterSpawner>()
+		transform.Find("SpawnPointQ").GetComponent<MonsterSpawner>()
 			.SpawnMonster(monsterToSummon, monsterSpawnTransforms[0].position);
+        if (monsterToSummon == 2)
+            monsterToSummon = 0;
 
-        transform.Find("SpawnPoint" + zoneToSummon.ToUpper()).GetComponent<MonsterSpawner>()
+            transform.Find("SpawnPointQ").GetComponent<MonsterSpawner>()
     .SpawnMonster(monsterToSummon, monsterSpawnTransforms[1].position);
 
         // Deduct mana
@@ -191,8 +236,10 @@ public class DmController : MonoBehaviour {
 	}
 
 	void ActivateTrap () {
-		//Debug.Log ("Activating trap " + trapType + " " + trapLoc);
-		int manaCost = trapType * 5 + 20;
+        //Debug.Log ("Activating trap " + trapType + " " + trapLoc);
+        trapLoc = heroTransform.transform.position;
+		int manaCost = 65;
+        
 
 		if (manaCost > manaCount) {
 			CleanInput ();
@@ -239,6 +286,7 @@ public class DmController : MonoBehaviour {
             isInfiniteMana = true;
             infiniteManaCounter = 0;
             Invoke("deactivateManaLock", INFINITE_MANA_TIME);
+            manapercentage = INFINITE_MANA_TIME;
         }
 		
 	}
@@ -252,6 +300,7 @@ public class DmController : MonoBehaviour {
 	public void ChangeMana (float amount)
 	{
 		if (manaLocked && amount > 0){return;}
+        
 		manaCount += amount;
 		if (manaCount > maxMana)
 			manaCount = maxMana;

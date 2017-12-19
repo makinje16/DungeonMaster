@@ -33,8 +33,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1645770324443802}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.9590487, y: -2.6303616, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,8 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a190fc8f4fd70de469165ec0d160e3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dobuild: 0
+  dofloor: 1
   rockbase: {fileID: 1461102212270468, guid: 4b65462b589b1b846a7e18d3da7a80eb, type: 2}
+  floorbase: {fileID: 1032584775899562, guid: 0ea4c5a2f02b72147a37211a8117cbc7, type: 2}
   width: 18
   height: 10
   startx: -9
   starty: -5
+  floorstartx: -40
+  floorstarty: -40

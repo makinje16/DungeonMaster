@@ -33,6 +33,7 @@ public class spelldmgMissile : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.CompareTag("Hero"))
         {
             Vector2 pushdirection = other.gameObject.transform.position - transform.position;

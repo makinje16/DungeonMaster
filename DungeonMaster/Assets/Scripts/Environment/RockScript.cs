@@ -6,6 +6,7 @@ public class RockScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        GetComponent<SpriteRenderer>().color = Color.gray;
         if (Random.Range(0,10) > 5)
         {
             GetComponent<SpriteRenderer>().flipX = true;

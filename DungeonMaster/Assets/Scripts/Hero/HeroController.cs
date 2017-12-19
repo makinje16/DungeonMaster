@@ -58,6 +58,9 @@ public class HeroController : MonoBehaviour {
     private AudioClip manaLockSound;
 
     [SerializeField]
+    private AudioClip powerupSound;
+
+    [SerializeField]
     private BasicSword weapon;
     private Vector2 atkdirection = Vector2.down;
 
@@ -245,6 +248,7 @@ public class HeroController : MonoBehaviour {
             GetComponent<AudioSource>().PlayOneShot(objectiveSound);
         }else if (other.gameObject.name.Contains("Attack"))
         {
+            GetComponent<AudioSource>().PlayOneShot(powerupSound);
             increaseAttack();
         }
     }

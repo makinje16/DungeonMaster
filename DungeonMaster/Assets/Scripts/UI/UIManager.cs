@@ -59,6 +59,11 @@ public class UIManager : MonoBehaviour {
         winconditiontext.text = newtext;
     }
 
+    public void herowin()
+    {
+        herowinscreen.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update() {
         //get a reference to the hero

@@ -6,6 +6,21 @@ public class gamecontroller : MonoBehaviour {
     [SerializeField]
     private int level_num = 2;
 
+
+    private int monstersKilled;
+    [SerializeField]
+    private int monsterKillsNeeded;
+
+    private float time;
+    private UIManager _uiManager;
+    [SerializeField]
+    private float timeNeeded = 60;
+
+    private int monstersSummoned;
+    [SerializeField]
+    private int monsterSummonsNeeded;
+
+
     // DM spells enabled?
     [System.Flags]
     public enum DMAbilities : byte
@@ -70,13 +85,46 @@ public class gamecontroller : MonoBehaviour {
         }
     }
 
+    private void updatewincondition()
+    {
+        switch (level_num)
+        {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                time -= Time.deltaTime;
+                if (_uiManager == null)
+                {
+                    _uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+                }
+                _uiManager.updateWinConditionText("Time Left: " + Mathf.FloorToInt(time));
+                if (time <= 0)
+                {
+                    herowin();
+                }
+                break;
+        }
+        
+    }
+
+
+    public void herowin()
+    {
+        _uiManager.herowin();
+       // Debug.Log("Hero won.");
+
+    }
+
 	// Use this for initialization
 	void Start () {
         updateabilities();
+        time = timeNeeded;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        updatewincondition();
 	}
 }

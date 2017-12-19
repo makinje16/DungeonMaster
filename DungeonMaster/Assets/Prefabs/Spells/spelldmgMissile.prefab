@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfe022fadf77144cb3828b328cdaf2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explEffect: {fileID: 0}
+  explEffect: {fileID: 1980120191964578, guid: 25675ae9117114fbba150de8ab943a9d, type: 2}
   direction: {x: 0, y: 1}
   attackPower: 10
   speed: 5

@@ -16,7 +16,7 @@ abstract public class Monster : MonoBehaviour {
     [SerializeField]
     protected bool keepDistance = false;
 
-    
+    private gamecontroller gc;
 
     [SerializeField]
     protected float movementSpeed = 2;
@@ -140,10 +140,16 @@ abstract public class Monster : MonoBehaviour {
         }
             
 
+        if (gc == null)
+        {
+            gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<gamecontroller>();
+        }
+
         
         if (health <= 0)
         {
             DropItem();
+            gc.monsterdie();
             Instantiate(deathefx, transform.position, Quaternion.identity);
             GetComponent<AudioSource>().PlayOneShot(deathSound);
             StartCoroutine(DestroyThis());

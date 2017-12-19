@@ -571,33 +571,20 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1043376987219296, guid: 97728d4238e41fe48b64eb9f6aa2c79c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114038419918756680, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
+    - target: {fileID: 224536102851849742, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
         type: 2}
-      propertyPath: m_Color.r
-      value: 0
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114038419918756680, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
+    - target: {fileID: 224906555390464812, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
         type: 2}
-      propertyPath: m_Color.g
+      propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114038419918756680, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
+    - target: {fileID: 224142229545206742, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
         type: 2}
-      propertyPath: m_Color.b
-      value: 0.6689656
-      objectReference: {fileID: 0}
-    - target: {fileID: 114659688121534004, guid: 97728d4238e41fe48b64eb9f6aa2c79c,
-        type: 2}
-      propertyPath: m_Text
-      value: Hero won!!!!
-      objectReference: {fileID: 0}
-    - target: {fileID: 1858927027403062, guid: 97728d4238e41fe48b64eb9f6aa2c79c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 97728d4238e41fe48b64eb9f6aa2c79c, type: 2}

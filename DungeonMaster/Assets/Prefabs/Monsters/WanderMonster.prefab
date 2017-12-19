@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathefx: {fileID: 1586172648703922, guid: cb4e23b98deac4e4ebcee1db180eef6a, type: 2}
-  health: 30
+  health: 70
   isSeeking: 0
   keepDistance: 0
   movementSpeed: 2

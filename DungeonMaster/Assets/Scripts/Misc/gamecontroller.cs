@@ -6,6 +6,18 @@ public class gamecontroller : MonoBehaviour {
     [SerializeField]
     private int level_num = 2;
 
+
+    private int monstersKilled;
+    private int monsterKillsNeeded = 8;
+
+    private float time;
+    private UIManager _uiManager;
+    private float timeNeeded = 60;
+
+    private int monstersSummoned;
+    private int monsterSummonsNeeded;
+
+
     // DM spells enabled?
     [System.Flags]
     public enum DMAbilities : byte
@@ -40,7 +52,10 @@ public class gamecontroller : MonoBehaviour {
         return current_abilities;
     }
 
-
+    public void monsterdie()
+    {
+        monstersKilled++;
+    }
     private void updateabilities()
     {
         current_abilities = 0;
@@ -66,17 +81,89 @@ public class gamecontroller : MonoBehaviour {
                 current_abilities = SetFlag(current_abilities, DMAbilities.infintemana);
                 break;
             default:
+                current_abilities = SetFlag(current_abilities, DMAbilities.meleemonsters);
+                current_abilities = SetFlag(current_abilities, DMAbilities.specialmonsters);
+                current_abilities = SetFlag(current_abilities, DMAbilities.spells);
+                current_abilities = SetFlag(current_abilities, DMAbilities.infintemana);
                 break;
         }
+    }
+
+    private void updatewincondition()
+    {
+        if (_uiManager == null)
+        {
+            _uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+        }
+        switch (level_num)
+        {
+            case 0:
+                _uiManager.updateWinConditionText("Monsters killed: " + monstersKilled + "/" + monsterKillsNeeded);
+                if (monstersKilled >= monsterKillsNeeded)
+                {
+                    herowin();
+                }
+                break;
+            case 1:
+                time -= Time.deltaTime;
+                _uiManager.updateWinConditionText("Time Left: " + Mathf.FloorToInt(time));
+                if (time <= 0)
+                {
+                    herowin();
+                }
+                break;
+                break;
+            case 2:
+                time -= Time.deltaTime;
+                _uiManager.updateWinConditionText("Time Left: " + Mathf.FloorToInt(time));
+                if (time <= 0)
+                {
+                    herowin();
+                }
+                break;
+            default:
+                time -= Time.deltaTime;
+                _uiManager.updateWinConditionText("Time Left: " + Mathf.FloorToInt(time));
+                if (time <= 0)
+                {
+                    herowin();
+                }
+                break;
+
+        }
+        
+    }
+
+
+    public void herowin()
+    {
+        _uiManager.herowin();
+       // Debug.Log("Hero won.");
+
     }
 
 	// Use this for initialization
 	void Start () {
         updateabilities();
+        switch (level_num)
+        {
+            case 0:
+                break;
+            case 1:
+                timeNeeded = 30f;
+                break;
+            case 2:
+                timeNeeded = 120f;
+                break;
+            default:
+                break;
+        }
+
+        time = timeNeeded;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        updatewincondition();
 	}
 }

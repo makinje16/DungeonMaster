@@ -1132,7 +1132,7 @@ MonoBehaviour:
   - {fileID: 1147940360727066}
   manaspellicon: {fileID: 1114843015313580}
   gameoverscreen: {fileID: 1043376987219296}
-  herowinscreen: {fileID: 0}
+  herowinscreen: {fileID: 1858927027403062}
   winconditiontext: {fileID: 114785629050948646}
   livestext: {fileID: 114488597892601802}
 --- !u!114 &114273891983219210

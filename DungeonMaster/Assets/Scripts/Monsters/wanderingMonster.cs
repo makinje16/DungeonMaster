@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class wanderingMonster : Monster {
-
+	SpriteRenderer sr;
     
 
     void Start()
@@ -11,6 +11,7 @@ public class wanderingMonster : Monster {
         hero = GameObject.FindWithTag("Hero");
         direction = hero.transform.position - transform.position;
         Invoke("ChangeDirection", Random.Range(1,3));
+		sr = GetComponentInChildren<SpriteRenderer> ();
     }
 
 
@@ -19,5 +20,11 @@ public class wanderingMonster : Monster {
     {
         direction = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
         Invoke("ChangeDirection", Random.Range(1, 3));
+
+		if (direction.x < 0) {
+			sr.flipX = true;
+		} else {
+			sr.flipX = false;
+		}
     }
 }

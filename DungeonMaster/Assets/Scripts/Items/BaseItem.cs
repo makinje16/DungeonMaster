@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ public class BaseItem : MonoBehaviour
 	internal CircleCollider2D rangeCollider2D;
 	internal HeroController _heroController;
 	internal WinCondition _winCondition;
-	[SerializeField] internal float pickupRadius;
 
+	[SerializeField] internal float pickupRadius;
 	
 	public void ItemEffect()
 	{
@@ -28,10 +29,5 @@ public class BaseItem : MonoBehaviour
 	{
 		if (!other.gameObject.tag.Contains("Hero") || !gameObject.activeSelf) return;
 		gameObject.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

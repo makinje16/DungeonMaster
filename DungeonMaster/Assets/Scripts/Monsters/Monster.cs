@@ -107,7 +107,7 @@ abstract public class Monster : MonoBehaviour {
     {
         System.Random random = new System.Random();
         float index = random.Next(0, 11);
-        var location = transform.position + lastHitDirection;
+        var location = transform.position;
         if (index == 3)
         {
             Instantiate(dropableItems[0], location, Quaternion.identity);

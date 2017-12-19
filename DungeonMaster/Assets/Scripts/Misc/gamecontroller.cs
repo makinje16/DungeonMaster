@@ -9,7 +9,7 @@ public class gamecontroller : MonoBehaviour {
 
     private int monstersKilled;
     [SerializeField]
-    private int monsterKillsNeeded;
+    private int monsterKillsNeeded = 8;
 
     private float time;
     private UIManager _uiManager;
@@ -55,7 +55,10 @@ public class gamecontroller : MonoBehaviour {
         return current_abilities;
     }
 
-
+    public void monsterdie()
+    {
+        monstersKilled++;
+    }
     private void updateabilities()
     {
         current_abilities = 0;
@@ -87,18 +90,23 @@ public class gamecontroller : MonoBehaviour {
 
     private void updatewincondition()
     {
+        if (_uiManager == null)
+        {
+            _uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+        }
         switch (level_num)
         {
             case 0:
+                _uiManager.updateWinConditionText("Monsters killed: " + monstersKilled + "/" + monsterKillsNeeded);
+                if (monstersKilled >= monsterKillsNeeded)
+                {
+                    herowin();
+                }
                 break;
             case 1:
                 break;
             case 2:
                 time -= Time.deltaTime;
-                if (_uiManager == null)
-                {
-                    _uiManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
-                }
                 _uiManager.updateWinConditionText("Time Left: " + Mathf.FloorToInt(time));
                 if (time <= 0)
                 {

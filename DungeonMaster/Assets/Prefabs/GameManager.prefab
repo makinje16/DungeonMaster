@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level_num: 2
-  monsterKillsNeeded: 0
+  monsterKillsNeeded: 8
   timeNeeded: 60
   monsterSummonsNeeded: 0
 --- !u!114 &114395175547459608

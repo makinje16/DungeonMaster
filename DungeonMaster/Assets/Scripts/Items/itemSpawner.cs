@@ -109,15 +109,14 @@ public class itemSpawner : MonoBehaviour
 	{
 		if(droppedItem) {return;}
 		Debug.Log("Trying to drop item");
-		System.Random rand = new System.Random(DateTime.Now.Millisecond);
+		System.Random rand = new System.Random();
 		int chance = rand.Next(1, 20);
 
 		if (chance != 1) return;
 		droppedItem = true;
-		int xlocation = rand.Next(xMin, xMax);
-		int ylocation = rand.Next(yMin, yMax);
+		var index = rand.Next(0, spawnPoints.Length);
 		int item = rand.Next(0, dropableObjects.Length);
-		Instantiate(dropableObjects[item], new Vector3(xlocation, ylocation), Quaternion.identity);
+		Instantiate(dropableObjects[item], spawnPoints[index].position, Quaternion.identity);
 		Invoke("canDropItems", DmController.ITEM_DESPAWN_TIME);
 		Debug.Log("Dropped Item: " + item);
 	}

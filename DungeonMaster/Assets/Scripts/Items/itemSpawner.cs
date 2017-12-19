@@ -6,7 +6,10 @@ using UnityEngine;
 public class itemSpawner : MonoBehaviour
 {
 
-	[SerializeField]
+    [SerializeField]
+    private GameObject itemspawns;
+
+    [SerializeField]
 	private int xMin;
 
 	[SerializeField]
@@ -40,7 +43,7 @@ public class itemSpawner : MonoBehaviour
 		Invoke("initItems", 1);
 		InvokeRepeating("dropItem", 8, 1);
 		droppedItem = false;
-		spawnPoints = GameObject.Find("SpawnPoints").GetComponentsInChildren<Transform>();
+		spawnPoints = itemspawns.GetComponentsInChildren<Transform>();
 	}
 
 	private void initItems()

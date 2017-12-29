@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114908916887285588}
   - component: {fileID: 114717874325562738}
   - component: {fileID: 114839181061578480}
+  - component: {fileID: 114354583245136326}
   m_Layer: 8
   m_Name: SeekMonster
   m_TagString: Monster
@@ -209,6 +210,38 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114354583245136326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1333358097048554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 11
+    i1: 97
+    i2: 107
+    i3: 182
+    i4: 145
+    i5: 158
+    i6: 39
+    i7: 148
+    i8: 122
+    i9: 153
+    i10: 208
+    i11: 121
+    i12: 19
+    i13: 106
+    i14: 26
+    i15: 170
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114717874325562738
 MonoBehaviour:
   m_ObjectHideFlags: 1

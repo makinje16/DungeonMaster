@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50062405960470676}
   - component: {fileID: 114888331906319078}
   - component: {fileID: 82129559346372018}
+  - component: {fileID: 114672875360076642}
   m_Layer: 8
   m_Name: WanderMonster
   m_TagString: Monster
@@ -218,6 +219,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072c99f91e9a1b34c866170e28db7357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114672875360076642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015979511019086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 60
+    i1: 44
+    i2: 83
+    i3: 49
+    i4: 213
+    i5: 66
+    i6: 5
+    i7: 180
+    i8: 107
+    i9: 105
+    i10: 54
+    i11: 248
+    i12: 102
+    i13: 120
+    i14: 155
+    i15: 120
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114888331906319078
 MonoBehaviour:
   m_ObjectHideFlags: 1

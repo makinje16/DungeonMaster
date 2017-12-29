@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
-public class HeroController : MonoBehaviour {
+public class HeroController : NetworkBehaviour {
 
     #region member Variables
     private InputManager inputmanager;
@@ -106,8 +107,10 @@ public class HeroController : MonoBehaviour {
 
     private RaycastHit2D rc;
     #endregion
-    
-    public float getHealth()
+
+    #region variable accessors
+
+        public float getHealth()
     {
         return health;
     }
@@ -131,7 +134,11 @@ public class HeroController : MonoBehaviour {
     {
         return isdead;
     }
+    
+    #endregion
 
+    #region member functions
+    
     public void damage(float amt, Vector2 pushdirect)
     {
         if (!invincible  && !isdashing)
@@ -166,7 +173,6 @@ public class HeroController : MonoBehaviour {
 
        
     }
-
 
     public int getLives()
     {
@@ -221,14 +227,40 @@ public class HeroController : MonoBehaviour {
         atkCost = ATTACK_COST;
     }
     
-    private void Start()
+
+    private void enableMaxStamina()
     {
-        sr = GetComponent<SpriteRenderer>();
-		animator = GetComponent<Animator>();
-		animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-        MaxStamina = false;
+        stamina = 30;
+        dashCost = 0;
+        atkCost = 0;
+        Invoke("disableMaxStamina", 5);
     }
 
+    public Slider getHeroHealthSlider()
+    {
+        return HeroHealth;
+    }
+
+    public Slider getHeroStaminaSlider()
+    {
+        return HeroMana;
+    }
+
+    private void increaseAttack()
+    {
+        weapon.boostAttack(ATTACK_BONUS);
+    }
+
+    [Command]
+    private void CmdflipX(bool flip)
+    {
+        GetComponent<SpriteRenderer>().flipX = flip;
+    }
+    
+    #endregion
+
+    #region Unity functions
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name.Contains("Health"))
@@ -254,216 +286,223 @@ public class HeroController : MonoBehaviour {
         }
     }
 
-    private void enableMaxStamina()
+    private void Start()
     {
-        stamina = 30;
-        dashCost = 0;
-        atkCost = 0;
-        Invoke("disableMaxStamina", 5);
+        sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        MaxStamina = false;
     }
 
-    public Slider getHeroHealthSlider()
+    [Command]
+    public void CmdMove()
     {
-        return HeroHealth;
+        Debug.Log("Inside CmdMove");
+        transform.Translate(Vector3.up * 5);
     }
-
-    public Slider getHeroStaminaSlider()
+    
+    void Update()
     {
-        return HeroMana;
-    }
-
-
-    private void increaseAttack()
-    {
-        weapon.boostAttack(ATTACK_BONUS);
-    }
-
-
-    private void FixedUpdate()
-    {
-        
-    }
-
-    void Update () {
-
-        GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        //make sure we have the input manager
-        if (inputmanager == null)
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            inputmanager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
+            CmdMove();
         }
-        
-        //update stamina
-        if (stamina < maxstamina)
+        if (isLocalPlayer)
         {
-            stamina += staminaRecRate * Time.deltaTime;
-        }
-
-        //handle being pushed from an attack
-        if (isstunned)
-        {
-            transform.Translate(stundirection * Time.deltaTime * runspeed);
-            stuncount -= Time.deltaTime;
-            if (stuncount <= 0)
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            //make sure we have the input manager
+            if (inputmanager == null)
             {
-                isstunned = false;
-                canmove = true;
-
+                inputmanager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
             }
-        }
 
-        if (invincible)
-        {
-            invincibleCount -= Time.deltaTime;
-            if (invincibleCount <= 0)
+            //update stamina
+            if (stamina < maxstamina)
             {
-                invincible = false;
-                Debug.Log("uninvincible");
+                stamina += staminaRecRate * Time.deltaTime;
             }
-        }
 
-        //handle in-process dashing
-        if (isdashing)
-        {
-            bool dodash = true;
-            mspeed = runspeed * 1.5f;
-            Debug.DrawRay(transform.position + new Vector3(dashdirection.x / 2f, dashdirection.y / 2f), dashdirection);
-            if (rc = Physics2D.Raycast(transform.position + new Vector3(dashdirection.x / 2f, dashdirection.y / 2f), dashdirection, mspeed, ~LayerMask.GetMask("Obstacle")))
+            //handle being pushed from an attack
+            if (isstunned)
             {
+                transform.Translate(stundirection * Time.deltaTime * runspeed);
+                stuncount -= Time.deltaTime;
+                if (stuncount <= 0)
+                {
+                    isstunned = false;
+                    canmove = true;
+
+                }
+            }
+
+            if (invincible)
+            {
+                invincibleCount -= Time.deltaTime;
+                if (invincibleCount <= 0)
+                {
+                    invincible = false;
+                    Debug.Log("uninvincible");
+                }
+            }
+
+            //handle in-process dashing
+            if (isdashing)
+            {
+                bool dodash = true;
+                mspeed = runspeed * 1.5f;
+                Debug.DrawRay(transform.position + new Vector3(dashdirection.x / 2f, dashdirection.y / 2f),
+                    dashdirection);
+                if (rc = Physics2D.Raycast(transform.position + new Vector3(dashdirection.x / 2f, dashdirection.y / 2f),
+                    dashdirection, mspeed, ~LayerMask.GetMask("Obstacle")))
+                {
 
                     if (rc.collider.CompareTag("Rock"))
-                {
-                    dodash = false;
-                }
-                    
+                    {
+                        dodash = false;
+                    }
+
 
                     Debug.Log("attempted to dash, collided with " + rc.collider.tag);
-                
-                
-            }
-            if (dodash)
-            {
-                transform.Translate(dashdirection * Time.deltaTime * mspeed);
-            }
 
-            dashcount -= Time.deltaTime;
-            if (dashcount <= 0)
-            {
-                isdashing = false;
-                canmove = true;
-            }
-        }
 
-        //handle regular movement  + beginning dashing
-        if (canmove)
-        {
-            //get input direction
-            inputdirection = inputmanager.GetHeroMovement();
-			if (inputdirection != Vector2.zero) {
-				//change sprite based on direction
-				if (Mathf.Abs (inputdirection.x) >= Mathf.Abs (inputdirection.y)) {
-					//facing right
-					if (inputdirection.x > 0) {
-						//sr.sprite = left;
-						sr.flipX = false;
-						atkdirection = Vector2.right;
-						animator.SetBool ("IsFacingUp", false);
-						animator.SetBool ("IsFacingSide", true);
-						animator.SetBool ("IsFacingDown", false);
-						animator.SetBool ("IsMoving", true);
-					} else { //facing left
-						//sr.sprite = left;
-						sr.flipX = true;
-						atkdirection = -Vector2.right;
-						animator.SetBool ("IsFacingUp", false);
-						animator.SetBool ("IsFacingSide", true);
-						animator.SetBool ("IsFacingDown", false);
-						animator.SetBool ("IsMoving", true);
-					}
-				} else {
-					//facing up
-					if (inputdirection.y > 0) {
-						//sr.sprite = up;
-						sr.flipX = false;
-						atkdirection = Vector2.up;
-						animator.SetBool ("IsFacingUp", true);
-						animator.SetBool ("IsFacingSide", false);
-						animator.SetBool ("IsFacingDown", false);
-						animator.SetBool ("IsMoving", true);
-					} else { //facing down
-						//sr.sprite = down;
-						sr.flipX = false;
-						atkdirection = -Vector2.up;
-						animator.SetBool ("IsFacingUp", false);
-						animator.SetBool ("IsFacingSide", false);
-						animator.SetBool ("IsFacingDown", true);
-						animator.SetBool ("IsMoving", true);
-					}
-				}
-			} else {
-				animator.SetBool ("IsMoving", false);
-			}
-            
-            //handle dash
-            if (inputmanager.GetHeroDash())
-            {
-             if (stamina > dashCost)
+                }
+                if (dodash)
                 {
-                    if (inputdirection != Vector2.zero)
+                    transform.Translate(dashdirection * Time.deltaTime * mspeed);
+                }
+
+                dashcount -= Time.deltaTime;
+                if (dashcount <= 0)
+                {
+                    isdashing = false;
+                    canmove = true;
+                }
+            }
+
+            //handle regular movement  + beginning dashing
+            if (canmove)
+            {
+                //get input direction
+                inputdirection = inputmanager.GetHeroMovement();
+                if (inputdirection != Vector2.zero)
+                {
+                    //change sprite based on direction
+                    if (Mathf.Abs(inputdirection.x) >= Mathf.Abs(inputdirection.y))
                     {
-                        dashdirection = inputdirection;
+                        //facing right
+                        if (inputdirection.x > 0)
+                        {
+                            //sr.sprite = left;
+                            CmdflipX(false);
+                            sr.flipX = false;
+                            atkdirection = Vector2.right;
+                            animator.SetBool("IsFacingUp", false);
+                            animator.SetBool("IsFacingSide", true);
+                            animator.SetBool("IsFacingDown", false);
+                            animator.SetBool("IsMoving", true);
+                        }
+                        else
+                        {
+                            //facing left
+                            //sr.sprite = left;
+                            CmdflipX(true);
+                            sr.flipX = true;
+                            atkdirection = -Vector2.right;
+                            animator.SetBool("IsFacingUp", false);
+                            animator.SetBool("IsFacingSide", true);
+                            animator.SetBool("IsFacingDown", false);
+                            animator.SetBool("IsMoving", true);
+                        }
                     }
                     else
                     {
-                        dashdirection = atkdirection;
+                        //facing up
+                        if (inputdirection.y > 0)
+                        {
+                            //sr.sprite = up;
+                            sr.flipX = false;
+                            atkdirection = Vector2.up;
+                            animator.SetBool("IsFacingUp", true);
+                            animator.SetBool("IsFacingSide", false);
+                            animator.SetBool("IsFacingDown", false);
+                            animator.SetBool("IsMoving", true);
+                        }
+                        else
+                        {
+                            //facing down
+                            //sr.sprite = down;
+                            sr.flipX = false;
+                            atkdirection = -Vector2.up;
+                            animator.SetBool("IsFacingUp", false);
+                            animator.SetBool("IsFacingSide", false);
+                            animator.SetBool("IsFacingDown", true);
+                            animator.SetBool("IsMoving", true);
+                        }
                     }
-                    dashcount = dashtime;
-                    isdashing = true;
-                    canmove = false;
-                    stamina -= dashCost;
-                } 
-               
-            }
-            else
-            {
-                //regular move
-                if (inputdirection != Vector2.zero)
+                }
+                else
                 {
+                    animator.SetBool("IsMoving", false);
+                }
 
-                    //move player
-                    mspeed = walkspeed;
-                    transform.Translate(inputdirection.normalized * Time.deltaTime * mspeed);
+                //handle dash
+                if (inputmanager.GetHeroDash())
+                {
+                    if (stamina > dashCost)
+                    {
+                        if (inputdirection != Vector2.zero)
+                        {
+                            dashdirection = inputdirection;
+                        }
+                        else
+                        {
+                            dashdirection = atkdirection;
+                        }
+                        dashcount = dashtime;
+                        isdashing = true;
+                        canmove = false;
+                        stamina -= dashCost;
+                    }
 
                 }
-            }
-
-
-            //handle attacking
-            if (inputmanager.GetHeroStrAttack())
-            {
-                if (!weapon.checkAttacking() && stamina > (5 * atkCost))
+                else
                 {
-                    weapon.doStrongAttack(atkdirection/1.5f);
-                    stamina -= (5 * atkCost);
-					animator.SetTrigger ("OnSwingAttack");
-                }
-            }
-            if (inputmanager.GetHeroAttack())
-            {
-                if (!weapon.checkAttacking() && stamina > atkCost)
-                {
+                    //regular move
+                    if (inputdirection != Vector2.zero)
+                    {
 
-                    weapon.doBasicAttack(atkdirection/1.5f);
-                    stamina -= atkCost;
-					animator.SetTrigger ("OnAttack");
+                        //move player
+                        mspeed = walkspeed;
+                        transform.Translate(inputdirection.normalized * Time.deltaTime * mspeed);
+
+                    }
                 }
+
+
+                //handle attacking
+                if (inputmanager.GetHeroStrAttack())
+                {
+                    if (!weapon.checkAttacking() && stamina > (5 * atkCost))
+                    {
+                        weapon.doStrongAttack(atkdirection / 1.5f);
+                        stamina -= (5 * atkCost);
+                        animator.SetTrigger("OnSwingAttack");
+                    }
+                }
+                if (inputmanager.GetHeroAttack())
+                {
+                    if (!weapon.checkAttacking() && stamina > atkCost)
+                    {
+
+                        weapon.doBasicAttack(atkdirection / 1.5f);
+                        stamina -= atkCost;
+                        animator.SetTrigger("OnAttack");
+                    }
+                }
+
             }
-            
         }
+    }
 
-       
-
-
-
-	}
+    #endregion
 }

@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 82964794181343092}
   - component: {fileID: 114010281374368600}
   - component: {fileID: 114615004653419172}
+  - component: {fileID: 114364322980313516}
   m_Layer: 8
   m_Name: SprintMonster
   m_TagString: Monster
@@ -265,6 +266,38 @@ MonoBehaviour:
   hitSound1: {fileID: 8300000, guid: 7ca40e88284506640be2f1cd77773f67, type: 3}
   hitSound2: {fileID: 8300000, guid: 7123039397577894abb6db7c686fff71, type: 3}
   sprintBonus: 0
+--- !u!114 &114364322980313516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1255968221819068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 57
+    i1: 187
+    i2: 225
+    i3: 6
+    i4: 85
+    i5: 219
+    i6: 227
+    i7: 52
+    i8: 168
+    i9: 40
+    i10: 17
+    i11: 10
+    i12: 149
+    i13: 179
+    i14: 92
+    i15: 138
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114615004653419172
 MonoBehaviour:
   m_ObjectHideFlags: 1

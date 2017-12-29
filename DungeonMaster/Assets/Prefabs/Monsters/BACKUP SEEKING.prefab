@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50337478663684604}
   - component: {fileID: 114026665827155212}
   - component: {fileID: 82544912710964084}
+  - component: {fileID: 114573878587127092}
   m_Layer: 8
   m_Name: BACKUP SEEKING
   m_TagString: Monster
@@ -186,6 +187,38 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: dcaadaf77da52e340873aaac8ef5fe5d, type: 3}
   hitSound1: {fileID: 8300000, guid: 7ca40e88284506640be2f1cd77773f67, type: 3}
   hitSound2: {fileID: 8300000, guid: 7123039397577894abb6db7c686fff71, type: 3}
+--- !u!114 &114573878587127092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782003329239956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 1
+    i1: 87
+    i2: 124
+    i3: 135
+    i4: 133
+    i5: 76
+    i6: 31
+    i7: 196
+    i8: 251
+    i9: 153
+    i10: 68
+    i11: 207
+    i12: 93
+    i13: 205
+    i14: 76
+    i15: 234
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212978565590975944
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b2a489f-f5ec-4d82-aaa4-3d4e70df2562" name="Default" comment="Updated the monster cs class to drop items at the position of the transforms.position + the last hit direction on the monster. Should offset it a bit. May need to multiple the lastDirection by a scaler. Needs testing.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Hero/Hero.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Hero/Hero.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Monsters/BACKUP SEEKING.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Monsters/BACKUP SEEKING.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Monsters/SeekMonster.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Monsters/SeekMonster.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Monsters/SeekRangedMonster.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Monsters/SeekRangedMonster.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Monsters/SpawnPoint.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Monsters/SpawnPoint.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Monsters/SprintMonster.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Monsters/SprintMonster.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Monsters/WanderMonster.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Monsters/WanderMonster.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Monsters/wanderingCasterMonster.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Monsters/wanderingCasterMonster.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scenes/DEMO 12-5-17.unity" afterPath="$PROJECT_DIR$/Assets/Scenes/DEMO 12-5-17.unity" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scripts/Hero/HeroController.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/Hero/HeroController.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/SelectionScreen.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/SelectionScreen.prefab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/SelectionScreen.cs" afterPath="$PROJECT_DIR$/Assets/SelectionScreen.cs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -200,13 +188,13 @@
       <file leaf-file-name="SelectionScreen.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/SelectionScreen.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="342">
+              <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
               <folding>
-                <marker date="1514577098847" expanded="true" signature="6:108" ph="..." />
-                <marker date="1514577098847" expanded="true" signature="157:291" ph="{...}" />
-                <marker date="1514577098847" expanded="true" signature="216:225" ph="{...}" />
-                <marker date="1514577098847" expanded="true" signature="255:289" ph="{...}" />
+                <marker date="1514578995482" expanded="true" signature="6:108" ph="..." />
+                <marker date="1514578995482" expanded="true" signature="157:322" ph="{...}" />
+                <marker date="1514578995482" expanded="true" signature="216:225" ph="{...}" />
+                <marker date="1514578995482" expanded="true" signature="255:320" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -365,7 +353,7 @@
       <workItem from="1513704313471" duration="6073000" />
       <workItem from="1513725194817" duration="140000" />
       <workItem from="1514427695077" duration="3105000" />
-      <workItem from="1514436801018" duration="21693000" />
+      <workItem from="1514436801018" duration="22345000" />
     </task>
     <task id="LOCAL-00001" summary="Updated the infinite mana changes. Currently it is set to L and a 2 minute timer, havent done the UI for it. I will set that as one fo ym goals enxt week.">
       <created>1511904381428</created>
@@ -385,7 +373,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88117000" />
+    <option name="totallyTimeSpent" value="88769000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -975,13 +963,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/SelectionScreen.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="342">
+          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
           <folding>
-            <marker date="1514577098847" expanded="true" signature="6:108" ph="..." />
-            <marker date="1514577098847" expanded="true" signature="157:291" ph="{...}" />
-            <marker date="1514577098847" expanded="true" signature="216:225" ph="{...}" />
-            <marker date="1514577098847" expanded="true" signature="255:289" ph="{...}" />
+            <marker date="1514578995482" expanded="true" signature="6:108" ph="..." />
+            <marker date="1514578995482" expanded="true" signature="157:322" ph="{...}" />
+            <marker date="1514578995482" expanded="true" signature="216:225" ph="{...}" />
+            <marker date="1514578995482" expanded="true" signature="255:320" ph="{...}" />
           </folding>
         </state>
       </provider>

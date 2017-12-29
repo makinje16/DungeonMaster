@@ -16,5 +16,6 @@ public class SelectionScreen : NetworkBehaviour
 	public void CallSpawnHero()
 	{
 		PlayerPrefab.SpawnHero();
+		gameObject.SetActive(false);
 	}
 }

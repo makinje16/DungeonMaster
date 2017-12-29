@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4516182361633890}
   - component: {fileID: 114144297361987978}
+  - component: {fileID: 114114682654869846}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -40,6 +41,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114114682654869846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1284245092420160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114144297361987978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,7 +84,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed598909e96891941b91b638df8b9cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster1: {fileID: 0}
-  monster2: {fileID: 0}
-  monster3: {fileID: 0}
-  monster4: {fileID: 0}
+  monsters: []
+  summonefx: {fileID: 0}

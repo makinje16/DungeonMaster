@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 82032539717856674}
   - component: {fileID: 95237852239137550}
   - component: {fileID: 212037819667809142}
+  - component: {fileID: 114494572778006152}
   m_Layer: 8
   m_Name: wanderingCasterMonster
   m_TagString: Monster
@@ -237,6 +238,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072c99f91e9a1b34c866170e28db7357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114494572778006152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1468148303970794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 174
+    i1: 171
+    i2: 235
+    i3: 60
+    i4: 173
+    i5: 95
+    i6: 252
+    i7: 52
+    i8: 168
+    i9: 75
+    i10: 107
+    i11: 187
+    i12: 162
+    i13: 92
+    i14: 166
+    i15: 211
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114952014188258818
 MonoBehaviour:
   m_ObjectHideFlags: 1

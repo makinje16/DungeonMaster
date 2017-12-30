@@ -172,6 +172,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!223 &200719115 stripped
+Canvas:
+  m_PrefabParentObject: {fileID: 223099848133653806, guid: 769107cbc41b1f8439e19d710f555a29,
+    type: 2}
+  m_PrefabInternal: {fileID: 821801537}
 --- !u!1001 &347366602
 Prefab:
   m_ObjectHideFlags: 0
@@ -444,6 +449,7 @@ MonoBehaviour:
   DM: {fileID: 1536417777228622, guid: c955cfec8e479c14fb92f9e3f60d8c66, type: 2}
   DungeonMasterSelection: {fileID: 1838103349}
   HeroSelection: {fileID: 1929116389}
+  characterSelectionCanvas: {fileID: 200719115}
 --- !u!4 &1927334195
 Transform:
   m_ObjectHideFlags: 0

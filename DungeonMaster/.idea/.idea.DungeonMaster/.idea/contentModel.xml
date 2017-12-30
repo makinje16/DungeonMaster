@@ -189,9 +189,7 @@
             <e p="UnityReferenceHelper.cs" t="Include" />
           </e>
         </e>
-        <e p="DungeonManager.cs" t="Include" />
         <e p="gizmoLoader.cs" t="Include" />
-        <e p="MatchSetup.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
             <e p="JetBrains" t="Include">
@@ -255,7 +253,6 @@
             <e p="UIManager.cs" t="Include" />
           </e>
         </e>
-        <e p="SelectionScreen.cs" t="Include" />
       </e>
       <e p="DungeonMaster.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />

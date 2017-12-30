@@ -283,6 +283,8 @@ public class HeroController : NetworkBehaviour {
         animator = GetComponent<Animator>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         MaxStamina = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         if (isLocalPlayer){return;}
         foreach (Behaviour component in componentsToDisable)

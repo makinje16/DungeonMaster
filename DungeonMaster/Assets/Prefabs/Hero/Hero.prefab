@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 92976036679795400}
   - component: {fileID: 124652276754819290}
   - component: {fileID: 81368476850247926}
+  - component: {fileID: 114269772368901404}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -150,6 +151,7 @@ GameObject:
   - component: {fileID: 114443094880179662}
   - component: {fileID: 114715180930998438}
   - component: {fileID: 114813358664604638}
+  - component: {fileID: 114444479922733860}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Hero
@@ -256,7 +258,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416219186203542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: -17.86, z: 0}
+  m_LocalPosition: {x: -26.21716, y: -14.153285, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4064347946934606}
@@ -829,6 +831,38 @@ MonoBehaviour:
   crateexp: {fileID: 1749369093161510, guid: b12d14b9e35832e4ea99d30c1cee9c96, type: 2}
   astarscript: {fileID: 0}
   cratebreak: {fileID: 8300000, guid: d08d159cf43c77347947d85c50b8f218, type: 3}
+--- !u!114 &114269772368901404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139720054752250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 6
+    i1: 47
+    i2: 64
+    i3: 163
+    i4: 159
+    i5: 179
+    i6: 66
+    i7: 116
+    i8: 121
+    i9: 74
+    i10: 170
+    i11: 145
+    i12: 19
+    i13: 173
+    i14: 161
+    i15: 129
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114360441189683940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -877,6 +911,25 @@ MonoBehaviour:
     i15: 129
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114444479922733860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416219186203542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1267208747, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 4489395089378602}
+  m_ChildIndex: 0
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_MovementThreshold: 0.001
+  m_InterpolateRotation: 0.5
+  m_InterpolateMovement: 0.5
 --- !u!114 &114620871965447080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -937,7 +990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 1
-  m_SendInterval: 0.1
+  m_SendInterval: 0.033333335
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0

@@ -211,6 +211,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1984827199086622, guid: 09ce8d857daaab44fa2c9f4c710dfb86, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09ce8d857daaab44fa2c9f4c710dfb86, type: 2}
   m_IsPrefabParent: 0
@@ -221,11 +225,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114942109479261152, guid: 769107cbc41b1f8439e19d710f555a29,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224555983142062364, guid: 769107cbc41b1f8439e19d710f555a29,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -316,44 +315,15 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114942109479261152, guid: 769107cbc41b1f8439e19d710f555a29,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114942109479261152, guid: 769107cbc41b1f8439e19d710f555a29,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114942109479261152, guid: 769107cbc41b1f8439e19d710f555a29,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114942109479261152, guid: 769107cbc41b1f8439e19d710f555a29,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1714681453}
-    - target: {fileID: 114942109479261152, guid: 769107cbc41b1f8439e19d710f555a29,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114942109479261152, guid: 769107cbc41b1f8439e19d710f555a29,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 769107cbc41b1f8439e19d710f555a29, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1714681453 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1257272787011506, guid: 769107cbc41b1f8439e19d710f555a29,
+--- !u!114 &1838103349 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114266177113562944, guid: 769107cbc41b1f8439e19d710f555a29,
     type: 2}
   m_PrefabInternal: {fileID: 821801537}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1927334192
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,8 +332,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1927334195}
-  - component: {fileID: 1927334194}
   - component: {fileID: 1927334193}
+  - component: {fileID: 1927334194}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -394,7 +364,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1927334192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -822479833, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: d5f9de4d662b7f540ad90bfe330f9c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NetworkPort: 7777
@@ -411,7 +381,7 @@ MonoBehaviour:
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: 
-  m_OnlineScene: multiplayer
+  m_OnlineScene: 
   m_SpawnPrefabs:
   - {fileID: 1416219186203542, guid: 062f40a39fb34274794aaa9113ada181, type: 2}
   - {fileID: 1536417777228622, guid: c955cfec8e479c14fb92f9e3f60d8c66, type: 2}
@@ -470,6 +440,10 @@ MonoBehaviour:
   matchSize: 4
   isNetworkActive: 0
   matchMaker: {fileID: 0}
+  Hero: {fileID: 1416219186203542, guid: 062f40a39fb34274794aaa9113ada181, type: 2}
+  DM: {fileID: 1536417777228622, guid: c955cfec8e479c14fb92f9e3f60d8c66, type: 2}
+  DungeonMasterSelection: {fileID: 1838103349}
+  HeroSelection: {fileID: 1929116389}
 --- !u!4 &1927334195
 Transform:
   m_ObjectHideFlags: 0
@@ -483,6 +457,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1929116389 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114942109479261152, guid: 769107cbc41b1f8439e19d710f555a29,
+    type: 2}
+  m_PrefabInternal: {fileID: 821801537}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &2138137906
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +512,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

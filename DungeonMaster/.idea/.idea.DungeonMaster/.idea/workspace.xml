@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2b2a489f-f5ec-4d82-aaa4-3d4e70df2562" name="Default" comment="Updated the monster cs class to drop items at the position of the transforms.position + the last hit direction on the monster. Should offset it a bit. May need to multiple the lastDirection by a scaler. Needs testing.">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonMaster/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonMaster/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/levellayouts/lvl2.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/levellayouts/lvl2.prefab" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Hero/Hero.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Hero/Hero.prefab" />
@@ -13,13 +14,20 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonMaster/.idea/contentModel.xml" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonMaster/.idea/contentModel.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonMaster/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonMaster/.idea/workspace.xml" />
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonMaster/.idea/contentModel.xml" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonMaster/.idea/contentModel.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DungeonMaster/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.DungeonMaster/.idea/workspace.xml" />
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking/MyNetworkManager.cs" afterPath="$PROJECT_DIR$/Assets/Scripts/Networking/MyNetworkManager.cs" />
       <change beforePath="$PROJECT_DIR$/MultiplayerBuilds/001_Data/globalgamemanagers" afterPath="$PROJECT_DIR$/MultiplayerBuilds/001_Data/globalgamemanagers" />
       <change beforePath="$PROJECT_DIR$/MultiplayerBuilds/001_Data/level0" afterPath="$PROJECT_DIR$/MultiplayerBuilds/001_Data/level0" />
       <change beforePath="$PROJECT_DIR$/MultiplayerBuilds/001_Data/sharedassets0.assets" afterPath="$PROJECT_DIR$/MultiplayerBuilds/001_Data/sharedassets0.assets" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/MultiplayerBuilds/001_Data/sharedassets0.assets.resS" afterPath="$PROJECT_DIR$/MultiplayerBuilds/001_Data/sharedassets0.assets.resS" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" />
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
 =======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
     </list>
@@ -32,6 +40,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="HeroController.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Hero/HeroController.cs">
@@ -111,6 +120,8 @@
                 <marker date="1514617382804" expanded="true" signature="13136:13456" ph="{...}" />
                 <marker date="1514617382804" expanded="true" signature="13225:13438" ph="{...}" />
 =======
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
       <file leaf-file-name="HeroController.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Hero/HeroController.cs">
           <provider selected="true" editor-type-id="text-editor">
@@ -191,6 +202,9 @@
                 <marker date="1514589297980" expanded="true" signature="13228:13452" ph="{...}" />
                 <marker date="1514589297980" expanded="true" signature="13520:13840" ph="{...}" />
                 <marker date="1514589297980" expanded="true" signature="13609:13822" ph="{...}" />
+<<<<<<< HEAD
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
+=======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
               </folding>
             </state>
@@ -201,7 +215,11 @@
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/InputManager/InputManager.cs">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="1170">
+=======
+            <state relative-caret-position="429">
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
 =======
             <state relative-caret-position="429">
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
@@ -257,7 +275,10 @@
         </entry>
       </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
       <file leaf-file-name="MyNetworkManager.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Networking/MyNetworkManager.cs">
           <provider selected="true" editor-type-id="text-editor">
@@ -281,6 +302,9 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
+=======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
     </leaf>
   </component>
@@ -299,7 +323,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Monsters/Monster.cs" root0="FORCE_HIGHLIGHTING" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs" root0="FORCE_HIGHLIGHTING" />
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
 =======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Hero/BasicSword.cs" root0="FORCE_HIGHLIGHTING" />
@@ -336,15 +363,21 @@
         <option value="$PROJECT_DIR$/Assets/DungeonManager.cs" />
         <option value="$PROJECT_DIR$/Assets/MatchSetup.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Assets/SelectionScreen.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputManager/InputManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Networking/MyNetworkManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroController.cs" />
 =======
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
         <option value="$PROJECT_DIR$/Assets/Scripts/Hero/HeroController.cs" />
         <option value="$PROJECT_DIR$/Assets/SelectionScreen.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputManager/InputManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Networking/MyNetworkManager.cs" />
+<<<<<<< HEAD
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
+=======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
       </list>
     </option>
@@ -449,7 +482,11 @@
       <workItem from="1514427695077" duration="3105000" />
       <workItem from="1514436801018" duration="26496000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1514599114362" duration="13101000" />
+=======
+      <workItem from="1514599114362" duration="6586000" />
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
 =======
       <workItem from="1514599114362" duration="6586000" />
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
@@ -473,7 +510,11 @@
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="106021000" />
+=======
+    <option name="totallyTimeSpent" value="99506000" />
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
 =======
     <option name="totallyTimeSpent" value="99506000" />
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
@@ -503,7 +544,10 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
 =======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -516,6 +560,10 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
 =======
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
@@ -568,6 +616,7 @@
         <state relative-caret-position="5016">
           <caret line="294" column="0" lean-forward="false" selection-start-line="294" selection-start-column="0" selection-end-line="294" selection-end-column="0" />
           <folding>
+<<<<<<< HEAD
 <<<<<<< HEAD
             <marker date="1514617382804" expanded="false" signature="6:130" ph="..." />
             <marker date="1514617382804" expanded="true" signature="179:13593" ph="{...}" />
@@ -641,6 +690,8 @@
             <marker date="1514617382804" expanded="true" signature="13136:13456" ph="{...}" />
             <marker date="1514617382804" expanded="true" signature="13225:13438" ph="{...}" />
 =======
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
             <marker date="1514589297980" expanded="false" signature="6:130" ph="..." />
             <marker date="1514589297980" expanded="true" signature="179:13889" ph="{...}" />
             <marker date="1514589297980" expanded="true" signature="186:2387" ph="member Variables" />
@@ -715,6 +766,9 @@
             <marker date="1514589297980" expanded="true" signature="13228:13452" ph="{...}" />
             <marker date="1514589297980" expanded="true" signature="13520:13840" ph="{...}" />
             <marker date="1514589297980" expanded="true" signature="13609:13822" ph="{...}" />
+<<<<<<< HEAD
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
+=======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
           </folding>
         </state>
@@ -795,6 +849,7 @@
           <caret line="393" column="25" lean-forward="false" selection-start-line="393" selection-start-column="25" selection-end-line="393" selection-end-column="25" />
           <folding>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <marker date="1514617382804" expanded="false" signature="6:130" ph="..." />
             <marker date="1514617382804" expanded="true" signature="179:13593" ph="{...}" />
             <marker date="1514617382804" expanded="true" signature="186:2484" ph="member Variables" />
@@ -867,6 +922,8 @@
             <marker date="1514617382804" expanded="true" signature="13136:13456" ph="{...}" />
             <marker date="1514617382804" expanded="true" signature="13225:13438" ph="{...}" />
 =======
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
             <marker date="1514589297980" expanded="false" signature="6:130" ph="..." />
             <marker date="1514589297980" expanded="true" signature="179:13889" ph="{...}" />
             <marker date="1514589297980" expanded="true" signature="186:2387" ph="member Variables" />
@@ -941,6 +998,9 @@
             <marker date="1514589297980" expanded="true" signature="13228:13452" ph="{...}" />
             <marker date="1514589297980" expanded="true" signature="13520:13840" ph="{...}" />
             <marker date="1514589297980" expanded="true" signature="13609:13822" ph="{...}" />
+<<<<<<< HEAD
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
+=======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
           </folding>
         </state>
@@ -1040,6 +1100,7 @@
           <caret line="232" column="5" lean-forward="false" selection-start-line="232" selection-start-column="5" selection-end-line="232" selection-end-column="5" />
           <folding>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <marker date="1514617382804" expanded="false" signature="6:130" ph="..." />
             <marker date="1514617382804" expanded="true" signature="179:13593" ph="{...}" />
             <marker date="1514617382804" expanded="true" signature="186:2484" ph="member Variables" />
@@ -1112,6 +1173,8 @@
             <marker date="1514617382804" expanded="true" signature="13136:13456" ph="{...}" />
             <marker date="1514617382804" expanded="true" signature="13225:13438" ph="{...}" />
 =======
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
             <marker date="1514589297980" expanded="false" signature="6:130" ph="..." />
             <marker date="1514589297980" expanded="true" signature="179:13889" ph="{...}" />
             <marker date="1514589297980" expanded="true" signature="186:2387" ph="member Variables" />
@@ -1186,6 +1249,9 @@
             <marker date="1514589297980" expanded="true" signature="13228:13452" ph="{...}" />
             <marker date="1514589297980" expanded="true" signature="13520:13840" ph="{...}" />
             <marker date="1514589297980" expanded="true" signature="13609:13822" ph="{...}" />
+<<<<<<< HEAD
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
+=======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
           </folding>
         </state>
@@ -1269,7 +1335,10 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Hero/HeroController.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5510">
@@ -1353,6 +1422,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
+=======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
     <entry file="file://$PROJECT_DIR$/Assets/SelectionScreen.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -1370,6 +1442,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Networking/MyNetworkManager.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -1397,6 +1470,11 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/InputManager/InputManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
+=======
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/InputManager/InputManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
 =======
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/InputManager/InputManager.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -1452,6 +1530,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs">
       <provider selected="true" editor-type-id="text-editor">
@@ -1703,6 +1782,8 @@
             <marker date="1514617382804" expanded="true" signature="13136:13456" ph="{...}" />
             <marker date="1514617382804" expanded="true" signature="13225:13438" ph="{...}" />
 =======
+=======
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Networking/MyNetworkManager.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
@@ -1720,6 +1801,9 @@
             <marker date="1514609813978" expanded="true" signature="1491:1588" ph="{...}" />
             <marker date="1514609813978" expanded="true" signature="1726:1823" ph="{...}" />
             <marker date="1514609813978" expanded="true" signature="1830:1924" ph="{...}" />
+<<<<<<< HEAD
+>>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
+=======
 >>>>>>> 72f4d06bdab3a8df911bcba0a932019e5e09f7ff
           </folding>
         </state>

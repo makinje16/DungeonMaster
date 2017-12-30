@@ -11,76 +11,42 @@ public class HeroController : NetworkBehaviour {
 
     private SpriteRenderer sr;
 	private Animator animator;
-    /*    [SerializeField]
-        private Sprite up;
-        [SerializeField]
-        private Sprite down;
-        [SerializeField]
-        private Sprite left;
-    */
 
-
-    [SerializeField]
-    private GameObject summonefx;
-    [SerializeField]
-    private Slider HeroHealth;
-    [SerializeField]
-    private Slider HeroMana;
-
-
-    [SerializeField]
-    private float mspeed = 0;
-    [SerializeField]
-    private float walkspeed = 3;
-    [SerializeField]
-    private float runspeed = 8;
-
+    [SerializeField] private GameObject summonefx;
     
+    [SerializeField] private Slider HeroHealth;
+    [SerializeField] private Slider HeroMana;
 
-    [SerializeField]
-    private float staminaRecRate = 5;
+    [SerializeField] private int lives = 10;
+    
+    [SerializeField] private float mspeed = 0;
+    [SerializeField] private float walkspeed = 3;
+    [SerializeField] private float runspeed = 8;
+    [SerializeField] private float staminaRecRate = 5;
+    [SerializeField] private float dashCost = DASH_COST;
+    [SerializeField] private float atkCost = ATTACK_COST;
+    [SerializeField] private float stuntime = .1f;
+    
+    [SerializeField] private AudioClip healSound;
+    [SerializeField] private AudioClip staminaSound;
+    [SerializeField] private AudioClip objectiveSound;
+    [SerializeField] private AudioClip manaLockSound;
+    [SerializeField] private AudioClip powerupSound;
 
-
-    [SerializeField]
-    private float dashCost = DASH_COST;
-    [SerializeField]
-    private float atkCost = ATTACK_COST;
-
-    [SerializeField]
-    private AudioClip healSound;
-
-    [SerializeField]
-    private AudioClip staminaSound;
-
-    [SerializeField]
-    private AudioClip objectiveSound;
-
-    [SerializeField]
-    private AudioClip manaLockSound;
-
-    [SerializeField]
-    private AudioClip powerupSound;
-
-    [SerializeField]
-    private BasicSword weapon;
+    [SerializeField] private BasicSword weapon;
+    
     private Vector2 atkdirection = Vector2.down;
-
     private Vector2 inputdirection;
+    private Vector2 stundirection = Vector2.down;
 
-    private bool isdead;
-
-    private bool invincible = false;
     private float invincibleCount = 0;
 
-
+    private bool isdead;
+    private bool invincible = false;
     private bool canmove = true;
-
     private bool isstunned = false;
     private float stuncount;
-    private Vector2 stundirection = Vector2.down;
-    [SerializeField]
-    private float stuntime = .1f;
-
+    
     private bool isdashing = false;
     private float dashcount;
     
@@ -88,15 +54,13 @@ public class HeroController : NetworkBehaviour {
 
     private float dashtime = .3f;
 
+    [SyncVar] private float health = 50;
+    [SyncVar] private float maxhealth = 50;
+    [SyncVar] private float stamina = 30;
+    [SyncVar] private float maxstamina = 30;
 
-    private float health = 50;
-    private float maxhealth = 50;
-    private float stamina = 30;
-    private float maxstamina = 30;
-
-    [SerializeField]
-    private int lives = 10;
-
+    [SyncVar(hook = "FlipSprite")] private bool FlipX = false;
+    
     private const float INV_FRAMES = .25f; 
     private const float REG_HEAL = 30;
     private const float MAX_HEAL = 100;
@@ -294,19 +258,13 @@ public class HeroController : NetworkBehaviour {
         MaxStamina = false;
     }
 
-    [Command]
-    public void CmdMove()
+    private void FlipSprite(bool FlipX)
     {
-        Debug.Log("Inside CmdMove");
-        transform.Translate(Vector3.up * 5);
+        sr.flipX = FlipX;
     }
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            CmdMove();
-        }
         if (isLocalPlayer)
         {
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
@@ -392,9 +350,7 @@ public class HeroController : NetworkBehaviour {
                         //facing right
                         if (inputdirection.x > 0)
                         {
-                            //sr.sprite = left;
-                            CmdflipX(false);
-                            sr.flipX = false;
+                            FlipX = false;
                             atkdirection = Vector2.right;
                             animator.SetBool("IsFacingUp", false);
                             animator.SetBool("IsFacingSide", true);
@@ -403,10 +359,7 @@ public class HeroController : NetworkBehaviour {
                         }
                         else
                         {
-                            //facing left
-                            //sr.sprite = left;
-                            CmdflipX(true);
-                            sr.flipX = true;
+                            FlipX = true;
                             atkdirection = -Vector2.right;
                             animator.SetBool("IsFacingUp", false);
                             animator.SetBool("IsFacingSide", true);
@@ -419,8 +372,7 @@ public class HeroController : NetworkBehaviour {
                         //facing up
                         if (inputdirection.y > 0)
                         {
-                            //sr.sprite = up;
-                            sr.flipX = false;
+                            FlipX = false;
                             atkdirection = Vector2.up;
                             animator.SetBool("IsFacingUp", true);
                             animator.SetBool("IsFacingSide", false);
@@ -429,9 +381,7 @@ public class HeroController : NetworkBehaviour {
                         }
                         else
                         {
-                            //facing down
-                            //sr.sprite = down;
-                            sr.flipX = false;
+                            FlipX = false;
                             atkdirection = -Vector2.up;
                             animator.SetBool("IsFacingUp", false);
                             animator.SetBool("IsFacingSide", false);
@@ -499,9 +449,11 @@ public class HeroController : NetworkBehaviour {
                         animator.SetTrigger("OnAttack");
                     }
                 }
-
             }
         }
+
+        getHeroHealthSlider().value = health * 2;
+        getHeroStaminaSlider().value = stamina;
     }
 
     #endregion

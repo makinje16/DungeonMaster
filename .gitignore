@@ -4,7 +4,7 @@ DungeonMaster/[Oo]bj/
 DungeonMaster/[Bb]uild/
 DungeonMaster/[Bb]uilds/
 DungeonMaster/Assets/AssetStoreTools*
-
+DungeonMaster/.idea/*
 DungeonMaster/Temp/*
 /DungeonMaster/Library/*
 

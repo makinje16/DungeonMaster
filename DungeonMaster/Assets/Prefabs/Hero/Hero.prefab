@@ -651,20 +651,20 @@ MonoBehaviour:
   summonefx: {fileID: 1881415412348396, guid: aa09e1a3c260dcd42bf5436c27dc8869, type: 2}
   HeroHealth: {fileID: 114062026713050826}
   HeroMana: {fileID: 114061130664823992}
+  lives: 10
   mspeed: 3
   walkspeed: 3
   runspeed: 8
   staminaRecRate: 5
   dashCost: 8
   atkCost: 2
+  stuntime: 0.1
   healSound: {fileID: 8300000, guid: 9c90477cacea302458988ca8d0661aab, type: 3}
   staminaSound: {fileID: 8300000, guid: e7c29f172e98b5347b9594f19e929b6c, type: 3}
   objectiveSound: {fileID: 8300000, guid: 0e1ac01c5b153ea41acaeac9d0d380b9, type: 3}
   manaLockSound: {fileID: 8300000, guid: f4f98c933653a694f87fa51c1459435e, type: 3}
   powerupSound: {fileID: 8300000, guid: 40be3387cd9a7ae4a8dcc47619c44208, type: 3}
   weapon: {fileID: 114240674923896984}
-  stuntime: 0.1
-  lives: 10
 --- !u!114 &114061130664823992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -937,7 +937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 1
-  m_SendInterval: 0.1
+  m_SendInterval: 0.033333335
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0

@@ -38,28 +38,24 @@ public class HeroController : NetworkBehaviour {
     private Vector2 atkdirection = Vector2.down;
     private Vector2 inputdirection;
     private Vector2 stundirection = Vector2.down;
-
-    private float invincibleCount = 0;
+    private Vector2 dashdirection = Vector2.down;
 
     private bool isdead;
     private bool invincible = false;
     private bool canmove = true;
     private bool isstunned = false;
-    private float stuncount;
-    
     private bool isdashing = false;
-    private float dashcount;
-    
-    private Vector2 dashdirection = Vector2.down;
+    private bool MaxStamina;
 
+    private float stuncount;
+    private float dashcount;
+    private float invincibleCount = 0;
     private float dashtime = .3f;
 
     [SyncVar] private float health = 50;
     [SyncVar] private float maxhealth = 50;
     [SyncVar] private float stamina = 30;
     [SyncVar] private float maxstamina = 30;
-
-    [SyncVar(hook = "FlipSprite")] private bool FlipX = false;
     
     private const float INV_FRAMES = .25f; 
     private const float REG_HEAL = 30;
@@ -67,7 +63,6 @@ public class HeroController : NetworkBehaviour {
     private const float DASH_COST = 8;
     private const float ATTACK_COST = 2;
     private const float ATTACK_BONUS = 15;
-    private bool MaxStamina;
 
     private RaycastHit2D rc;
     #endregion
@@ -101,7 +96,7 @@ public class HeroController : NetworkBehaviour {
     
     #endregion
 
-    #region member functions
+#region member functions
     
     public void damage(float amt, Vector2 pushdirect)
     {
@@ -190,7 +185,6 @@ public class HeroController : NetworkBehaviour {
         dashCost = DASH_COST;
         atkCost = ATTACK_COST;
     }
-    
 
     private void enableMaxStamina()
     {
@@ -216,12 +210,18 @@ public class HeroController : NetworkBehaviour {
     }
 
     [Command]
-    private void CmdflipX(bool flip)
+    public void CmdFlipSprite(bool flip)
     {
-        GetComponent<SpriteRenderer>().flipX = flip;
+        RpcFlipSprite(flip);
+    }
+
+    [ClientRpc]
+    public void RpcFlipSprite(bool flip)
+    {
+        sr.flipX = flip;
     }
     
-    #endregion
+ #endregion
 
     #region Unity functions
     
@@ -256,11 +256,6 @@ public class HeroController : NetworkBehaviour {
         animator = GetComponent<Animator>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         MaxStamina = false;
-    }
-
-    private void FlipSprite(bool FlipX)
-    {
-        sr.flipX = FlipX;
     }
     
     void Update()
@@ -350,7 +345,7 @@ public class HeroController : NetworkBehaviour {
                         //facing right
                         if (inputdirection.x > 0)
                         {
-                            FlipX = false;
+                            CmdFlipSprite(false);
                             atkdirection = Vector2.right;
                             animator.SetBool("IsFacingUp", false);
                             animator.SetBool("IsFacingSide", true);
@@ -359,7 +354,7 @@ public class HeroController : NetworkBehaviour {
                         }
                         else
                         {
-                            FlipX = true;
+                            CmdFlipSprite(true);
                             atkdirection = -Vector2.right;
                             animator.SetBool("IsFacingUp", false);
                             animator.SetBool("IsFacingSide", true);
@@ -372,7 +367,6 @@ public class HeroController : NetworkBehaviour {
                         //facing up
                         if (inputdirection.y > 0)
                         {
-                            FlipX = false;
                             atkdirection = Vector2.up;
                             animator.SetBool("IsFacingUp", true);
                             animator.SetBool("IsFacingSide", false);
@@ -381,7 +375,6 @@ public class HeroController : NetworkBehaviour {
                         }
                         else
                         {
-                            FlipX = false;
                             atkdirection = -Vector2.up;
                             animator.SetBool("IsFacingUp", false);
                             animator.SetBool("IsFacingSide", false);
@@ -451,7 +444,6 @@ public class HeroController : NetworkBehaviour {
                 }
             }
         }
-
         getHeroHealthSlider().value = health * 2;
         getHeroStaminaSlider().value = stamina;
     }

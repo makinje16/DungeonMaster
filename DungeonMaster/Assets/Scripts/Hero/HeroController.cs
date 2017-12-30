@@ -89,12 +89,11 @@ public class HeroController : NetworkBehaviour {
     private float dashtime = .3f;
 
 
-    [SyncVar] private float health = 50;
-    [SyncVar] private float maxhealth = 50;
-    [SyncVar] private float stamina = 30;
-    [SyncVar] private float maxstamina = 30;
-    [SyncVar(hook = "RpcFlipX")] private bool FlipX;
-    
+    private float health = 50;
+    private float maxhealth = 50;
+    private float stamina = 30;
+    private float maxstamina = 30;
+
     [SerializeField]
     private int lives = 10;
 
@@ -227,6 +226,7 @@ public class HeroController : NetworkBehaviour {
         dashCost = DASH_COST;
         atkCost = ATTACK_COST;
     }
+    
 
     private void enableMaxStamina()
     {
@@ -251,10 +251,10 @@ public class HeroController : NetworkBehaviour {
         weapon.boostAttack(ATTACK_BONUS);
     }
 
-    [ClientRpc]
-    private void RpcFlipX(bool FlipX)
+    [Command]
+    private void CmdflipX(bool flip)
     {
-        sr.flipX = FlipX;
+        GetComponent<SpriteRenderer>().flipX = flip;
     }
     
     #endregion
@@ -293,9 +293,20 @@ public class HeroController : NetworkBehaviour {
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         MaxStamina = false;
     }
+
+    [Command]
+    public void CmdMove()
+    {
+        Debug.Log("Inside CmdMove");
+        transform.Translate(Vector3.up * 5);
+    }
     
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            CmdMove();
+        }
         if (isLocalPlayer)
         {
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
@@ -381,7 +392,9 @@ public class HeroController : NetworkBehaviour {
                         //facing right
                         if (inputdirection.x > 0)
                         {
-                            FlipX = false;
+                            //sr.sprite = left;
+                            CmdflipX(false);
+                            sr.flipX = false;
                             atkdirection = Vector2.right;
                             animator.SetBool("IsFacingUp", false);
                             animator.SetBool("IsFacingSide", true);
@@ -390,7 +403,10 @@ public class HeroController : NetworkBehaviour {
                         }
                         else
                         {
-                            FlipX = true;
+                            //facing left
+                            //sr.sprite = left;
+                            CmdflipX(true);
+                            sr.flipX = true;
                             atkdirection = -Vector2.right;
                             animator.SetBool("IsFacingUp", false);
                             animator.SetBool("IsFacingSide", true);
@@ -486,9 +502,6 @@ public class HeroController : NetworkBehaviour {
 
             }
         }
-
-        HeroHealth.value = health * 2;
-        getHeroStaminaSlider().value = stamina;
     }
 
     #endregion

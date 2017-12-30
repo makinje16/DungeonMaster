@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.NetworkSystem;
 using Button = UnityEngine.UI.Button;
@@ -54,11 +53,6 @@ public class MyNetworkManager : NetworkManager
 		}
 	}
 
-	public override void OnClientDisconnect(NetworkConnection conn)
-	{
-		characterSelectionCanvas.enabled = true;
-	}
-
 	public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId, NetworkReader extraMessageReader)
 	{
 		int id = 0;
@@ -83,11 +77,5 @@ public class MyNetworkManager : NetworkManager
 		}
 
 		NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
-	}
-
-	public override void OnServerDisconnect(NetworkConnection conn)
-	{
-		base.OnServerDisconnect(conn);
-		Debug.Log("Client disconnected");
 	}
 }

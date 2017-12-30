@@ -30,8 +30,5 @@ EditorBuildSettings:
     path: Assets/Scenes/DEMO 11-7-17.unity
     guid: 9ca787d65cea7ce4a8156769c0bc4da9
   - enabled: 1
-    path: Assets/Scenes/Multiplayer/SelectionScreen.unity
+    path: Assets/Scenes/Multiplayer/multiplayer.unity
     guid: a783660ca50fb34409e75b06fc09945b
-  - enabled: 0
-    path: Assets/Scenes/Multiplayer/Main.unity
-    guid: e12a19fa68c5ccb43b3399ba37ef6995

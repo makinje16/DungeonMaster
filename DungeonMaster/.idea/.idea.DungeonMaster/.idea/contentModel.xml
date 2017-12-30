@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\LESkidd113\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_DungeonMaster.-261183101.00" t="ExcludeRecursive" />
+    <e p="C:\Users\LESkidd113\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_DungeonMaster.-261183101.00" t="ExcludeRecursive" />
     <e p="D:\UnityProjects\DungeonMaster\DungeonMaster" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
@@ -237,6 +237,9 @@
             <e p="sprintingMonster.cs" t="Include" />
             <e p="wanderingCasterMonster.cs" t="Include" />
             <e p="wanderingMonster.cs" t="Include" />
+          </e>
+          <e p="Networking" t="Include">
+            <e p="MyNetworkManager.cs" t="Include" />
           </e>
           <e p="nextlevelgoer.cs" t="Include" />
           <e p="Spells" t="Include">

@@ -84,6 +84,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f2874160a4fcd47a0d1b092f5246ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SelectionScreen: {fileID: 1257272787011506, guid: 769107cbc41b1f8439e19d710f555a29,
-    type: 2}
   Hero: {fileID: 1416219186203542, guid: 062f40a39fb34274794aaa9113ada181, type: 2}
+  DungeonMaster: {fileID: 1536417777228622, guid: c955cfec8e479c14fb92f9e3f60d8c66,
+    type: 2}

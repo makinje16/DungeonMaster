@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class HeroController : NetworkBehaviour {
 
-    #region member Variables
+#region member Variables
     private InputManager inputmanager;
 
     private SpriteRenderer sr;
 	private Animator animator;
 
+    [SerializeField] private Behaviour[] componentsToDisable;
+
     [SerializeField] private GameObject summonefx;
+    [SerializeField] private GameObject[] gameObjectsToDisable;
     
     [SerializeField] private Slider HeroHealth;
     [SerializeField] private Slider HeroMana;
@@ -53,8 +56,8 @@ public class HeroController : NetworkBehaviour {
     private float dashtime = .3f;
 
     [SyncVar] private float health = 50;
-    [SyncVar] private float maxhealth = 50;
-    [SyncVar] private float stamina = 30;
+    private float maxhealth = 50;
+    private float stamina = 30;
     [SyncVar] private float maxstamina = 30;
     
     private const float INV_FRAMES = .25f; 
@@ -65,9 +68,9 @@ public class HeroController : NetworkBehaviour {
     private const float ATTACK_BONUS = 15;
 
     private RaycastHit2D rc;
-    #endregion
+#endregion
 
-    #region variable accessors
+#region variable accessors
 
         public float getHealth()
     {
@@ -94,7 +97,7 @@ public class HeroController : NetworkBehaviour {
         return isdead;
     }
     
-    #endregion
+#endregion
 
 #region member functions
     
@@ -220,10 +223,34 @@ public class HeroController : NetworkBehaviour {
     {
         sr.flipX = flip;
     }
+
+    [Command]
+    public void CmdSetHealth(float value)
+    {
+        RpcSetHealth(value);
+    }
+
+    [ClientRpc]
+    public void RpcSetHealth(float value)
+    {
+        HeroHealth.value = value * 2;
+    }
+
+    [Command]
+    public void CmdSetStamina(float value)
+    {
+        RpcSetStamina(value);
+    }
+
+    [ClientRpc]
+    public void RpcSetStamina(float value)
+    {
+        HeroMana.value = value;
+    }
     
  #endregion
 
-    #region Unity functions
+#region Unity functions
     
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -256,6 +283,16 @@ public class HeroController : NetworkBehaviour {
         animator = GetComponent<Animator>();
         animator.updateMode = AnimatorUpdateMode.UnscaledTime;
         MaxStamina = false;
+
+        if (isLocalPlayer){return;}
+        foreach (Behaviour component in componentsToDisable)
+        {
+            component.enabled = false;
+        }
+        foreach (GameObject gameObj in gameObjectsToDisable)
+        {
+            gameObj.SetActive(false);
+        }
     }
     
     void Update()
@@ -443,10 +480,10 @@ public class HeroController : NetworkBehaviour {
                     }
                 }
             }
+            CmdSetHealth(health * 2);
+            CmdSetStamina(stamina);
         }
-        getHeroHealthSlider().value = health * 2;
-        getHeroStaminaSlider().value = stamina;
     }
 
-    #endregion
+#endregion
 }

@@ -648,7 +648,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320d784ab6fc4d34a8f0ab79f9818f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  componentsToDisable:
+  - {fileID: 82638786036775612}
   summonefx: {fileID: 1881415412348396, guid: aa09e1a3c260dcd42bf5436c27dc8869, type: 2}
+  gameObjectsToDisable:
+  - {fileID: 1139720054752250}
   HeroHealth: {fileID: 114062026713050826}
   HeroMana: {fileID: 114061130664823992}
   lives: 10

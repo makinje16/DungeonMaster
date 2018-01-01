@@ -48,8 +48,6 @@ public class DmController : NetworkBehaviour {
 	
 	private int trapType;
 	private int monsterToSummon;
-	private int screendWidth;
-	private int screenHeight;
 	
 	private bool toBeSummoned;
 	private bool trapToBeActivated;
@@ -89,8 +87,6 @@ public class DmController : NetworkBehaviour {
 		monsterSpawnTransforms = monsterspawns.GetComponentsInChildren<Transform>().ToList();
         Debug.Log(monsterSpawnTransforms.Count);
 
-	    screendWidth = Screen.width;
-	    screenHeight = Screen.height;
 	    Cursor.lockState = CursorLockMode.Confined;
     }
 	
@@ -206,13 +202,21 @@ public class DmController : NetworkBehaviour {
 
 	private void mouseMovement()
 	{
-		if (Input.mousePosition.x >= (screendWidth - (screendWidth * edgePercentage)))
+		if (Input.mousePosition.x >= Screen.width)
 		{
 			gameObject.transform.Translate(Vector3.right * cameraSpeed * Time.deltaTime);
 		}
-		if (Input.mousePosition.x <= (screendWidth * edgePercentage))
+		if (Input.mousePosition.x <= 0)
 		{
 			gameObject.transform.Translate(Vector3.left * cameraSpeed * Time.deltaTime);
+		}
+		if (Input.mousePosition.y >= Screen.height)
+		{
+			gameObject.transform.Translate(Vector3.up * cameraSpeed * Time.deltaTime);
+		}
+		if (Input.mousePosition.y <= 0)
+		{
+			gameObject.transform.Translate(Vector3.down * cameraSpeed * Time.deltaTime);
 		}
 	}
 	

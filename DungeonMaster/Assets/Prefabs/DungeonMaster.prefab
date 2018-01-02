@@ -169,7 +169,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterspawns: {fileID: 0}
   itemspawns: {fileID: 0}
-  monsterSpawnTransforms: []
+  monsterSpawnTransforms:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   dmTraps: []
   manaRate: 5
   maxMana: 0

@@ -12,10 +12,11 @@ public class DmController : NetworkBehaviour {
 #region member Variables
     private gamecontroller.DMAbilities currentabilities;
 	
-    [SerializeField] private GameObject monsterspawns;
-    [SerializeField] private GameObject itemspawns;
-	[SerializeField] private List<Transform> monsterSpawnTransforms;
-	[SerializeField] private List<GameObject> dmTraps;
+    [SerializeField] private  GameObject monsterspawns;
+    [SerializeField] private  GameObject itemspawns;
+	[SerializeField] private  List<Transform> monsterSpawnTransforms;
+	[SerializeField] private  List<GameObject> dmTraps;
+	[SerializeField] private  gamecontroller gc;
 	
 	[SerializeField] private float manaRate;
 	[SerializeField] private float maxMana;
@@ -24,9 +25,7 @@ public class DmController : NetworkBehaviour {
 	[SerializeField] private float xMinBound;
 	[SerializeField] private float yMaxBound;
 	[SerializeField] private float yMinBound;
-	
-    private gamecontroller gc;
-	
+		
 	public float GetManaCount () {
 		return manaCount;
 	}
@@ -87,10 +86,6 @@ public class DmController : NetworkBehaviour {
 		trapType = -1;
 		manaLocked = false;
 		infiniteManaCounter = 120;
-		heroTransform = GameObject.FindGameObjectWithTag("Hero").GetComponent<Transform>();
-		monsterSpawnTransforms = monsterspawns.GetComponentsInChildren<Transform>().ToList();
-        Debug.Log(monsterSpawnTransforms.Count);
-
 	    Cursor.lockState = CursorLockMode.Confined;
     }
 	
@@ -100,16 +95,25 @@ public class DmController : NetworkBehaviour {
 		if (isLocalPlayer)
 		{
 			mouseMovement();
-			if (heroTransform == null)
-			{
-				heroTransform = GameObject.FindGameObjectWithTag("Hero").GetComponent<Transform>();
-				Debug.Log("Cant find heroTransform.");
-			}
 			if (gc == null)
 			{
 				gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<gamecontroller>();
 				currentabilities = gc.getAbilities();
 			}
+			if (monsterspawns == null)
+			{
+				monsterspawns = GameObject.Find("lvl2").transform.Find("MonsterSpawnPoints").gameObject;
+				monsterSpawnTransforms = monsterspawns.GetComponentsInChildren<Transform>().ToList();
+			}
+			if (heroTransform == null)
+			{
+				heroTransform = GameObject.FindGameObjectWithTag("Hero").GetComponent<Transform>();
+			}
+			if (inputManager == null)
+			{
+				inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
+			}
+
 			if (manapercentage > 0)
 			{
 				manapercentage -= Time.deltaTime;
@@ -122,12 +126,6 @@ public class DmController : NetworkBehaviour {
 			}
 
 			ChangeMana(Time.deltaTime * manaRate * recharge_factor);
-
-			//make sure we have the input manager
-			if (inputManager == null)
-			{
-				inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
-			}
 
 			monsterSpawnTransforms.Sort((p1, p2) =>
 				Vector3.Distance(p1.position, heroTransform.position)
@@ -143,7 +141,7 @@ public class DmController : NetworkBehaviour {
 				    ((monsterToSummon >= 3) &&
 				     (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.specialmonsters))))
 				{
-					SummonMonster();
+					CmdSummonMonster();
 				}
 
 
@@ -180,10 +178,10 @@ public class DmController : NetworkBehaviour {
 #endregion
 	
 #region member Functions
-	void SummonMonster () {
+	[Command]
+	void CmdSummonMonster () {
 		if (isLocalPlayer)
 		{
-			mouseMovement();
 			int manaCost = monsterToSummon * 10;
 
 			// Not enough mana!
@@ -199,8 +197,11 @@ public class DmController : NetworkBehaviour {
 			transform.Find("SpawnPointQ").GetComponent<MonsterSpawner>()
 				.SpawnMonster(monsterToSummon, monsterSpawnTransforms[0].position);
 			Debug.Log(monsterSpawnTransforms[0].position);
+
 			if (monsterToSummon == 2)
+			{
 				monsterToSummon = 0;
+			}
 
 			transform.Find("SpawnPointQ").GetComponent<MonsterSpawner>()
 				.SpawnMonster(monsterToSummon, monsterSpawnTransforms[1].position);

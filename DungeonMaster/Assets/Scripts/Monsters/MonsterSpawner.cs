@@ -20,8 +20,7 @@ public class MonsterSpawner : MonoBehaviour {
         Vector3 mposition = new Vector3(position.x, position.y, 0);
 		GameObject.Instantiate(monsters[monster], mposition, Quaternion.identity);
      
-
-            GameObject.Instantiate(summonefx, mposition,Quaternion.identity);
+            GameObject monsterToBeSummoned = GameObject.Instantiate(summonefx, mposition,Quaternion.identity);
 		Debug.Log("Spawned monster" + (monster) + " at loc " + mposition.x + "," + mposition.y);
        
     }

@@ -25,6 +25,8 @@ public class DmController : NetworkBehaviour {
 	[SerializeField] private float xMinBound;
 	[SerializeField] private float yMaxBound;
 	[SerializeField] private float yMinBound;
+
+	[SerializeField] private MonsterSpawner spawner;
 		
 	public float GetManaCount () {
 		return manaCount;
@@ -86,6 +88,8 @@ public class DmController : NetworkBehaviour {
 		trapType = -1;
 		manaLocked = false;
 		infiniteManaCounter = 120;
+
+	    spawner = GetComponent<MonsterSpawner>();
 	    Cursor.lockState = CursorLockMode.Confined;
     }
 	
@@ -194,8 +198,7 @@ public class DmController : NetworkBehaviour {
 
 			toBeSummoned = false;
 
-			transform.Find("SpawnPointQ").GetComponent<MonsterSpawner>()
-				.SpawnMonster(monsterToSummon, monsterSpawnTransforms[0].position);
+			spawner.RpcSpawnMonster(monsterToSummon, monsterSpawnTransforms[0].position);
 			Debug.Log(monsterSpawnTransforms[0].position);
 
 			if (monsterToSummon == 2)
@@ -203,8 +206,7 @@ public class DmController : NetworkBehaviour {
 				monsterToSummon = 0;
 			}
 
-			transform.Find("SpawnPointQ").GetComponent<MonsterSpawner>()
-				.SpawnMonster(monsterToSummon, monsterSpawnTransforms[1].position);
+			spawner.RpcSpawnMonster(monsterToSummon, monsterSpawnTransforms[1].position);
 			Debug.Log(monsterSpawnTransforms[1].position);
 
 			// Deduct mana
@@ -314,7 +316,6 @@ public class DmController : NetworkBehaviour {
             Invoke("deactivateManaLock", INFINITE_MANA_TIME);
             manapercentage = INFINITE_MANA_TIME;
         }
-		
 	}
 	
 	private void deactivateManaLock()
@@ -330,8 +331,6 @@ public class DmController : NetworkBehaviour {
 		manaCount += amount;
 		if (manaCount > maxMana)
 			manaCount = maxMana;
-
-	//	manaText.text = "Mana: " + manaCount.ToString() + "/" + maxMana.ToString();
 	}
 	
 	public bool getisinfinitemana()

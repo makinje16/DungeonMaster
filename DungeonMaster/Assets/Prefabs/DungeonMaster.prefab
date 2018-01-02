@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4216712819152116}
   - component: {fileID: 114041953089902804}
   - component: {fileID: 114690008348446222}
+  - component: {fileID: 114444649361634408}
   m_Layer: 0
   m_Name: DungeonMaster
   m_TagString: Untagged
@@ -156,6 +157,24 @@ MonoBehaviour:
     i15: 102
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114444649361634408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1536417777228622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed598909e96891941b91b638df8b9cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 1255968221819068, guid: 39bbe10655dbe334a828110a95b35c8a, type: 2}
+  - {fileID: 1015979511019086, guid: 3c2c5331d54205b46b6936f866789b78, type: 2}
+  - {fileID: 1333358097048554, guid: 0b616bb6919e27947a99d079136a1aaa, type: 2}
+  - {fileID: 1468148303970794, guid: aeabeb3cad5ffc34a84b6bbba25ca6d3, type: 2}
+  - {fileID: 1603392526163842, guid: f0c1dfcf027049246a92bb8d2c895523, type: 2}
+  summonefx: {fileID: 1881415412348396, guid: aa09e1a3c260dcd42bf5436c27dc8869, type: 2}
 --- !u!114 &114690008348446222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,6 +210,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   dmTraps: []
+  gc: {fileID: 0}
   manaRate: 5
   maxMana: 0
   cameraSpeed: 20
@@ -198,6 +218,7 @@ MonoBehaviour:
   xMinBound: -3.15
   yMaxBound: 12.92
   yMinBound: -9.51
+  spawner: {fileID: 0}
 --- !u!124 &124761017961903140
 Behaviour:
   m_ObjectHideFlags: 1

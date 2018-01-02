@@ -20,6 +20,10 @@ public class DmController : NetworkBehaviour {
 	[SerializeField] private float manaRate;
 	[SerializeField] private float maxMana;
 	[SerializeField] private float cameraSpeed;
+	[SerializeField] private float xMaxBound;
+	[SerializeField] private float xMinBound;
+	[SerializeField] private float yMaxBound;
+	[SerializeField] private float yMinBound;
 	
     private gamecontroller gc;
 	
@@ -83,7 +87,7 @@ public class DmController : NetworkBehaviour {
 		trapType = -1;
 		manaLocked = false;
 		infiniteManaCounter = 120;
-		heroTransform = GameObject.Find("Hero").GetComponent<Transform>();
+		heroTransform = GameObject.FindGameObjectWithTag("Hero").GetComponent<Transform>();
 		monsterSpawnTransforms = monsterspawns.GetComponentsInChildren<Transform>().ToList();
         Debug.Log(monsterSpawnTransforms.Count);
 
@@ -93,70 +97,85 @@ public class DmController : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		mouseMovement();
-        if (gc == null)
-        {
-            gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<gamecontroller>();
-            currentabilities = gc.getAbilities();
-        }
-
-        if (manapercentage > 0)
-        {
-            manapercentage -= Time.deltaTime;
-        }
-
-
-        float recharge_factor = 1;
-        if (GameObject.FindGameObjectsWithTag("Monster").Length == 0)
-        {
-            recharge_factor = 3;
-        }
-
-		ChangeMana (Time.deltaTime * manaRate * recharge_factor);
-
-		//make sure we have the input manager
-		if (inputManager == null) {
-			inputManager = GameObject.FindGameObjectWithTag ("InputManager").GetComponent<InputManager> ();
-		}
-
-		monsterSpawnTransforms.Sort((p1,p2)=> Vector3.Distance(p1.position, heroTransform.position).CompareTo(Vector3.Distance(p2.position, heroTransform.position)));
-		
-		if (inputManager.GetDmNum () != -1) {
-			toBeSummoned = true;
-			monsterToSummon = inputManager.GetDmNum ();
-	
-			if (( (monsterToSummon < 3) && (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.meleemonsters))) || ((monsterToSummon >= 3) && (gamecontroller.HasFlag(currentabilities,gamecontroller.DMAbilities.specialmonsters))))
-            {
-                SummonMonster();
-            }
-				
-			
-		} else if (inputManager.GetDmSpell() != -1) {
-			trapToBeActivated = true;
-			trapType = inputManager.GetDmSpell ();
-            if (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.spells))
-            {
-                ActivateTrap();
-            }
-            
-		}
-
-		// ESC key to cancel any queued actions
-		else if (Input.GetKeyDown (KeyCode.Escape)) {
-			CleanInput ();
-		}
-		else if (Input.GetKeyDown(KeyCode.L))
+		if (isLocalPlayer)
 		{
-            if (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.infintemana))
-            {
-                infiniteMana();
-            }
-			
+			mouseMovement();
+			if (heroTransform == null)
+			{
+				heroTransform = GameObject.FindGameObjectWithTag("Hero").GetComponent<Transform>();
+				Debug.Log("Cant find heroTransform.");
+			}
+			if (gc == null)
+			{
+				gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<gamecontroller>();
+				currentabilities = gc.getAbilities();
+			}
+			if (manapercentage > 0)
+			{
+				manapercentage -= Time.deltaTime;
+			}
+
+			float recharge_factor = 1;
+			if (GameObject.FindGameObjectsWithTag("Monster").Length == 0)
+			{
+				recharge_factor = 3;
+			}
+
+			ChangeMana(Time.deltaTime * manaRate * recharge_factor);
+
+			//make sure we have the input manager
+			if (inputManager == null)
+			{
+				inputManager = GameObject.FindGameObjectWithTag("InputManager").GetComponent<InputManager>();
+			}
+
+			monsterSpawnTransforms.Sort((p1, p2) =>
+				Vector3.Distance(p1.position, heroTransform.position)
+					.CompareTo(Vector3.Distance(p2.position, heroTransform.position)));
+
+			if (inputManager.GetDmNum() != -1)
+			{
+				toBeSummoned = true;
+				monsterToSummon = inputManager.GetDmNum();
+
+				if (((monsterToSummon < 3) &&
+				     (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.meleemonsters))) ||
+				    ((monsterToSummon >= 3) &&
+				     (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.specialmonsters))))
+				{
+					SummonMonster();
+				}
+
+
+			}
+			else if (inputManager.GetDmSpell() != -1)
+			{
+				trapToBeActivated = true;
+				trapType = inputManager.GetDmSpell();
+				if (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.spells))
+				{
+					ActivateTrap();
+				}
+
+			}
+
+			// ESC key to cancel any queued actions
+			else if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				CleanInput();
+			}
+			else if (Input.GetKeyDown(KeyCode.L))
+			{
+				if (gamecontroller.HasFlag(currentabilities, gamecontroller.DMAbilities.infintemana))
+				{
+					infiniteMana();
+				}
+
+			}
+
+			infiniteManaCounter += Time.deltaTime;
 		}
-
-
-        infiniteManaCounter += Time.deltaTime;
-    }
+	}
 	
 #endregion
 	
@@ -218,8 +237,29 @@ public class DmController : NetworkBehaviour {
 		{
 			gameObject.transform.Translate(Vector3.down * cameraSpeed * Time.deltaTime);
 		}
+		checkBounds();
 	}
-	
+
+	private void checkBounds()
+	{
+		if (transform.position.x >= xMaxBound)
+		{
+			transform.position = new Vector3(xMaxBound, transform.position.y);
+		}
+		if (transform.position.x <= xMinBound)
+		{
+			transform.position = new Vector3(xMinBound, transform.position.y);
+		}
+		if (transform.position.y >= yMaxBound)
+		{
+			transform.position = new Vector3(transform.position.x, yMaxBound);
+		}
+		if (transform.position.y <= yMinBound)
+		{
+			transform.position = new Vector3(transform.position.x, yMinBound);
+		}
+	}
+
 	void ActivateTrap () {
         //Debug.Log ("Activating trap " + trapType + " " + trapLoc);
         trapLoc = heroTransform.transform.position;
